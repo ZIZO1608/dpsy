@@ -1,0 +1,1740 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Plus — Store Concept v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0d12; --ink-2:#2a323c; --ink-3:#5b6672; --muted:#8a94a0;
+  --line:#e7e9ed; --line-2:#d9dde3; --bg:#f4f5f7; --card:#fff;
+  --lime:#8bd13f; --lime-2:#a6e35f; --green:#4e8a1c; --red:#f0444b; --amber:#f5a524; --wa:#25d366;
+  --dark:#0a0d12; --dark-2:#121821; --dark-3:#1b232e;
+  --r-sm:12px; --r:18px; --r-lg:28px;
+  --sh-1:0 1px 2px rgba(10,13,18,.04),0 2px 8px rgba(10,13,18,.04);
+  --sh-2:0 2px 4px rgba(10,13,18,.04),0 12px 32px rgba(10,13,18,.10);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --display:"Inter Tight",Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[dir=rtl] body,[dir=rtl] input,[dir=rtl] select,[dir=rtl] button{font-family:"IBM Plex Sans Arabic",Inter,sans-serif}
+[dir=rtl]{--display:"IBM Plex Sans Arabic",Inter,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+img{max-width:100%;display:block}
+svg{flex:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:6px}
+
+/* ───────── top strip ───────── */
+.usp{background:var(--dark);color:#b8c1cb;font-size:12.5px}
+.usp .wrap{display:flex;align-items:center;gap:28px;height:38px;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.usp .wrap::-webkit-scrollbar{display:none}
+.usp span{display:inline-flex;align-items:center;gap:7px}
+.usp svg{color:var(--lime)}
+.usp .concept{margin-inline-start:auto;color:#6f7b87}
+.usp .concept b{color:var(--lime);font-weight:600}
+
+/* ───────── header ───────── */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:18px;height:72px}
+.logo img{height:40px;width:auto}
+.allcat{height:44px;padding:0 16px;border-radius:var(--r-sm);background:var(--ink);color:#fff;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:14px;transition:background .15s}
+.allcat:hover{background:var(--ink-2)}
+.search{flex:1;position:relative;max-width:620px}
+.search input{width:100%;height:46px;border:1px solid var(--line-2);border-radius:var(--r-sm);padding-inline:44px 90px;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s;font-size:14.5px}
+.search input:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(10,13,18,.06)}
+.search .si{position:absolute;inset-inline-start:15px;top:13px;color:var(--muted)}
+.search kbd{position:absolute;inset-inline-end:12px;top:11px;font:600 11px Inter;color:var(--muted);border:1px solid var(--line-2);border-radius:6px;padding:3px 6px;background:var(--bg)}
+.sres{position:absolute;top:54px;inset-inline:0;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-2);overflow:hidden;opacity:0;transform:translateY(-6px);pointer-events:none;transition:.18s var(--ease)}
+.sres.on{opacity:1;transform:none;pointer-events:auto}
+.sres h6{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:12px 16px 6px}
+.sres a{display:flex;align-items:center;gap:12px;padding:9px 16px;font-size:14px}
+.sres a:hover,.sres a.kb{background:var(--bg)}
+.sres img{width:44px;height:44px;object-fit:contain;border-radius:8px;background:var(--bg);padding:4px}
+.sres .p{margin-inline-start:auto;font-weight:700;white-space:nowrap}
+.sres mark{background:rgba(139,209,63,.3);color:inherit;border-radius:3px}
+.hact{display:flex;gap:4px;align-items:center;margin-inline-start:auto}
+.ib{height:44px;min-width:44px;padding:0 10px;border-radius:var(--r-sm);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:13.5px;position:relative;transition:background .15s}
+.ib:hover{background:var(--bg)}
+.ib .lbl{color:var(--ink-2)}
+.bdg{position:absolute;top:5px;inset-inline-end:3px;background:var(--lime);color:var(--ink);font-size:10.5px;font-weight:800;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 5px;transition:transform .25s var(--ease)}
+.bdg.pop{transform:scale(1.35)}
+.navrow{border-top:1px solid var(--line)}
+.navrow .wrap{display:flex;gap:2px;height:48px;align-items:center;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.navrow .wrap::-webkit-scrollbar{display:none}
+.navrow a{padding:7px 12px;border-radius:9px;font-size:14px;font-weight:500;color:var(--ink-3);transition:.15s}
+.navrow a:hover{background:var(--bg);color:var(--ink)}
+.navrow a.hot{color:var(--red);font-weight:600}
+.navrow .sp{margin-inline-start:auto;color:var(--ink);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+
+/* mega menu */
+.mega{position:absolute;inset-inline:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 24px 48px rgba(10,13,18,.12);opacity:0;transform:translateY(-8px);pointer-events:none;transition:.2s var(--ease)}
+.mega.on{opacity:1;transform:none;pointer-events:auto}
+.mega .wrap{display:grid;grid-template-columns:repeat(4,1fr) 1.3fr;gap:28px;padding-block:28px 32px}
+.mega h5{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.mega h5 img{width:28px;height:28px;object-fit:contain}
+.mega li{list-style:none}
+.mega li a{display:block;padding:5px 0;font-size:14px;color:var(--ink-3)}
+.mega li a:hover{color:var(--ink)}
+.mega .feat{border-radius:var(--r);background:linear-gradient(150deg,#fbe9eb,#f1d6da);color:var(--ink);padding:22px;display:flex;flex-direction:column;gap:6px;min-height:200px;position:relative;overflow:hidden}
+.mega .feat img{position:absolute;inset-inline-end:-20px;bottom:-10px;width:62%;mix-blend-mode:multiply}
+.mega .feat b{font-family:var(--display);font-size:22px;line-height:1.1;max-width:60%}
+.mega .feat span{font-size:13px;color:var(--ink-3)}
+
+/* ───────── buttons / atoms ───────── */
+.btn{height:48px;padding:0 22px;border-radius:var(--r-sm);font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .12s,background .15s,border-color .15s,box-shadow .15s;font-size:14.5px;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn.lime{background:var(--lime);color:var(--ink)}
+.btn.lime:hover{background:var(--lime-2);box-shadow:0 8px 24px rgba(139,209,63,.35)}
+.btn.ink{background:var(--ink);color:#fff}
+.btn.ink:hover{background:var(--ink-2)}
+.btn.ghost{border:1px solid rgba(255,255,255,.22);color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.btn.line{border:1px solid var(--line-2);background:#fff}
+.btn.line:hover{border-color:var(--ink)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.wa:hover{background:#1fb457}
+.btn.sm{height:38px;padding:0 14px;font-size:13px;border-radius:10px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--lime)}
+.eyebrow.dk{color:var(--green)}
+.pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px;border-radius:99px;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#dfe5ea}
+.slide .pill{background:rgba(255,255,255,.7);border-color:rgba(10,13,18,.08);color:var(--ink-2)}
+.slide .eyebrow{color:var(--accent,var(--green))}
+.off{background:var(--red);color:#fff;font-size:11.5px;font-weight:800;padding:3px 8px;border-radius:7px;letter-spacing:.01em}
+.stock{font-size:12px;font-weight:600;color:var(--green);display:inline-flex;align-items:center;gap:6px}
+.stock::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(139,209,63,.2)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ───────── sections ───────── */
+.view{display:none;animation:fade .35s var(--ease)}
+.view.on{display:block}
+.bwrap>*,.shop>*,.pd>*,.bento>*,.deal>*,.bpromo>*,.gal>*{min-width:0}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sec{margin-block:56px}
+.sh{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px;gap:16px}
+.sh h2{font-family:var(--display);font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.sh h2 span{color:var(--muted);font-weight:700}
+.sh .more{display:flex;gap:8px;align-items:center}
+.sh .more a{font-size:14px;font-weight:600;color:var(--ink-3);margin-inline-end:6px}
+.sh .more a:hover{color:var(--ink)}
+.arr{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:#fff;display:grid;place-items:center;transition:.15s}
+.arr:hover{border-color:var(--ink)}
+[dir=rtl] .arr svg{transform:scaleX(-1)}
+
+/* hero bento */
+.bento{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:16px;margin-top:20px;height:540px}
+.slider{grid-row:span 2;border-radius:var(--r-lg);overflow:hidden;position:relative;background:#eef0f3;color:var(--ink);isolation:isolate}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility .7s}
+.slide.on{opacity:1;visibility:visible}
+.slide .glow{position:absolute;inset:0;z-index:-1}
+.slide .tx{padding:52px;display:flex;flex-direction:column;gap:16px;z-index:1}
+.slide h1{font-family:var(--display);font-size:54px;line-height:1;font-weight:900;letter-spacing:-.03em}
+.slide h1 em{font-style:normal;color:var(--accent,var(--green))}
+.slide p{color:var(--ink-3);max-width:400px;font-size:15.5px}
+.slide .chips{display:flex;gap:6px;flex-wrap:wrap}
+.slide .from{font-size:13px;color:var(--ink-3)}
+.slide .from b{font-family:var(--display);font-size:30px;color:var(--ink);font-weight:800;margin-inline-start:4px}
+.slide .from s{margin-inline-start:6px}
+.slide .im{height:100%;display:flex;align-items:center;justify-content:center;padding:30px 30px 60px}
+.slide .im img{max-height:400px;object-fit:contain;mix-blend-mode:multiply;transform:translateY(20px) scale(.96);transition:transform 1.1s var(--ease)}
+.slide.on .im img{transform:none}
+.slide .tx>*{opacity:0;transform:translateY(12px);transition:.6s var(--ease)}
+.slide.on .tx>*{opacity:1;transform:none}
+.slide.on .tx>*:nth-child(2){transition-delay:.06s}.slide.on .tx>*:nth-child(3){transition-delay:.12s}.slide.on .tx>*:nth-child(4){transition-delay:.18s}.slide.on .tx>*:nth-child(5){transition-delay:.24s}.slide.on .tx>*:nth-child(6){transition-delay:.3s}
+.dots{position:absolute;bottom:24px;inset-inline-start:52px;display:flex;gap:8px;z-index:3}
+.dots button{width:44px;height:4px;border-radius:2px;background:rgba(10,13,18,.12);overflow:hidden;position:relative}
+.dots button i{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+[dir=rtl] .dots button i{transform-origin:right}
+.dots button.on i{animation:prog 6.5s linear forwards}
+.dots button.done i{transform:scaleX(1)}
+@keyframes prog{to{transform:scaleX(1)}}
+.tile{border-radius:var(--r-lg);overflow:hidden;position:relative;padding:28px;display:flex;flex-direction:column;gap:6px;transition:transform .3s var(--ease)}
+.tile:hover{transform:translateY(-3px)}
+.tile img{position:absolute;inset-inline-end:-6%;bottom:-8%;width:60%;object-fit:contain;mix-blend-mode:multiply;transition:transform .5s var(--ease)}
+.tile:hover img{transform:scale(1.05) rotate(-2deg)}
+.tile b{font-family:var(--display);font-size:26px;line-height:1.05;font-weight:800;letter-spacing:-.02em;max-width:58%;z-index:1}
+.tile span{font-size:13.5px;max-width:52%;z-index:1}
+.tile .go{margin-top:auto;font-weight:700;font-size:14px;display:inline-flex;gap:6px;align-items:center;z-index:1}
+.tile.t1{background:linear-gradient(135deg,#8bd13f,#5fae22);color:var(--ink)}
+.tile.t1 span{color:#1e3a0b}
+.tile.t2{background:#fff;border:1px solid var(--line)}
+.tile.t2 span{color:var(--ink-3)}
+
+/* category rail */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.rail::-webkit-scrollbar{display:none}
+.cat{flex:0 0 calc((100% - 7*12px)/8);min-width:120px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 10px 14px;text-align:center;transition:.2s var(--ease)}
+.cat:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:var(--sh-2)}
+.cat img{height:78px;width:100%;object-fit:contain;margin-bottom:10px;transition:transform .3s var(--ease)}
+.cat:hover img{transform:scale(1.08)}
+.cat b{font-size:13.5px;font-weight:600;display:block}
+.cat small{font-size:12px;color:var(--muted)}
+
+/* deal of the day */
+.deal{border-radius:var(--r-lg);background:var(--dark);color:#fff;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;position:relative;isolation:isolate}
+.deal::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 90% at 75% 50%,rgba(139,209,63,.22),transparent 70%);z-index:-1}
+.deal .tx{padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.deal h3{font-family:var(--display);font-size:40px;line-height:1.02;font-weight:900;letter-spacing:-.03em}
+.deal .pr{display:flex;align-items:baseline;gap:12px}
+.deal .pr b{font-family:var(--display);font-size:48px;font-weight:900;letter-spacing:-.03em}
+.deal .pr s{color:#7c8792;font-size:18px}
+.cd{display:flex;gap:8px}
+.cd div{background:var(--dark-3);border:1px solid rgba(255,255,255,.08);border-radius:12px;width:72px;padding:10px 0;text-align:center}
+.cd b{font-family:var(--display);font-size:28px;font-weight:800;display:block;line-height:1.1;font-variant-numeric:tabular-nums}
+.cd small{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7c8792}
+.deal .im{display:flex;align-items:center;justify-content:center;padding:32px}
+.deal .stagew{background:#fff;border-radius:24px;padding:28px;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 30px 80px rgba(139,209,63,.25);display:grid;place-items:center;width:min(100%,420px);aspect-ratio:1}
+.deal .im img{max-height:100%;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+
+/* need tiles */
+.needs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.need{border-radius:var(--r);padding:22px;min-height:260px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:4px;color:var(--ink);transition:transform .3s var(--ease)}
+.need:hover{transform:translateY(-4px)}
+.need b{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.02em;z-index:1}
+.need span{font-size:13px;color:var(--ink-3);z-index:1}
+.need small{margin-top:auto;font-weight:700;font-size:13.5px;z-index:1}
+.need img{position:absolute;inset-inline-end:-4%;bottom:16%;width:auto;max-width:76%;max-height:50%;mix-blend-mode:multiply;transition:transform .5s var(--ease)}
+.need:hover img{transform:scale(1.06)}
+.n1{background:linear-gradient(160deg,#fbe9eb,#f4d9dc)}
+.n2{background:linear-gradient(160deg,#e6eefb,#d6e2f5)}
+.n3{background:linear-gradient(160deg,#eef6e3,#dcecc6)}
+.n4{background:linear-gradient(160deg,#eef0f3,#dfe3e8)}
+.need small{color:var(--ink)}
+
+/* product cards */
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 4*14px)/5);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 12px}
+.track::-webkit-scrollbar{display:none}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:7px;position:relative;scroll-snap-align:start;transition:box-shadow .25s var(--ease),border-color .25s,transform .25s var(--ease)}
+.card:hover{box-shadow:var(--sh-2);border-color:transparent;transform:translateY(-2px)}
+.card .top{position:absolute;top:12px;inset-inline:12px;display:flex;justify-content:space-between;align-items:start;z-index:2;pointer-events:none}
+.card .top>*{pointer-events:auto}
+.cmp{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-3);opacity:0;transition:.15s;margin-inline-start:auto}
+.card:hover .cmp,.cmp.on{opacity:1}
+.cmp.on{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+.card .im{aspect-ratio:1/1;display:grid;place-items:center;padding:14px;border-radius:12px;background:linear-gradient(180deg,#f7f8fa,#fff)}
+.card .im img{max-height:100%;object-fit:contain;transition:transform .45s var(--ease)}
+.card:hover .im img{transform:scale(1.06)}
+.card .br{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.card h3{font-size:14px;font-weight:600;line-height:1.35;min-height:38px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.card .sp{font-size:12.5px;color:var(--ink-3)}
+.price{display:flex;align-items:baseline;gap:8px;margin-top:auto;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:21px;font-weight:800;letter-spacing:-.02em}
+.price s{font-size:13px;color:var(--muted)}
+.price .ask{font-weight:700;color:var(--amber);font-size:15px}
+.card .acts{display:grid;grid-template-columns:1fr 40px;gap:6px}
+.add{height:40px;border-radius:11px;background:var(--ink);color:#fff;font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:background .15s}
+.add:hover{background:var(--ink-2)}
+.add.ok{background:var(--green)}
+.waq{height:40px;border-radius:11px;background:rgba(37,211,102,.12);color:#16984a;display:grid;place-items:center;transition:.15s}
+.waq:hover{background:rgba(37,211,102,.22)}
+.grid.list{grid-template-columns:1fr}
+.grid.list .card{display:grid;grid-template-columns:180px 1fr 220px;align-items:center;gap:20px}
+.grid.list .card .im{aspect-ratio:1}
+.grid.list .card .mid{display:flex;flex-direction:column;gap:6px}
+.grid.list .card .end{display:flex;flex-direction:column;gap:10px}
+.mid,.end{display:contents}
+.grid.list .mid,.grid.list .end{display:flex}
+
+/* builder promo */
+.bpromo{border-radius:var(--r-lg);background:var(--dark);color:#fff;padding:48px;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;overflow:hidden;position:relative;isolation:isolate}
+.bpromo::before{content:"";position:absolute;width:600px;height:600px;inset-inline-end:-150px;top:-200px;background:radial-gradient(closest-side,rgba(139,209,63,.18),transparent);z-index:-1}
+.bpromo h2{font-family:var(--display);font-size:42px;font-weight:900;line-height:1.02;letter-spacing:-.03em;margin:12px 0 14px}
+.bpromo ul{list-style:none;display:grid;gap:12px;color:#b8c1cb;margin-bottom:26px}
+.bpromo li{display:flex;gap:12px;align-items:center}
+.bpromo li i{width:24px;height:24px;border-radius:7px;background:rgba(139,209,63,.15);color:var(--lime);display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:800}
+.mock{background:var(--dark-2);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;display:grid;gap:8px;box-shadow:0 40px 80px rgba(0,0,0,.4)}
+.mock .r{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;padding:10px;border-radius:12px;background:rgba(255,255,255,.03);font-size:13.5px}
+.mock .r img{width:44px;height:44px;object-fit:contain;background:#fff;border-radius:9px;padding:4px}
+.mock .r small{display:block;color:#7c8792;font-size:11.5px}
+.mock .ok{color:var(--lime);font-weight:700;font-size:12px}
+.mock .bar{height:8px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.mock .bar i{display:block;height:100%;width:52%;background:linear-gradient(90deg,var(--lime),#c9f08f)}
+.mock .tot{display:flex;justify-content:space-between;align-items:center;padding:14px 10px 4px;border-top:1px solid rgba(255,255,255,.08);margin-top:4px}
+.mock .tot b{font-family:var(--display);font-size:26px}
+
+/* brands + why */
+.brands{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.brands div{background:#fff;border:1px solid var(--line);border-radius:var(--r);height:96px;display:grid;place-items:center;padding:20px;filter:grayscale(1);opacity:.75;transition:.2s}
+.brands div:hover{filter:none;opacity:1}
+.brands img{max-height:42px;object-fit:contain}
+.brands b{font-family:var(--display);font-size:22px;letter-spacing:-.02em}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.why div{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.why i{width:44px;height:44px;border-radius:12px;background:rgba(139,209,63,.15);color:var(--green);display:grid;place-items:center;margin-bottom:14px}
+.why b{display:block;font-size:16px;margin-bottom:4px}
+.why span{font-size:13.5px;color:var(--ink-3)}
+.join{border-radius:var(--r-lg);background:linear-gradient(120deg,#0f2b17,#0a0d12);color:#fff;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.join b{font-family:var(--display);font-size:28px;font-weight:800;letter-spacing:-.02em;display:block}
+.join span{color:#aeb8c2}
+
+/* ───────── shop listing ───────── */
+.crumbs{font-size:13px;color:var(--muted);margin:22px 0 10px;display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a:hover{color:var(--ink)}
+.lhead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.lhead h1{font-family:var(--display);font-size:38px;font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.lhead p{color:var(--ink-3)}
+.subnav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:22px}
+.subnav::-webkit-scrollbar{display:none}
+.subnav button{height:38px;padding:0 16px;border-radius:99px;border:1px solid var(--line-2);background:#fff;font-size:13.5px;font-weight:600;white-space:nowrap;transition:.15s}
+.subnav button:hover{border-color:var(--ink)}
+.subnav button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.shop{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start;margin-bottom:60px}
+.facets{position:sticky;top:140px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:6px 18px;max-height:calc(100vh - 160px);overflow:auto}
+.facet{border-bottom:1px solid var(--line);padding:16px 0}
+.facet:last-child{border:0}
+.facet h4{font-size:13.5px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between}
+.facet label{display:flex;align-items:center;gap:10px;font-size:14px;padding:5px 0;cursor:pointer;color:var(--ink-2)}
+.facet label small{margin-inline-start:auto;color:var(--muted);font-size:12px}
+.facet label:not(.switch) input[type=checkbox]{appearance:none;width:18px;height:18px;border:1.5px solid var(--line-2);border-radius:5px;display:grid;place-items:center;transition:.15s;flex:none}
+.facet label:not(.switch) input[type=checkbox]:checked{background:var(--ink);border-color:var(--ink)}
+.facet label:not(.switch) input[type=checkbox]:checked::after{content:"";width:9px;height:5px;border:2px solid var(--lime);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.prange{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.prange input{height:40px;border:1px solid var(--line-2);border-radius:10px;padding:0 10px;width:100%;outline:none}
+.prange input:focus{border-color:var(--ink)}
+.switch{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;cursor:pointer}
+.switch input{appearance:none;width:40px;height:24px;border-radius:12px;background:var(--line-2);position:relative;transition:.2s;cursor:pointer}
+.switch input::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s var(--ease);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.switch input:checked{background:var(--green)}
+.switch input:checked::after{inset-inline-start:19px}
+.ltools{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.ltools .count{font-size:14px;color:var(--ink-3);margin-inline-end:auto}
+.ltools .count b{color:var(--ink)}
+.ltools select{height:40px;border:1px solid var(--line-2);border-radius:10px;padding:0 12px;background:#fff;font-size:13.5px;font-weight:500}
+.vt{display:flex;border:1px solid var(--line-2);border-radius:10px;overflow:hidden;background:#fff}
+.vt button{width:40px;height:38px;display:grid;place-items:center;color:var(--muted)}
+.vt button.on{background:var(--ink);color:#fff}
+.fbtn{display:none}
+.active{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.active button{height:30px;padding:0 10px;border-radius:99px;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;display:inline-flex;gap:6px;align-items:center}
+.active button.clr{background:none;color:var(--ink-3);text-decoration:underline}
+.nores{grid-column:1/-1;text-align:center;padding:60px 20px;background:#fff;border:1px dashed var(--line-2);border-radius:var(--r);color:var(--ink-3)}
+
+/* ───────── product ───────── */
+.pd{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start;margin-bottom:50px}
+.gal{display:grid;grid-template-columns:76px 1fr;gap:14px;position:sticky;top:140px}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs button{width:76px;height:76px;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fff;transition:.15s}
+.thumbs button img{width:100%;height:100%;object-fit:contain}
+.thumbs button.on{border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,13,18,.08)}
+.stage{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);aspect-ratio:1/1;display:grid;place-items:center;padding:40px;overflow:hidden;cursor:zoom-in;position:relative}
+.stage img{max-height:100%;object-fit:contain;transition:transform .2s ease-out}
+.stage .off{position:absolute;top:18px;inset-inline-start:18px;font-size:13px;padding:5px 10px}
+.pinfo .eyebrow{display:block;margin-bottom:8px}
+.pinfo h1{font-family:var(--display);font-size:36px;font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:12px}
+.pmeta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-bottom:20px;align-items:center}
+.pmeta b{color:var(--ink);font-weight:600}
+.keys{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:20px}
+.keys div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center}
+.keys i{width:38px;height:38px;border-radius:10px;background:var(--bg);display:grid;place-items:center;color:var(--ink-2);flex:none}
+.keys small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.keys b{font-size:14px;font-weight:600}
+.buy{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;display:grid;gap:16px;box-shadow:var(--sh-1)}
+.bp{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bp b{font-family:var(--display);font-size:42px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.bp s{color:var(--muted);font-size:17px}
+.bp .save{background:rgba(240,68,75,.1);color:var(--red);font-weight:700;font-size:13px;padding:5px 10px;border-radius:8px}
+.upd{font-size:12.5px;color:var(--muted);margin-top:-8px}
+.dlv{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;background:var(--bg);border-radius:14px;padding:12px 14px;font-size:13.5px}
+.dlv select{border:0;background:transparent;font-weight:700;outline:none;cursor:pointer}
+.dlv .eta{grid-column:2;color:var(--green);font-weight:600;margin-top:-8px}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:10px}
+.qty{display:flex;align-items:center;border:1px solid var(--line-2);border-radius:var(--r-sm);height:48px}
+.qty button{width:42px;height:100%;font-size:18px;color:var(--ink-3)}
+.qty button:hover{color:var(--ink)}
+.qty span{width:28px;text-align:center;font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.perks{display:grid;gap:10px;font-size:13.5px;color:var(--ink-2);padding-top:6px;border-top:1px solid var(--line)}
+.perks div{display:flex;gap:10px;align-items:center}
+.perks svg{color:var(--green)}
+.bundle{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;margin-bottom:50px}
+.bundle h3{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:18px}
+.bitems{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.bi{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:14px;padding:10px 14px 10px 10px;cursor:pointer;transition:.15s;flex:1;min-width:220px}
+.bi.on{border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,13,18,.06)}
+.bi img{width:64px;height:64px;object-fit:contain;flex:none}
+.bi b{display:block;font-size:13.5px;line-height:1.3}
+.bi span{font-weight:800;font-size:14px}
+.bi input{margin-inline-start:auto;accent-color:var(--ink);width:18px;height:18px}
+.plus{font-size:22px;color:var(--muted);font-weight:300}
+.btot{display:flex;align-items:center;gap:16px;margin-inline-start:auto}
+.btot b{font-family:var(--display);font-size:28px;font-weight:800}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:22px;overflow-x:auto;scrollbar-width:none}
+.tabs button{padding:14px 16px;font-weight:600;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:.15s}
+.tabs button.on{color:var(--ink);border-color:var(--ink)}
+.tabp{display:none}.tabp.on{display:block}
+.specg{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.specg section{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.specg h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;padding:14px 18px;border-bottom:1px solid var(--line);background:#fafbfc}
+.specg dl{display:grid;grid-template-columns:130px 1fr}
+.specg dt,.specg dd{padding:11px 18px;font-size:14px;border-bottom:1px solid var(--line)}
+.specg dt{color:var(--ink-3)}
+.specg dl>*:nth-last-child(-n+2){border-bottom:0}
+.empty-box{background:#fff;border:1px dashed var(--line-2);border-radius:var(--r);padding:40px;text-align:center;color:var(--ink-3)}
+
+/* ───────── builder ───────── */
+.bwrap{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start;margin:10px 0 60px}
+.bhead h1{font-family:var(--display);font-size:38px;font-weight:900;letter-spacing:-.03em}
+.bhead p{color:var(--ink-3);margin-bottom:20px}
+.steps{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-bottom:18px;padding-bottom:2px}
+.steps::-webkit-scrollbar{display:none}
+.step{flex:none;display:flex;align-items:center;gap:10px;height:52px;padding:0 16px 0 8px;border-radius:14px;border:1px solid var(--line-2);background:#fff;font-weight:600;font-size:14px;transition:.15s}
+.step i{width:36px;height:36px;border-radius:10px;background:var(--bg);display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:800;color:var(--ink-3);overflow:hidden}
+.step i img{width:30px;height:30px;object-fit:contain}
+.step small{display:block;font-size:11.5px;font-weight:500;color:var(--muted);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.step.on{border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,13,18,.06)}
+.step.done i{background:rgba(139,209,63,.2);color:var(--green)}
+.step.bad{border-color:var(--red)}
+.step.bad i{background:rgba(240,68,75,.12);color:var(--red)}
+.pick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.part{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:8px;text-align:start;transition:.2s var(--ease);position:relative}
+.part:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:var(--sh-2)}
+.part .im{height:110px;display:grid;place-items:center;background:linear-gradient(180deg,#f7f8fa,#fff);border-radius:10px}
+.part .im img{max-height:96px;object-fit:contain}
+.part .im .ph{font-family:var(--display);font-size:28px;font-weight:800;color:var(--line-2)}
+.part b{font-size:14px;line-height:1.3}
+.part .tg{display:flex;gap:5px;flex-wrap:wrap}
+.part .tg span{font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:6px;background:var(--bg);color:var(--ink-2)}
+.part .pp{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.part .pp b{font-family:var(--display);font-size:18px;font-weight:800}
+.part .pp em{font-style:normal;font-size:12.5px;font-weight:700;color:var(--ink-3)}
+.part.sel{border-color:var(--green);box-shadow:0 0 0 3px rgba(139,209,63,.25)}
+.part.sel .pp em{color:var(--green)}
+.part.no{opacity:.55}
+.part.no:hover{transform:none;box-shadow:none;border-color:var(--line)}
+.part .why{position:absolute;top:10px;inset-inline:10px;background:rgba(240,68,75,.95);color:#fff;font-size:11.5px;font-weight:600;padding:5px 8px;border-radius:8px}
+.part .demo{position:absolute;top:10px;inset-inline-end:10px;font-size:10.5px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);padding:2px 6px;border-radius:6px}
+.sum{position:sticky;top:140px;background:var(--dark);color:#fff;border-radius:var(--r-lg);padding:22px;display:grid;gap:16px}
+.sum h3{font-family:var(--display);font-size:20px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.sum h3 button{font-size:12.5px;color:#8d98a3;font-weight:600;font-family:Inter}
+.slist{display:grid;gap:6px}
+.sl{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;font-size:13px;padding:7px;border-radius:10px;background:rgba(255,255,255,.03);cursor:pointer}
+.sl:hover{background:rgba(255,255,255,.07)}
+.sl img,.sl .e{width:36px;height:36px;border-radius:8px;background:#fff;object-fit:contain;padding:3px}
+.sl .e{background:rgba(255,255,255,.06);display:grid;place-items:center;color:#5b6672;font-weight:800;font-size:16px}
+.sl small{display:block;color:#7c8792;font-size:11px}
+.sl b{font-weight:700;white-space:nowrap}
+.chks{display:grid;gap:8px;padding:14px;border-radius:14px;background:var(--dark-2);font-size:13px}
+.ck{display:flex;gap:10px;align-items:start;color:#c5ced6}
+.ck i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:900;flex:none;margin-top:-1px}
+.ck.ok i{background:rgba(139,209,63,.2);color:var(--lime)}
+.ck.no i{background:rgba(240,68,75,.2);color:#ff7a80}
+.ck.no{color:#ffb3b6}
+.ck.w i{background:rgba(255,255,255,.06);color:#5b6672}
+.pw .t{display:flex;justify-content:space-between;font-size:12.5px;color:#8d98a3;margin-bottom:6px}
+.pw .t b{color:#fff}
+.meter{height:8px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lime),#c9f08f);transition:width .5s var(--ease),background .3s}
+.meter i.bad{background:linear-gradient(90deg,#f0444b,#ff8a8f)}
+.perf{padding:14px;border-radius:14px;background:linear-gradient(120deg,rgba(139,209,63,.14),rgba(139,209,63,.03));border:1px solid rgba(139,209,63,.2)}
+.perf small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);font-weight:700}
+.perf b{display:block;font-family:var(--display);font-size:18px;margin-top:2px}
+.perf span{font-size:12px;color:#8d98a3}
+.stot{display:flex;justify-content:space-between;align-items:end}
+.stot b{font-family:var(--display);font-size:34px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.stot span{color:#8d98a3;font-size:13px}
+
+/* ───────── drawer / compare / toast ───────── */
+.scrim{position:fixed;inset:0;background:rgba(10,13,18,.5);opacity:0;pointer-events:none;transition:.25s;z-index:90;backdrop-filter:blur(2px)}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(440px,100%);background:#fff;z-index:100;transform:translateX(105%);transition:transform .35s var(--ease);display:flex;flex-direction:column}
+[dir=rtl] .drawer{transform:translateX(-105%)}
+.drawer{visibility:hidden;transition:transform .35s var(--ease),visibility 0s linear .35s}
+.drawer.on{transform:none!important;visibility:visible;transition:transform .35s var(--ease),visibility 0s}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dh h3{font-family:var(--display);font-size:22px;font-weight:800}
+.x{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--bg)}
+.ditems{flex:1;overflow:auto;padding:8px 22px}
+.di{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.di img{width:72px;height:72px;object-fit:contain;background:var(--bg);border-radius:12px;padding:6px}
+.di b{font-size:13.5px;line-height:1.3;display:block}
+.di .r{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.di .q{display:flex;align-items:center;border:1px solid var(--line-2);border-radius:9px;height:32px}
+.di .q button{width:30px;height:100%}
+.di .q span{min-width:22px;text-align:center;font-weight:700;font-size:13px}
+.di .rm{font-size:12px;color:var(--muted);text-decoration:underline}
+.df{padding:18px 22px max(18px,env(safe-area-inset-bottom));border-top:1px solid var(--line);display:grid;gap:10px}
+.df .t{display:flex;justify-content:space-between;align-items:baseline}
+.df .t b{font-family:var(--display);font-size:26px;font-weight:800}
+.df small{color:var(--muted);font-size:12.5px}
+.dempty{text-align:center;padding:70px 20px;color:var(--ink-3);display:grid;gap:12px;justify-items:center}
+.dempty i{width:64px;height:64px;border-radius:50%;background:var(--bg);display:grid;place-items:center}
+.tray{position:fixed;bottom:20px;left:50%;transform:translate(-50%,140%);background:var(--dark);color:#fff;border-radius:18px;padding:10px 10px 10px 18px;display:flex;align-items:center;gap:12px;z-index:70;box-shadow:0 20px 50px rgba(0,0,0,.35);transition:transform .35s var(--ease)}
+.tray.on{transform:translate(-50%,0)}
+.tray .ts{display:flex;gap:6px}
+.tray .ts img{width:44px;height:44px;border-radius:10px;background:#fff;object-fit:contain;padding:3px}
+.tray .ts span{width:44px;height:44px;border-radius:10px;border:1px dashed rgba(255,255,255,.2)}
+.tray small{color:#8d98a3;font-size:12.5px;white-space:nowrap}
+.modal{position:fixed;inset:0;display:grid;place-items:center;z-index:110;padding:20px;pointer-events:none;opacity:0;transition:.25s}
+.modal.on{opacity:1;pointer-events:auto}
+.mbox{background:#fff;border-radius:var(--r-lg);width:min(1000px,100%);max-height:90vh;overflow:auto;padding:24px;transform:scale(.97);transition:.25s var(--ease)}
+.modal.on .mbox{transform:none}
+.ctab{width:100%;border-collapse:collapse;margin-top:16px}
+.ctab td,.ctab th{padding:12px;border-bottom:1px solid var(--line);font-size:14px;text-align:start;vertical-align:top}
+.ctab th{color:var(--ink-3);font-weight:600;width:130px}
+.ctab img{height:110px;object-fit:contain;margin:0 auto 8px}
+.ctab .best{color:var(--green);font-weight:800}
+.toast{position:fixed;top:120px;left:50%;transform:translate(-50%,-14px);background:var(--ink);color:#fff;padding:10px 14px 10px 10px;border-radius:14px;font-size:14px;font-weight:600;opacity:0;transition:.3s var(--ease);z-index:120;pointer-events:none;display:flex;align-items:center;gap:10px;box-shadow:var(--sh-2)}
+.toast img{width:36px;height:36px;border-radius:8px;background:#fff;object-fit:contain;padding:2px}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+footer{background:var(--dark);color:#8d98a3;padding:56px 0 30px;font-size:14px;margin-top:40px}
+.fg{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px}
+footer img{height:38px;margin-bottom:14px}
+footer h4{color:#fff;margin-bottom:12px;font-size:14px}
+footer li{list-style:none;margin-bottom:8px}
+footer li a:hover{color:#fff}
+.fb{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px}
+.bbar{display:none}
+
+/* ───────── responsive ───────── */
+@media (max-width:1180px){
+  .track{grid-auto-columns:calc((100% - 3*14px)/4)}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .pick{grid-template-columns:repeat(2,1fr)}
+  .slide h1{font-size:44px}
+  .mega .wrap{grid-template-columns:repeat(3,1fr)}.mega .feat{display:none}
+}
+@media (max-width:960px){
+  .wrap{padding:0 18px}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}
+  .slider{grid-column:1/-1;grid-row:auto;height:460px}
+  .slide{grid-template-columns:1.1fr 1fr}
+  .slide .tx{padding:32px 0 50px 32px;gap:12px}
+  [dir=rtl] .slide .tx{padding:32px 32px 50px 0}
+  .slide h1{font-size:38px}
+  .slide p{font-size:14px}
+  .slide .im{padding:20px 20px 60px}.slide .im img{max-height:260px}
+  .dots{inset-inline-start:28px}
+  .tile{min-height:200px}
+  .deal,.bpromo{grid-template-columns:1fr}.deal .tx,.bpromo{padding:32px}
+  .deal .im img{max-height:220px}
+  .needs{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:repeat(2,1fr)}
+  .brands{grid-template-columns:repeat(3,1fr)}
+  .shop{grid-template-columns:1fr}
+  .facets{position:fixed;inset:auto 0 0 0;top:auto;max-height:82vh;border-radius:24px 24px 0 0;z-index:100;transform:translateY(105%);transition:transform .35s var(--ease);padding:10px 20px 20px}
+  .facets.on{transform:none}
+  .facets .fh{display:flex!important}
+  .fbtn{display:inline-flex}
+  .pd{grid-template-columns:1fr;gap:24px}
+  .gal{position:static;grid-template-columns:1fr}.thumbs{flex-direction:row;order:2;overflow-x:auto}
+  .specg{grid-template-columns:1fr}
+  .bwrap{grid-template-columns:1fr}.sum{position:static}
+  .fg{grid-template-columns:1fr 1fr}
+  .hide-t{display:none!important}
+  .bbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;inset-inline:0;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:80;padding:6px 0 max(6px,env(safe-area-inset-bottom))}
+  .bbar a,.bbar button{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;color:var(--ink-3);position:relative;padding:4px 0}
+  .bbar .on{color:var(--ink)}
+  .bbar .wa{color:#16984a}
+  .bbar .bdg{top:0;inset-inline-end:calc(50% - 22px)}
+  body{padding-bottom:70px}
+  .tray{bottom:84px}
+  .grid.list .card{grid-template-columns:110px 1fr;gap:14px}
+  .grid.list .end{grid-column:1/-1}
+}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  .usp .concept{display:none}
+  .hbar{height:auto;flex-wrap:wrap;gap:10px;padding:10px 0}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .search kbd{display:none}
+  .logo img{height:34px}
+  .allcat{display:none}
+  .sec{margin-block:40px}
+  .sh h2{font-size:24px}
+  .bento{grid-template-columns:1fr}
+  .slider{height:600px}
+  .slide{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .slide .tx,[dir=rtl] .slide .tx{padding:28px 22px 0}
+  .slide .im{padding:0 24px 56px}.slide .im img{max-height:190px}
+  .dots{inset-inline-start:22px}
+  .slide h1{font-size:34px}
+  .slide .from b{font-size:24px}
+  .tile b{font-size:22px}
+  .track{grid-auto-columns:46%}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .card{padding:10px}.card h3{font-size:13px}.price b{font-size:18px}
+  .card .acts{grid-template-columns:1fr 38px}.add{font-size:12.5px}
+  .cat{flex-basis:112px;min-width:112px}
+  .deal h3{font-size:30px}.deal .pr b{font-size:38px}.cd div{width:62px}
+  .needs{grid-template-columns:1fr 1fr;gap:10px}.need{min-height:200px;padding:16px}.need b{font-size:19px}
+  .bpromo h2{font-size:30px}
+  .brands{grid-template-columns:repeat(2,1fr)}
+  .why{grid-template-columns:1fr}
+  .lhead h1,.bhead h1{font-size:30px}
+  .pinfo h1{font-size:28px}.bp b{font-size:34px}
+  .keys{grid-template-columns:1fr 1fr}.keys div{padding:10px;gap:8px}.keys i{display:none}
+  .two{grid-template-columns:1fr}
+  .pick{grid-template-columns:1fr 1fr;gap:8px}.part{padding:10px}.part .im{height:84px}
+  .specg dl{grid-template-columns:110px 1fr}
+  .fg{grid-template-columns:1fr}
+  .btot{margin-inline-start:0;width:100%;justify-content:space-between}
+  .plus{display:none}
+  .tray{inset-inline:12px;left:12px;transform:translateY(calc(100% + 120px))}.tray.on{transform:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ═════════ v3: dark zones ═════════ */
+.zone{position:relative;background:var(--dark);color:#fff;overflow:hidden;isolation:isolate}
+.aurora{position:absolute;inset:-20%;z-index:-2;pointer-events:none;
+  background:radial-gradient(38% 48% at 22% 30%,rgba(139,209,63,.20),transparent 70%),
+             radial-gradient(34% 44% at 82% 22%,var(--glow,rgba(255,40,70,.30)),transparent 70%),
+             radial-gradient(40% 50% at 60% 95%,rgba(40,90,255,.16),transparent 70%);
+  filter:blur(24px);animation:drift 18s ease-in-out infinite alternate;transition:background 1s}
+@keyframes drift{to{transform:translate3d(4%,-3%,0) scale(1.08) rotate(3deg)}}
+.gridbg{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent)}
+
+/* hero */
+.hero .hwrap{position:relative}
+.hero .slider{background:transparent;color:#fff;height:620px;border-radius:0;overflow:visible}
+.hero .slide{grid-template-columns:1fr 1.15fr}
+.hero .slide .glow{display:none}
+.hero .slide .tx{padding:40px 0;opacity:calc(1 - var(--sy,0)/520)}
+.hero .slide:not(.on) .tx>*{opacity:0;transition:opacity .2s;transition-delay:0s}
+.hero .slide:not(.on) .co{transition-delay:0s!important;transition-duration:.2s}
+.hero .slide h1{font-size:74px;line-height:.95}
+.hero .slide p{color:#aeb8c2;font-size:16px}
+.hero .slide .eyebrow,.hero .slide h1 em{color:var(--accent)}
+.hero .slide .from{color:#8d98a3}.hero .slide .from b{color:#fff}
+.hero .slide .pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);color:#dfe5ea;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.hero .slide .im{position:relative;padding:20px}
+.hero .slide .halo{position:absolute;width:72%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,var(--glow),transparent);filter:blur(30px);opacity:.9;animation:pulse 5s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.65}}
+.hero .slide .im img{mix-blend-mode:normal;max-height:470px;position:relative;filter:drop-shadow(0 50px 60px rgba(0,0,0,.7));transform:translateY(40px) scale(.92);transition:transform .9s var(--ease)}
+.hero .slide.on .im img{transform:translate3d(calc(var(--px,0)*16px),calc(var(--sy,0)*.14px + var(--py,0)*14px),0) scale(calc(1 + var(--sy,0)*.00045))}
+.hero .dots{inset-inline-start:0;bottom:28px}
+.hero .dots button{background:rgba(255,255,255,.18)}.hero .dots button i{background:#fff}
+.co{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 12px;border-radius:14px;background:rgba(10,13,18,.55);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:13px;font-weight:700;opacity:0;transform:translateY(12px) scale(.94);transition:opacity .6s var(--ease),transform .6s var(--ease);white-space:nowrap}
+.co small{display:block;color:#8d98a3;font-weight:500;font-size:11px}
+.co i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(255,255,255,.07),0 0 14px var(--accent);flex:none}
+.slide.on .co{opacity:1;transform:none}
+[dir=rtl] .co,[dir=rtl] .pill{direction:ltr}
+.marquee{direction:ltr;border-top:1px solid rgba(255,255,255,.08);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;letter-spacing:.1em;font-size:13px;color:#56606b}
+.marquee div{display:inline-block;animation:mq 45s linear infinite}
+.marquee span{margin:0 20px}.marquee b{color:var(--lime);margin:0 4px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.duo .tile{min-height:230px}
+.duo .tile img{width:44%;bottom:8%;inset-inline-end:4%;max-height:84%}
+
+/* gaming zone */
+.gz{padding:84px 0;margin:64px 0}
+.gz .aurora{--glow:rgba(255,40,70,.28)}
+.gzh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.gzh h2{font-family:var(--display);font-size:60px;font-weight:900;letter-spacing:-.035em;line-height:.98;margin-top:10px}
+.gzh h2 em{font-style:normal;background:linear-gradient(90deg,var(--lime),#d8ff9e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gzh p{color:#8d98a3;max-width:440px;margin-top:12px}
+.gtabs{display:flex;gap:4px;padding:5px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.gtabs button{height:40px;padding:0 18px;border-radius:10px;font-weight:700;font-size:14px;color:#8d98a3;transition:.2s}
+.gtabs button:hover{color:#fff}
+.gtabs button.on{background:var(--lime);color:var(--ink)}
+.gfeat{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:14px}
+.gfeat.swap{animation:swap .5s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}}
+.dcard{position:relative;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);padding:18px;display:flex;flex-direction:column;gap:6px;overflow:hidden;transition:border-color .3s,transform .3s var(--ease);isolation:isolate;min-width:0}
+.dcard::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(139,209,63,.18),transparent 60%);opacity:0;transition:opacity .3s}
+.dcard:hover{border-color:rgba(139,209,63,.45);transform:translateY(-3px)}
+.dcard:hover::before{opacity:1}
+.dcard .im{height:150px;display:block;position:relative}
+.dcard .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6));transition:transform .5s var(--ease)}
+.dcard:hover .im img{transform:scale(1.07) translateY(-4px)}
+.dcard .br{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--lime)}
+.dcard h4{font-size:15px;font-weight:600;line-height:1.3}
+.dcard .sp{font-size:12.5px;color:#8d98a3}
+.dcard .r2{display:flex;align-items:center;justify-content:space-between;margin-top:auto;gap:10px}
+.dcard .r2 b{font-family:var(--display);font-size:22px;font-weight:800}
+.dcard .r2 s{color:#5b6672;font-size:13px;margin-inline-start:6px}
+.dadd{width:42px;height:42px;border-radius:12px;background:var(--lime);color:var(--ink);display:grid;place-items:center;transition:transform .15s,box-shadow .2s;flex:none}
+.dadd:hover{transform:scale(1.06);box-shadow:0 0 24px rgba(139,209,63,.5)}
+.dcard.big{grid-row:span 2;padding:28px}
+.dcard.big .im{height:340px;flex:1 1 auto;min-height:0}
+.add{white-space:nowrap}
+.dcard.big h4{font-family:var(--display);font-size:30px;font-weight:800;letter-spacing:-.02em}
+.dcard.big .r2 b{font-size:34px}
+.dcard .off{position:absolute;top:16px;inset-inline-end:16px}
+
+/* rig (live build visual) */
+.rig{border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);padding:16px 18px 18px;position:relative}
+.righ{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:10px}
+.righ .rst{font-size:12.5px;color:#8d98a3;font-weight:600}
+.righ .rst b{color:var(--lime)}
+.righ .rst.bad b{color:#ff7a80}
+.rigsvg{width:100%;height:auto;display:block;overflow:visible}
+.rigsvg .bd{fill:rgba(255,255,255,.02);stroke:rgba(255,255,255,.16);stroke-width:1.4;stroke-dasharray:5 6;transition:stroke .4s,fill .4s}
+.rigsvg .on>.bd,.rigsvg .ram.on .bd{stroke:var(--lime);stroke-dasharray:0;fill:rgba(139,209,63,.05);filter:drop-shadow(0 0 6px rgba(139,209,63,.55))}
+.rigsvg .bad>.bd,.rigsvg .ram.bad .bd{stroke:#ff5a62;stroke-dasharray:0;filter:drop-shadow(0 0 6px rgba(255,80,90,.6))}
+.rigsvg .fill{opacity:0;transform:scale(.8);transform-box:fill-box;transform-origin:center;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.rigsvg .on .fill{opacity:1;transform:none}
+.rigsvg .stick{opacity:0;transition:opacity .4s}
+.rigsvg .ram.on .stick{opacity:.95;animation:hue 4s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+.rigsvg .chip{fill:#18202a;stroke:rgba(139,209,63,.65);stroke-width:1.5}
+.rigsvg .pins{stroke:rgba(255,255,255,.06)}
+.rigsvg .cn{fill:#fff;font:700 12px Inter,sans-serif}
+.rigsvg .cs{fill:#8d98a3;font:600 10px Inter,sans-serif}
+.rigsvg .lb{fill:#5b6672;font:800 10px Inter,sans-serif;letter-spacing:.14em;transition:opacity .3s}
+.rigsvg .on .lb.h{opacity:0}
+.rigsvg .nm{fill:#8d98a3;font:600 11px Inter,sans-serif}
+.rigsvg .card{fill:#121922;stroke:rgba(255,255,255,.12)}
+.rigsvg .fr{fill:#0a0d12;stroke:rgba(139,209,63,.55);stroke-width:1.5}
+.rigsvg .fb{stroke:rgba(139,209,63,.9);stroke-width:2.2;stroke-linecap:round}
+.rigsvg .on .fan{animation:spin 1.1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.rigsvg .bar{fill:#18202a;stroke:rgba(139,209,63,.55)}
+.rigsvg .pl{fill:none;stroke:rgba(255,255,255,.07);stroke-width:2;stroke-linejoin:round}
+.rigsvg .pwr.on .pl{stroke:var(--lime);stroke-dasharray:6 8;animation:flow .8s linear infinite;filter:drop-shadow(0 0 4px rgba(139,209,63,.8))}
+@keyframes flow{to{stroke-dashoffset:-28}}
+.bpromo .rig{box-shadow:0 40px 80px rgba(0,0,0,.45)}
+
+/* builder page = dark zone */
+#v-builder{background:radial-gradient(60% 50% at 85% 0%,rgba(139,209,63,.12),transparent 70%),radial-gradient(50% 40% at 0% 30%,rgba(40,90,255,.08),transparent 70%),var(--dark);color:#fff;padding:1px 0 30px}
+#v-builder .crumbs{color:#6f7b87}
+#v-builder .crumbs a:hover{color:#fff}
+#v-builder .bhead p{color:#8d98a3}
+#v-builder .rig{margin-bottom:18px}
+#v-builder .step{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:#fff}
+#v-builder .step i{background:rgba(255,255,255,.06);color:#8d98a3}
+#v-builder .step small{color:#6f7b87}
+#v-builder .step.on{border-color:var(--lime);box-shadow:0 0 0 3px rgba(139,209,63,.15)}
+#v-builder .step.done i{background:rgba(139,209,63,.18);color:var(--lime)}
+#v-builder .step.bad{border-color:#ff5a62}
+#v-builder .part{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.08);color:#fff}
+#v-builder .part:hover{border-color:rgba(255,255,255,.3);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+#v-builder .part .im{background:radial-gradient(closest-side,rgba(255,255,255,.07),transparent)}
+#v-builder .part .im.wb{background:#fff}
+#v-builder .part .im img{filter:drop-shadow(0 12px 18px rgba(0,0,0,.5))}
+#v-builder .part .im.wb img{filter:none}
+#v-builder .part .im .ph{color:rgba(255,255,255,.1)}
+#v-builder .part .tg span{background:rgba(255,255,255,.07);color:#c5ced6}
+#v-builder .part .pp em{color:#8d98a3}
+#v-builder .part.sel{border-color:var(--lime);box-shadow:0 0 0 3px rgba(139,209,63,.18),0 0 40px rgba(139,209,63,.12)}
+#v-builder .part.sel .pp em{color:var(--lime)}
+#v-builder .part.no:hover{border-color:rgba(255,255,255,.08);box-shadow:none}
+#v-builder .part .demo{background:var(--dark-3);color:#7c8792;border-color:rgba(255,255,255,.08)}
+#v-builder .sum{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+#v-builder .chks{background:rgba(0,0,0,.25)}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .hero .slider{height:540px}
+  .hero .slide{grid-template-columns:1.1fr 1fr}
+  .hero .slide .tx,[dir=rtl] .hero .slide .tx{padding:30px 0 60px}
+  .hero .slide h1{font-size:48px}
+  .hero .slide .im img{max-height:300px}
+  .co{display:none}
+  .duo{grid-template-columns:1fr}
+  .gfeat{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .dcard.big{grid-column:1/-1;grid-row:auto}
+  .dcard.big .im{height:240px;flex:none}
+  .add svg{display:none}
+  .gzh h2{font-size:42px}
+}
+@media (max-width:620px){
+  .hero .slider{height:660px}
+  .hero .slide{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .hero .slide .tx,[dir=rtl] .hero .slide .tx{padding:28px 0 0}
+  .hero .slide h1{font-size:42px}
+  .hero .slide .im{padding:0 0 70px}
+  .hero .slide .im img{max-height:230px}
+  .gz{padding:56px 0;margin:48px 0}
+  .gzh h2{font-size:36px}
+  .gfeat{gap:10px}
+  .dcard{padding:14px}.dcard .im{height:110px}.dcard h4{font-size:13.5px}
+  .dcard .r2 b{font-size:18px}.dadd{width:38px;height:38px}
+  .dcard.big .im{height:180px}
+  .dcard.big h4{font-size:24px}.dcard.big .r2 b{font-size:28px}
+  .rig{padding:12px}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ═════════ checkout ═════════ */
+body.is-ck .usp,body.is-ck .navrow,body.is-ck .bbar,body.is-ck .allcat,body.is-ck .search,body.is-ck .hact .ib:not(#lang){display:none!important}
+body.is-ck .hbar{justify-content:space-between}
+body.is-ck .hact{margin-inline-start:auto}
+body.is-ck .ckback{display:inline-flex!important}
+.ckback{display:none;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink-3)}
+.ckback:hover{color:var(--ink)}
+body.is-ck footer{margin-top:0}
+body.is-ck .tray{display:none}
+.ckwrap{display:grid;grid-template-columns:1fr 400px;gap:28px;align-items:start;margin:26px 0 60px}
+.ckwrap>*{min-width:0}
+.prog{display:flex;align-items:center;gap:8px;margin:26px 0 4px;font-size:13px;font-weight:600;color:var(--muted);flex-wrap:wrap}
+.prog span{display:inline-flex;align-items:center;gap:8px}
+.prog i{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;background:#fff;border:1.5px solid var(--line-2);color:var(--muted);transition:.3s}
+.prog .done i{background:var(--green);border-color:var(--green);color:#fff}
+.prog .now{color:var(--ink)}
+.prog .now i{border-color:var(--ink);color:var(--ink);box-shadow:0 0 0 4px rgba(10,13,18,.07)}
+.prog b{width:26px;height:1.5px;background:var(--line-2);display:inline-block}
+.ckh{font-family:var(--display);font-size:34px;font-weight:900;letter-spacing:-.03em;margin-top:6px}
+.cks{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);margin-top:14px;overflow:hidden;transition:box-shadow .3s,border-color .3s}
+.cks.open{box-shadow:var(--sh-2);border-color:transparent}
+.cks.lock{opacity:.55}
+.cks header{all:unset;display:flex;align-items:center;gap:14px;padding:20px 24px;position:static}
+.cks header .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;background:var(--bg);color:var(--ink-3);flex:none}
+.cks.open header .n{background:var(--ink);color:#fff}
+.cks.ok header .n{background:var(--green);color:#fff}
+.cks header h3{font-size:17px;font-weight:700}
+.cks header .sm{font-size:13px;color:var(--ink-3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cks header .ed{margin-inline-start:auto;font-size:13px;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cks .bd{padding:0 24px 24px;display:grid;gap:14px;animation:fade .35s var(--ease)}
+.fld{display:grid;gap:6px}
+.fld label{font-size:13px;font-weight:600;color:var(--ink-2)}
+.fld label small{color:var(--muted);font-weight:500}
+.inp{height:50px;border:1.5px solid var(--line-2);border-radius:13px;padding:0 15px;background:#fff;outline:none;font-size:15px;transition:border-color .15s,box-shadow .15s;width:100%}
+textarea.inp{height:84px;padding:12px 15px;resize:vertical}
+.inp:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(10,13,18,.06)}
+.fld.err .inp{border-color:var(--red);box-shadow:0 0 0 4px rgba(240,68,75,.1)}
+.fld .em{font-size:12.5px;color:var(--red);font-weight:600;display:none}
+.fld.err .em{display:block}
+.tel{display:flex;border:1.5px solid var(--line-2);border-radius:13px;overflow:hidden;background:#fff;transition:.15s;direction:ltr}
+.tel:focus-within{border-color:var(--ink);box-shadow:0 0 0 4px rgba(10,13,18,.06)}
+.fld.err .tel{border-color:var(--red)}
+.tel span{display:grid;place-items:center;padding:0 14px;background:var(--bg);font-weight:700;font-size:14px;border-inline-end:1.5px solid var(--line-2)}
+.tel input{border:0;outline:0;height:47px;padding:0 14px;flex:1;font-size:15px;letter-spacing:.03em;min-width:0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chk{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink-2);cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--ink)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:1.5px solid var(--line-2);border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:.15s;background:#fff;text-align:start}
+.opt:hover{border-color:var(--ink-3)}
+.opt.on{border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,13,18,.06)}
+.opt .rd{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line-2);flex:none;margin-top:1px;display:grid;place-items:center;transition:.15s}
+.opt.on .rd{border-color:var(--ink);background:var(--ink)}
+.opt.on .rd::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.opt b{display:block;font-size:14.5px}
+.opt span{font-size:13px;color:var(--ink-3)}
+.opt .ic{margin-inline-start:auto;color:var(--ink-3)}
+.opt.dis{opacity:.5;cursor:not-allowed}
+.opt .tagx{font-size:11px;font-weight:700;background:var(--bg);color:var(--ink-3);padding:2px 7px;border-radius:6px;margin-inline-start:6px}
+.pin{display:flex;align-items:center;gap:12px;border:1.5px dashed var(--line-2);border-radius:14px;padding:12px 14px;font-size:13.5px;cursor:pointer;transition:.15s;width:100%;text-align:start}
+.pin:hover{border-color:var(--ink-3)}
+.pin.on{border-style:solid;border-color:var(--green);background:rgba(139,209,63,.07)}
+.pin i{width:36px;height:36px;border-radius:10px;background:var(--bg);display:grid;place-items:center;flex:none}
+.pin.on i{background:var(--green);color:#fff}
+.eta2{display:flex;gap:10px;align-items:center;background:rgba(139,209,63,.1);color:var(--green);border-radius:12px;padding:11px 14px;font-size:13.5px;font-weight:600}
+.note{font-size:12.5px;color:var(--muted)}
+.cta-row{display:flex;justify-content:flex-end;gap:10px;align-items:center;flex-wrap:wrap}
+.btn.big{height:56px;font-size:16px;padding:0 28px;border-radius:15px}
+.place{width:100%}
+.place .pt{margin-inline-start:auto;font-family:var(--display);font-weight:800}
+.osum{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:grid;gap:14px}
+.osum h3{font-family:var(--display);font-size:20px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.osum h3 small{font-family:Inter;font-size:13px;color:var(--muted);font-weight:600}
+.oi{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.oi .ph{width:64px;height:64px;border-radius:12px;background:var(--bg);display:grid;place-items:center;position:relative}
+.oi .ph img{width:52px;height:52px;object-fit:contain;mix-blend-mode:multiply}
+.oi .ph em{position:absolute;top:-6px;inset-inline-end:-6px;background:var(--ink);color:#fff;font-style:normal;font-size:11px;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 5px}
+.oi b{font-size:13.5px;line-height:1.3;display:block}
+.oi small{font-size:12px;color:var(--muted)}
+.oi .pr{font-weight:700;font-size:14px;white-space:nowrap}
+.olist{display:grid;gap:14px;max-height:340px;overflow:auto;padding:6px 6px 2px 0}
+.otot{border-top:1px solid var(--line);padding-top:14px;display:grid;gap:8px;font-size:14px}
+.otot div{display:flex;justify-content:space-between;gap:10px}
+.otot span{color:var(--ink-3)}
+.otot .gt{font-size:16px;font-weight:700;padding-top:8px;border-top:1px dashed var(--line-2);margin-top:4px}
+.otot .gt b{font-family:var(--display);font-size:28px;font-weight:900;letter-spacing:-.02em}
+.trust2{display:grid;gap:8px;font-size:12.5px;color:var(--ink-3);background:var(--bg);border-radius:14px;padding:12px 14px}
+.trust2 div{display:flex;gap:8px;align-items:center}
+.trust2 svg{color:var(--green)}
+.mobsum{display:none}
+.ckempty{text-align:center;padding:80px 20px;display:grid;gap:14px;justify-items:center}
+.ckempty i{width:84px;height:84px;border-radius:50%;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+/* success */
+.ckdone{max-width:640px;margin:50px auto 70px;text-align:center;display:grid;gap:14px;justify-items:center}
+.tick{width:96px;height:96px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(139,209,63,.15),0 20px 50px rgba(78,138,28,.35);animation:popin .6s var(--ease)}
+.tick svg path{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .5s .35s var(--ease) forwards}
+@keyframes popin{from{transform:scale(.4);opacity:0}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ckdone h1{font-family:var(--display);font-size:40px;font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-top:8px}
+.ckdone p{color:var(--ink-3);font-size:16px;max-width:480px}
+.ono{font-family:ui-monospace,Menlo,monospace;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-weight:700;font-size:14px}
+.tl{width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;display:grid;gap:0;text-align:start;margin-top:8px}
+.tl div{display:grid;grid-template-columns:28px 1fr;gap:14px;position:relative;padding-bottom:18px}
+.tl div:last-child{padding-bottom:0}
+.tl div::before{content:"";position:absolute;inset-inline-start:13px;top:28px;bottom:0;width:2px;background:var(--line)}
+.tl div:last-child::before{display:none}
+.tl i{width:28px;height:28px;border-radius:50%;border:2px solid var(--line-2);background:#fff;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;color:var(--muted);z-index:1}
+.tl .d i{background:var(--green);border-color:var(--green);color:#fff}
+.tl .c i{border-color:var(--ink);color:var(--ink);box-shadow:0 0 0 4px rgba(10,13,18,.07)}
+.tl b{font-size:14.5px;display:block}
+.tl span{font-size:13px;color:var(--ink-3)}
+.recap{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:start}
+.recap div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-size:13.5px}
+.recap small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:3px}
+@media (max-width:960px){
+  .ckwrap{grid-template-columns:1fr}
+  .osum{position:static;order:-1;display:none}
+  .osum.on{display:grid}
+  .mobsum{display:flex;justify-content:space-between;align-items:center;width:100%;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font-weight:600;font-size:14px;order:-2}
+  .mobsum b{font-family:var(--display);font-size:20px}
+  .mobsum svg{transition:transform .2s}
+  .mobsum.on svg{transform:rotate(180deg)}
+  body.is-ck{padding-bottom:0}
+}
+@media (max-width:620px){
+  .ckh{font-size:28px}
+  .cks header{padding:16px 16px}
+  .cks .bd{padding:0 16px 18px}
+  .g2,.seg,.recap{grid-template-columns:1fr}
+  .prog b{width:12px}
+  .prog .lbl{display:none}
+  .prog .now .lbl{display:inline}
+  .ckdone h1{font-size:30px}
+}
+</style>
+</head>
+<body>
+
+<div class="usp"><div class="wrap">
+  <span><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><b data-t="u1">Delivery to 6 cities</b></span>
+  <span><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg><b data-t="u2">Cash on delivery</b></span>
+  <span><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><b data-t="u3">12-month warranty</b></span>
+  <span><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg><b data-t="u4">Stores in Damascus & Aleppo</b></span>
+  <span class="concept" data-t="concept">Concept for <b>Digital Plus</b> · real products & prices from dpsy.com</span>
+</div></div>
+
+<header id="hdr">
+  <div class="wrap hbar">
+    <a class="logo" href="#home" aria-label="Digital Plus home"><img src="https://www.dpsy.com/template/image/logo.png" alt="Digital Plus"></a>
+    <button class="allcat" id="megaBtn" aria-expanded="false"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-t="allcat">All categories</span></button>
+    <div class="search" role="search">
+      <svg class="si" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <label class="sr" for="q">Search</label>
+      <input id="q" autocomplete="off" placeholder="Search 1,700+ products — try “RTX 5060”">
+      <kbd>/</kbd>
+      <div class="sres" id="sres"></div>
+    </div>
+    <a class="ckback" href="#home" id="ckback">← <span id="ckbackL">Continue shopping</span></a>
+    <div class="hact">
+      <button class="ib" id="lang" aria-label="Switch language"><svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><span class="lbl" id="langL">عربي</span></button>
+      <a class="ib hide-t" href="#builder"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg><span class="lbl" data-t="pcb">PC Builder</span></a>
+      <button class="ib" id="cartBtn" aria-label="Cart"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 7h15l-1.5 9h-12z"/><path d="M6 7 5 3H2"/><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg><span class="bdg" id="cc">0</span></button>
+    </div>
+  </div>
+  <nav class="navrow"><div class="wrap" id="navrow"></div></nav>
+  <div class="mega" id="mega"><div class="wrap" id="megaIn"></div></div>
+</header>
+
+<!-- ═════════ HOME ═════════ -->
+<main class="view on" id="v-home">
+  <div class="wrap">
+  </div>
+  <section class="hero zone" id="hero">
+    <div class="aurora" id="aur"></div><div class="gridbg"></div>
+    <div class="wrap hwrap"><div class="slider" id="slider"></div></div>
+    <div class="marquee" aria-hidden="true"><div><span>RTX 50 SERIES</span><b>✦</b><span>ROG STRIX</span><b>✦</b><span>TUF GAMING</span><b>✦</b><span>PROART</span><b>✦</b><span>ZENBOOK OLED</span><b>✦</b><span>DELIVERY TO 6 CITIES</span><b>✦</b><span>CASH ON DELIVERY</span><b>✦</b><span>12-MONTH WARRANTY</span><b>✦</b><span>PC BUILDER</span><b>✦</b><span>RTX 50 SERIES</span><b>✦</b><span>ROG STRIX</span><b>✦</b><span>TUF GAMING</span><b>✦</b><span>PROART</span><b>✦</b><span>ZENBOOK OLED</span><b>✦</b><span>DELIVERY TO 6 CITIES</span><b>✦</b><span>CASH ON DELIVERY</span><b>✦</b><span>12-MONTH WARRANTY</span><b>✦</b><span>PC BUILDER</span><b>✦</b></div></div>
+  </section>
+  <div class="wrap">
+    <section class="duo">
+      <a class="tile t1" href="#builder">
+        <span class="eyebrow" style="color:#1e3a0b" data-t="tb_eye">New</span>
+        <b data-t="tb1">Build your dream PC</b>
+        <span data-t="tb1s">Every part checked for fit and power.</span>
+        <span class="go" data-t="tb1g">Start building →</span>
+        <img src="https://www.dpsy.com/files/752302382.png" alt="">
+      </a>
+      <a class="tile t2" href="#shop/ProArt">
+        <span class="eyebrow dk">ProArt</span>
+        <b data-t="tb2">Colour you can trust</b>
+        <span data-t="tb2s">Calibrated monitors for creators, from $410.</span>
+        <span class="go" data-t="tb2g">Shop monitors →</span>
+        <img src="https://www.dpsy.com/files/968441712.png" alt="">
+      </a>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><h2 data-t="s_cat">Shop by category</h2></div>
+      <div class="rail" id="rail"></div>
+    </section>
+
+    <section class="deal" id="deal"></section>
+
+    <section class="sec">
+      <div class="sh"><h2 data-t="s_new">New arrivals <span>· this week</span></h2><div class="more"><a href="#shop" data-t="all">View all</a><button class="arr" data-s="-1" data-tr="newT" aria-label="Previous"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><button class="arr" data-s="1" data-tr="newT" aria-label="Next"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div></div>
+      <div class="track" id="newT"></div>
+    </section>
+
+  </div>
+  <section class="zone gz" id="gz">
+    <div class="aurora"></div><div class="gridbg"></div>
+    <div class="wrap">
+      <div class="gzh">
+        <div><span class="eyebrow" data-t="gz_eye">Gaming zone</span><h2 data-t="gz_t">Built for<br><em>the win.</em></h2><p data-t="gz_s">ROG and TUF laptops, RTX 50 graphics. In stock, with local warranty and delivery to your door.</p></div>
+        <div class="gtabs" id="gtabs"></div>
+      </div>
+      <div class="gfeat" id="gfeat"></div>
+    </div>
+  </section>
+  <div class="wrap">
+    <section class="sec">
+      <div class="sh"><h2 data-t="s_need">Shop by need</h2></div>
+      <div class="needs" id="needs"></div>
+    </section>
+
+    <section class="bpromo">
+      <div>
+        <span class="eyebrow" data-t="bp_eye">Smart PC Builder</span>
+        <h2 data-t="bp_t">Pick parts. We make sure they work together.</h2>
+        <ul>
+          <li><i>✓</i><span data-t="bp1">CPU and motherboard socket checked live</span></li>
+          <li><i>✓</i><span data-t="bp2">DDR4 / DDR5 memory matched to the board</span></li>
+          <li><i>✓</i><span data-t="bp3">Power draw calculated, safe PSU suggested</span></li>
+          <li><i>✓</i><span data-t="bp4">Expected gaming performance before you buy</span></li>
+        </ul>
+        <div class="row"><a class="btn lime" href="#builder" data-t="bp_cta">Open the builder</a><a class="btn ghost" href="#builder" data-t="bp_cta2">See a ready build</a></div>
+      </div>
+      <div class="rig" id="rigD"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><h2 data-t="s_gpu">Graphics cards</h2><div class="more"><a href="#shop" data-t="all">View all</a><button class="arr" data-s="-1" data-tr="gpuT" aria-label="Previous"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><button class="arr" data-s="1" data-tr="gpuT" aria-label="Next"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div></div>
+      <div class="track" id="gpuT"></div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><h2 data-t="s_br">Brands we carry</h2></div>
+      <div class="brands">
+        <div><img src="https://www.dpsy.com/template/images/logos/ASUS.png" alt="ASUS"></div>
+        <div><b>ROG</b></div>
+        <div><img src="https://www.dpsy.com/template/images/logos/Intel.png" alt="Intel"></div>
+        <div><img src="https://www.dpsy.com/template/images/logos/AMD.png" alt="AMD"></div>
+        <div><b>Lexar</b></div>
+        <div><img src="https://www.dpsy.com/template/images/logos/ASUSTOR.png" alt="ASUSTOR"></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><h2 data-t="s_why">Why Digital Plus</h2></div>
+      <div class="why">
+        <div><i><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></i><b data-t="w1">Real warranty</b><span data-t="w1s">12 months, serviced by our own team — not a middleman.</span></div>
+        <div><i><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-6"/></svg></i><b data-t="w2">Prices updated daily</b><span data-t="w2s">Every product shows the date its price was last checked.</span></div>
+        <div><i><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></i><b data-t="w3">Delivered & paid at your door</b><span data-t="w3s">Damascus, Aleppo, Homs, Hama, Latakia, Tartus.</span></div>
+        <div><i><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></i><b data-t="w4">Talk to a human</b><span data-t="w4s">Real advice on WhatsApp before you buy.</span></div>
+      </div>
+    </section>
+
+    <section class="join">
+      <div><b data-t="j_t">Get deals before anyone else</b><span data-t="j_s">Join the Digital Plus WhatsApp channel — new stock and price drops, no spam.</span></div>
+      <a class="btn wa" href="https://wa.me/963930334001" target="_blank" rel="noopener"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span data-t="j_b">Join on WhatsApp</span></a>
+    </section>
+  </div>
+</main>
+
+<!-- ═════════ SHOP ═════════ -->
+<main class="view" id="v-shop">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-t="home">Home</a><span>/</span><span data-t="laptops">Laptops</span></div>
+    <div class="lhead">
+      <div><h1 data-t="laptops">Laptops</h1><p data-t="l_sub">ASUS gaming, creator, student and business laptops — official warranty.</p></div>
+    </div>
+    <div class="subnav" id="subnav"></div>
+    <div class="shop">
+      <aside class="facets" id="facets">
+        <div class="fh" style="display:none;justify-content:space-between;align-items:center;padding:8px 0 4px"><b style="font-size:18px" data-t="filters">Filters</b><button class="x" id="fClose" aria-label="Close">✕</button></div>
+        <div class="facet"><label class="switch"><span data-t="f_deals">Deals only</span><input type="checkbox" id="fDeal"></label></div>
+        <div class="facet"><h4 data-t="f_series">Series</h4><div id="fSeries"></div></div>
+        <div class="facet"><h4 data-t="f_size">Screen size</h4><div id="fSize"></div></div>
+        <div class="facet"><h4 data-t="f_price">Price (USD)</h4><div class="prange"><input id="pmin" type="number" inputmode="numeric" placeholder="Min"><input id="pmax" type="number" inputmode="numeric" placeholder="Max"></div></div>
+        <div class="facet fh" style="display:none"><button class="btn ink" style="width:100%" id="fApply">Show results</button></div>
+      </aside>
+      <div>
+        <div class="ltools">
+          <button class="btn line sm fbtn" id="fOpen"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M10 18h4"/></svg><span data-t="filters">Filters</span></button>
+          <span class="count" id="lcount"></span>
+          <select id="sort" aria-label="Sort">
+            <option value="feat">Featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="disc">Biggest discount</option>
+          </select>
+          <div class="vt"><button class="on" data-v="grid" aria-label="Grid view"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></button><button data-v="list" aria-label="List view"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="4" rx="1.5"/><rect x="3" y="10" width="18" height="4" rx="1.5"/><rect x="3" y="16" width="18" height="4" rx="1.5"/></svg></button></div>
+        </div>
+        <div class="active" id="activeF"></div>
+        <div class="grid" id="lgrid"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ═════════ PRODUCT ═════════ -->
+<main class="view" id="v-product">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-t="home">Home</a><span>/</span><a href="#shop" data-t="laptops">Laptops</a><span>/</span><a href="#shop/Gaming">Gaming</a><span>/</span><span>ROG Strix G16</span></div>
+    <div class="pd">
+      <div class="gal">
+        <div class="thumbs" id="thumbs"></div>
+        <div class="stage" id="stage"><span class="off">−8%</span><img id="pimg" alt="ASUS ROG STRIX G16 G614FM-WS94"></div>
+      </div>
+      <div class="pinfo">
+        <span class="eyebrow dk">ASUS · Republic of Gamers</span>
+        <h1>ROG Strix G16 G614FM-WS94</h1>
+        <div class="pmeta"><span class="stock" data-t="instock">In stock</span><span>Model <b>G614FM-WS94</b></span><span>Warranty <b>12 months</b></span></div>
+        <div class="keys">
+          <div><i><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></i><span><small>CPU</small><b>Ryzen 9 9955HX · 16 cores</b></span></div>
+          <div><i><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/></svg></i><span><small>Graphics</small><b>RTX 5060 8GB GDDR7</b></span></div>
+          <div><i><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/></svg></i><span><small>Display</small><b>16" FHD+ · 165Hz</b></span></div>
+          <div><i><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="8" rx="1"/><path d="M7 8V6M11 8V6M15 8V6M19 8V6"/></svg></i><span><small>Memory</small><b>16GB DDR5 · 1TB SSD</b></span></div>
+        </div>
+        <div class="buy">
+          <div class="bp"><b>$1,640</b><s>$1,783</s><span class="save" data-t="save143">Save $143</span></div>
+          <div class="upd" data-t="upd">Price checked today · 23 Nov 2026</div>
+          <div class="dlv">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span><span data-t="dto">Deliver to</span> <select id="city"><option>Damascus</option><option>Aleppo</option><option>Homs</option><option>Hama</option><option>Latakia</option><option>Tartus</option></select></span>
+            <span class="eta" id="eta"></span>
+          </div>
+          <div class="qa">
+            <div class="qty"><button id="qm" aria-label="Less">−</button><span id="qv">1</span><button id="qp" aria-label="More">+</button></div>
+            <button class="btn ink" id="addP"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 7h15l-1.5 9h-12z"/><path d="M6 7 5 3H2"/></svg><span data-t="add">Add to cart</span></button>
+          </div>
+          <div class="two">
+            <a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/963930334001?text=ASUS%20ROG%20STRIX%20G16%20G614FM-WS94"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span data-t="askwa">Ask on WhatsApp</span></a>
+            <button class="btn line" id="cmpP"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 3h5v5M8 21H3v-5M21 3l-7 7M3 21l7-7"/></svg><span data-t="cmp">Compare</span></button>
+          </div>
+          <div class="perks">
+            <div><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span data-t="pk1">Pay cash when it arrives — no card needed</span></div>
+            <div><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span data-t="pk2">12-month Digital Plus warranty, local service</span></div>
+            <div><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span data-t="pk3">Or pick up in store — Damascus · Aleppo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="bundle">
+      <h3 data-t="bundle">Complete your setup</h3>
+      <div class="bitems" id="bundle"></div>
+    </section>
+
+    <div class="tabs" id="ptabs"><button class="on" data-p="sp" data-t="specs">Specifications</button><button data-p="ov" data-t="ov">Overview</button><button data-p="qa" data-t="qa">Questions</button></div>
+    <div class="tabp on" id="tp-sp">
+      <div class="specg">
+        <section><h4>Performance</h4><dl><dt>Processor</dt><dd>AMD Ryzen 9 9955HX · 2.5–5.4GHz · 16C/32T · 80MB cache</dd><dt>Graphics</dt><dd>NVIDIA GeForce RTX 5060 8GB GDDR7</dd><dt>Memory</dt><dd>16GB DDR5 5600MHz</dd><dt>Storage</dt><dd>1TB M.2 NVMe PCIe 4.0</dd></dl></section>
+        <section><h4>Display & audio</h4><dl><dt>Screen</dt><dd>16.0" FHD+ 1920×1200</dd><dt>Refresh</dt><dd>165Hz</dd><dt>Camera</dt><dd>2.0MP</dd><dt>Audio</dt><dd>Dolby Atmos · Hi-Res · AI noise-cancel</dd></dl></section>
+        <section><h4>Connectivity</h4><dl><dt>Wireless</dt><dd>Wi-Fi 6E · Bluetooth 5.2</dd><dt>Ports</dt><dd>2× USB4 Type-C (DP, G-SYNC) · 2× USB-A 10Gbps · HDMI 2.1 · RJ45 · 3.5mm</dd></dl></section>
+        <section><h4>Build & power</h4><dl><dt>Keyboard</dt><dd>RGB 4-zone chiclet</dd><dt>Battery</dt><dd>90Wh 4-cell</dd><dt>Adapter</dt><dd>280W</dd></dl></section>
+      </div>
+    </div>
+    <div class="tabp" id="tp-ov"><div class="empty-box" data-t="ov_e">Rich overview section — feature images and short paragraphs per product, managed from the admin panel.</div></div>
+    <div class="tabp" id="tp-qa"><div class="empty-box" data-t="qa_e">Customers ask, Digital Plus staff answer — answers are public so the next buyer sees them.</div></div>
+
+    <section class="sec">
+      <div class="sh"><h2 data-t="similar">You may also like</h2><div class="more"><button class="arr" data-s="-1" data-tr="simT" aria-label="Previous"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button><button class="arr" data-s="1" data-tr="simT" aria-label="Next"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button></div></div>
+      <div class="track" id="simT"></div>
+    </section>
+  </div>
+</main>
+
+<!-- ═════════ BUILDER ═════════ -->
+<main class="view" id="v-builder">
+  <div class="wrap">
+    <div class="crumbs"><a href="#home" data-t="home">Home</a><span>/</span><span data-t="pcb">PC Builder</span></div>
+    <div class="bwrap">
+      <div>
+        <div class="bhead"><h1 data-t="b_t">Smart PC Builder</h1><p data-t="b_s">Choose each part. Parts that don't fit are greyed out with the reason.</p></div>
+        <div class="rig" id="rigB"></div>
+        <div class="steps" id="steps"></div>
+        <div class="pick" id="pick"></div>
+      </div>
+      <aside class="sum">
+        <h3><span data-t="yb">Your build</span><button id="bReset" data-t="reset">Reset</button></h3>
+        <div class="slist" id="slist"></div>
+        <div class="chks" id="chks"></div>
+        <div class="pw"><div class="t"><span data-t="epw">Estimated power</span><b id="pwT">—</b></div><div class="meter"><i id="pwM"></i></div></div>
+        <div class="perf" id="perf"></div>
+        <div class="stot"><span data-t="tot">Total</span><b id="bTot">$0</b></div>
+        <div class="two"><button class="btn lime" id="bAdd" data-t="b_add">Add to cart</button><button class="btn wa" id="bWa" data-t="b_wa">Send build</button></div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<main class="view" id="v-checkout"><div class="wrap" id="ckroot"></div></main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div><img src="https://www.dpsy.com/template/image/logo.png" alt="Digital Plus" style="filter:brightness(0) invert(1);opacity:.92"><p data-t="f_about">Computers, components and IT solutions since day one. Damascus · Aleppo.</p></div>
+      <div><h4 data-t="f_shop">Shop</h4><ul><li><a href="#shop">Laptops</a></li><li><a href="#home">Graphics cards</a></li><li><a href="#home">Monitors</a></li><li><a href="#builder">PC Builder</a></li></ul></div>
+      <div><h4 data-t="f_help">Help</h4><ul><li><a href="#home">Warranty & service</a></li><li><a href="#home">Delivery & payment</a></li><li><a href="#home">Track my order</a></li><li><a href="#home">FAQ</a></li></ul></div>
+      <div><h4 data-t="f_ct">Contact</h4><ul><li>Damascus · 011 2252736</li><li>Aleppo · 021 2236001</li><li>WhatsApp · 0930 334 001</li><li>info@dpsy.com</li></ul></div>
+    </div>
+    <div class="fb"><span>© 2026 Digital Plus · Systems & Solutions</span><span data-t="concept2">Design concept — not the live store</span> · <a href="admin.html" style="color:var(--lime)">Staff admin (demo) ↗</a></div>
+  </div>
+</footer>
+
+<nav class="bbar" id="bbar">
+  <a href="#home" data-r="home"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg><span data-t="m1">Home</span></a>
+  <a href="#shop" data-r="shop"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-t="m2">Shop</span></a>
+  <a href="#builder" data-r="builder"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg><span data-t="m3">Builder</span></a>
+  <button id="cartBtn2"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 7h15l-1.5 9h-12z"/><path d="M6 7 5 3H2"/></svg><span class="bdg" id="cc2">0</span><span data-t="m4">Cart</span></button>
+  <a class="wa" target="_blank" rel="noopener" href="https://wa.me/963930334001"><svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.1z"/></svg><span>WhatsApp</span></a>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="dh"><h3 data-t="cart">Your cart</h3><button class="x" id="cx" aria-label="Close">✕</button></div>
+  <div class="ditems" id="ditems"></div>
+  <div class="df" id="dfoot">
+    <div class="t"><span data-t="sub">Subtotal</span><b id="ctot">$0</b></div>
+    <small data-t="cod">Pay cash on delivery. We call to confirm within working hours.</small>
+    <a class="btn ink" href="#checkout" onclick="closeCart()" data-t="checkout">Checkout</a>
+    <button class="btn wa" id="cartWa"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span data-t="cartwa">Send whole cart on WhatsApp</span></button>
+  </div>
+</aside>
+
+<div class="tray" id="tray"><div class="ts" id="ts"></div><small id="tcount"></small><button class="btn lime sm" id="cmpGo" data-t="cmpnow">Compare</button><button class="x" id="cmpClr" style="background:rgba(255,255,255,.08);color:#fff" aria-label="Clear">✕</button></div>
+<div class="modal" id="modal"><div class="mbox"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-family:var(--display);font-size:26px;font-weight:800" data-t="cmpt">Compare</h3><button class="x" id="mx" aria-label="Close">✕</button></div><div id="mbody" style="overflow-x:auto"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ───── data: real listings from dpsy.com homepage (23 Nov 2026) ───── */
+const IMG=(f,s='medium')=>s==='full'?`https://www.dpsy.com/files/${f}`:`https://www.dpsy.com/thumbs/${s}/files/${f}`;
+const P=[
+ {id:1672,n:"ASUS ROG STRIX G16 G614FM-WS94",p:1640,o:1783,f:"850828561.png",c:"lap",se:"Gaming",sz:16,s:"Ryzen 9 9955HX · RTX 5060 · 165Hz"},
+ {id:1671,n:"ASUS TUF Gaming A18 FA808UM-IS74",p:1510,f:"257521554.png",c:"lap",se:"Gaming",sz:18,s:"TUF Gaming · 18-inch"},
+ {id:1677,n:"ASUS TUF Gaming A15 FA506NCG-HN339US",p:860,f:"239918701.jpg",c:"lap",se:"Gaming",sz:15,s:"TUF Gaming · 15.6-inch"},
+ {id:1676,n:"ASUS TUF 16 FX610JH-TU123",p:1405,f:"214490667.png",c:"lap",se:"Gaming",sz:16,s:"TUF Gaming · 16-inch"},
+ {id:1658,n:"ASUS ROG STRIX G16 G615LP-RV079",p:2370,f:"799515449.png",c:"lap",se:"Gaming",sz:16,s:"ROG Strix · 16-inch"},
+ {id:1616,n:"ASUS ROG STRIX G16 G615LM-RV082",p:1785,f:"240857074.png",c:"lap",se:"Gaming",sz:16,s:"ROG Strix · 16-inch"},
+ {id:1615,n:"ASUS TUF Gaming A16 FA608UHI-R7165W",p:1280,f:"205251810.png",c:"lap",se:"Gaming",sz:16,s:"TUF Gaming · 16-inch"},
+ {id:1576,n:"ASUS ROG STRIX G18 (2025) G815LW-S9192",p:3070,f:"412866932.png",c:"lap",se:"Gaming",sz:18,s:"ROG Strix · 18-inch"},
+ {id:1574,n:"ASUS ROG Zephyrus G16 (2025) GU605CR-QR233W",p:3225,f:"612847565.png",c:"lap",se:"Gaming",sz:16,s:"ROG Zephyrus · 16-inch"},
+ {id:1568,n:"ASUS TUF Gaming A15 FA506NCG-HN185",p:930,f:"854598328.jpg",c:"lap",se:"Gaming",sz:15,s:"TUF Gaming · 15.6-inch"},
+ {id:1673,n:"ASUS VivoBook 15 F1504MA-WB51",p:530,f:"915759356.png",c:"lap",se:"VivoBook",sz:15,s:"VivoBook · 15.6-inch"},
+ {id:1614,n:"ASUS VivoBook 15 X1502VA-BQ903W",p:570,f:"727806387.png",c:"lap",se:"VivoBook",sz:15,s:"VivoBook · 15.6-inch"},
+ {id:1608,n:"ASUS VivoBook GO 15 E1504FA-BQ2876",p:460,f:"124151791.png",c:"lap",se:"VivoBook",sz:15,s:"VivoBook Go · 15.6-inch"},
+ {id:1585,n:"ASUS VivoBook 16 F1605VA-WS96",p:915,f:"460139916.png",c:"lap",se:"VivoBook",sz:16,s:"VivoBook · 16-inch"},
+ {id:1463,n:"ASUS VivoBook 15 X1504VA-BQ4173",p:615,o:683,f:"421995039.png",c:"lap",se:"VivoBook",sz:15,s:"VivoBook · 15.6-inch"},
+ {id:1451,n:"ASUS VivoBook 16 F1605VA-WS74",p:700,o:737,f:"683694331.png",c:"lap",se:"VivoBook",sz:16,s:"VivoBook · 16-inch"},
+ {id:1512,n:"ASUS Vivobook 16 Flip TP3607SH-RJ021",p:1320,f:"980904692.jpg",c:"lap",se:"VivoBook Flip",sz:16,s:"2-in-1 touch · 16-inch"},
+ {id:1278,n:"ASUS Vivobook 14 Flip TP3407SA-SG161W",p:1060,f:"380706614.png",c:"lap",se:"VivoBook Flip",sz:14,s:"2-in-1 touch · 14-inch"},
+ {id:1360,n:"ASUS ZenBook 14 OLED UX3405CA-SU889W",p:1430,f:"380000213.jpg",c:"lap",se:"ZenBook",sz:14,s:"ZenBook · 14-inch OLED"},
+ {id:1578,n:"ASUS VivoBook S16 S3607AA-SH015W",p:1160,o:1221,f:"477411845.png",c:"lap",se:"Vivobook OLED",sz:16,s:"Vivobook S · 16-inch"},
+ {id:1447,n:"ASUS Vivobook S15 S5507QA-MA007W",p:795,f:"624649792.png",c:"lap",se:"Vivobook OLED",sz:15,s:"Vivobook S · 15.6-inch"},
+ {id:1583,n:"ASUS ExpertBook B3 B3402FVA-I516512B7D",p:770,f:"742839279.png",c:"lap",se:"ExpertBook",sz:14,s:"Business · 14-inch"},
+ {id:1499,n:"ASUS ExpertBook B1 B1503CVA-S77757",p:675,f:"817266098.png",c:"lap",se:"ExpertBook",sz:15,s:"Business · 15.6-inch"},
+ {id:1336,n:"ASUS PRIME-RTX5060TI-O8G",p:630,o:900,f:"171946596.png",c:"gpu",s:"GeForce RTX 5060 Ti · 8GB"},
+ {id:1266,n:"ASUS DUAL-RTX5060TI-O16G",p:900,o:1286,f:"223850763.png",c:"gpu",s:"GeForce RTX 5060 Ti · 16GB"},
+ {id:1283,n:"ASUS DUAL-RTX5060-O8G",p:580,o:773,f:"527524353.png",c:"gpu",s:"GeForce RTX 5060 · 8GB"},
+ {id:1655,n:"ASUS DUAL-RTX5060-O8G-A",p:590,f:"676901512.png",c:"gpu",s:"GeForce RTX 5060 · 8GB"},
+ {id:1332,n:"ASUS DUAL-RTX5070-O12G",p:1100,f:"130188661.png",c:"gpu",s:"GeForce RTX 5070 · 12GB"},
+ {id:1335,n:"ASUS PRIME-RTX5070TI-O16G",p:1625,f:"820555828.png",c:"gpu",s:"GeForce RTX 5070 Ti · 16GB"},
+ {id:1595,n:"ASUS PRIME Radeon™ RX 9070 XT 16GB",p:1220,f:"678531011.png",c:"gpu",s:"Radeon RX 9070 XT · 16GB"},
+ {id:1591,n:"ASUS Dual Radeon™ RX 9060 XT 16GB",p:610,o:642,f:"307629945.png",c:"gpu",s:"Radeon RX 9060 XT · 16GB"},
+ {id:1300,n:"ASUS ROG-ASTRAL-RTX5090-O32G-GAMING",p:9925,f:"484053869.png",c:"gpu",s:"GeForce RTX 5090 · 32GB"},
+ {id:1687,n:"Lexar® Thor 2nd Gen 8GB 6000MHz w/Heatsink CL38",p:null,f:"121458168.png",c:"ram",s:"DDR5 · CL38"},
+ {id:1686,n:"ASUS VA27UQSB",p:370,f:"485585670.png",c:"mon",s:"27-inch 4K"},
+ {id:1685,n:"ASUS ProArt PA329CRV",p:770,f:"968441712.png",c:"mon",se:"ProArt",s:"32-inch 4K · ProArt"},
+ {id:1684,n:"ASUS ProArt PA279CV",p:560,f:"392113576.png",c:"mon",se:"ProArt",s:"27-inch 4K · ProArt"},
+ {id:1683,n:"ASUS ROG STRIX XG27ACMES",p:345,f:"548709484.png",c:"mon",s:"27-inch QHD gaming"},
+ {id:1681,n:"ASUS TUF Gaming VG27AQML1A-W",p:420,f:"740230136.png",c:"mon",s:"27-inch QHD gaming"},
+ {id:1675,n:"ASUS ProArt PA278CFRV",p:410,f:"107842759.png",c:"mon",se:"ProArt",s:"27-inch QHD · ProArt"},
+ {id:1674,n:"ROG Harpe Ace Aim Lab Edition",p:110,f:"775391870.png",c:"acc",s:"Wireless gaming mouse"},
+];
+const byId=id=>P.find(p=>p.id===id);
+const brand=n=>/ROG/.test(n)?'ROG':/TUF/.test(n)?'TUF Gaming':/ProArt/.test(n)?'ProArt':/Lexar/.test(n)?'Lexar':'ASUS';
+
+/* ───── i18n ───── */
+const AR={gz_eye:"منطقة الألعاب",gz_t:"مصمم<br><em>للفوز.</em>",gz_s:"لابتوبات ROG و TUF وكروت RTX 50. متوفرة، بكفالة محلية وتوصيل لباب بيتك.",u1:"توصيل إلى 6 مدن",u2:"الدفع عند الاستلام",u3:"كفالة 12 شهراً",u4:"معارض في دمشق وحلب",concept:"تصميم مقترح لـ <b>ديجيتال بلس</b> · منتجات وأسعار حقيقية",allcat:"كل الفئات",pcb:"مجمّع الأجهزة",
+ tb_eye:"جديد",tb1:"جمّع جهاز أحلامك",tb1s:"نتحقق من توافق كل قطعة والطاقة.",tb1g:"ابدأ التجميع ←",tb2:"ألوان تثق بها",tb2s:"شاشات معايَرة للمصممين، من 410$.",tb2g:"تسوّق الشاشات ←",
+ s_cat:"تسوّق حسب الفئة",s_new:"وصل حديثاً <span>· هذا الأسبوع</span>",all:"عرض الكل",s_need:"تسوّق حسب احتياجك",bp_eye:"مجمّع الأجهزة الذكي",bp_t:"اختر القطع، ونحن نضمن توافقها.",bp1:"فحص مباشر لتوافق المعالج مع اللوحة الأم",bp2:"مطابقة ذاكرة DDR4 / DDR5 مع اللوحة",bp3:"حساب استهلاك الطاقة واقتراح مزوّد آمن",bp4:"توقّع أداء الألعاب قبل الشراء",bp_cta:"افتح المجمّع",bp_cta2:"شاهد تجميعة جاهزة",
+ s_gpu:"كروت الشاشة",s_br:"العلامات التجارية",s_why:"لماذا ديجيتال بلس",w1:"كفالة حقيقية",w1s:"12 شهراً بصيانة فريقنا مباشرة.",w2:"أسعار محدّثة يومياً",w2s:"كل منتج يظهر تاريخ آخر تحديث لسعره.",w3:"توصيل ودفع عند الباب",w3s:"دمشق، حلب، حمص، حماة، اللاذقية، طرطوس.",w4:"تحدث مع إنسان",w4s:"نصيحة حقيقية على واتساب قبل الشراء.",j_t:"احصل على العروض قبل الجميع",j_s:"انضم لقناة ديجيتال بلس على واتساب — بضاعة جديدة وتخفيضات، بلا إزعاج.",j_b:"انضم على واتساب",
+ home:"الرئيسية",laptops:"لابتوبات",l_sub:"لابتوبات ASUS للألعاب والتصميم والدراسة والأعمال — كفالة رسمية.",filters:"الفلاتر",f_deals:"العروض فقط",f_series:"السلسلة",f_size:"حجم الشاشة",f_price:"السعر (دولار)",
+ instock:"متوفر",save143:"وفّر 143$",upd:"تم التحقق من السعر اليوم · 23 تشرين الثاني 2026",dto:"التوصيل إلى",add:"أضف للسلة",askwa:"اسأل على واتساب",cmp:"مقارنة",pk1:"ادفع نقداً عند الاستلام — بدون بطاقة",pk2:"كفالة 12 شهراً من ديجيتال بلس، صيانة محلية",pk3:"أو استلم من المعرض — دمشق · حلب",bundle:"أكمل تجهيزاتك",specs:"المواصفات",ov:"نظرة عامة",qa:"الأسئلة",similar:"قد يعجبك أيضاً",
+ b_t:"مجمّع الأجهزة الذكي",b_s:"اختر كل قطعة. القطع غير المتوافقة تظهر باهتة مع السبب.",yb:"تجميعتك",reset:"إعادة",epw:"الطاقة المتوقعة",tot:"الإجمالي",b_add:"أضف للسلة",b_wa:"أرسل التجميعة",
+ f_about:"حواسيب وقطع وحلول تقنية. دمشق · حلب.",f_shop:"تسوّق",f_help:"مساعدة",f_ct:"تواصل",concept2:"تصميم مقترح — ليس المتجر الفعلي",m1:"الرئيسية",m2:"تسوّق",m3:"تجميع",m4:"السلة",cart:"سلتك",sub:"المجموع",cod:"ادفع نقداً عند الاستلام. نتصل للتأكيد خلال ساعات العمل.",checkout:"إتمام الطلب",cartwa:"أرسل السلة كاملة على واتساب",cmpnow:"قارن",cmpt:"مقارنة"};
+const EN={added:"Added to cart",call:"Call for price",empty:"Your cart is empty",keep:"Continue shopping",results:"results",clear:"Clear all",select:"Select",selected:"Selected",ends:"Ends in",dotd:"Deal of the day",h:"hrs",m:"min",s:"sec",grab:"Grab the deal"};
+const AR2={added:"أُضيف للسلة",call:"اتصل للسعر",empty:"سلتك فارغة",keep:"تابع التسوق",results:"نتيجة",clear:"مسح الكل",select:"اختيار",selected:"مُختار",ends:"ينتهي خلال",dotd:"عرض اليوم",h:"ساعة",m:"دقيقة",s:"ثانية",grab:"اغتنم العرض"};
+let lang='en';const orig={};
+document.querySelectorAll('[data-t]').forEach(e=>orig[e.dataset.t]=e.innerHTML);
+const t=k=>lang==='ar'?(AR2[k]||AR[k]||EN[k]||orig[k]||k):(EN[k]||orig[k]||k);
+function applyLang(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;e.innerHTML=lang==='ar'&&AR[k]?AR[k]:orig[k]});
+  $('#langL').textContent=lang==='ar'?'English':'عربي';
+  $('#q').placeholder=lang==='ar'?'ابحث بين أكثر من 1,700 منتج — جرّب “RTX 5060”':'Search 1,700+ products — try “RTX 5060”';
+  renderAll();
+}
+
+/* ───── helpers ───── */
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+Number(n).toLocaleString('en-US');
+const pct=p=>p.o?Math.round((1-p.p/p.o)*100):0;
+const I={
+ cart:'<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 7h15l-1.5 9h-12z"/><path d="M6 7 5 3H2"/></svg>',
+ check:'<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>',
+ wa:'<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.1z"/></svg>',
+ cmp:'<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M16 3h5v5M8 21H3v-5M21 3l-7 7M3 21l7-7"/></svg>'
+};
+function card(p){
+  const disc=pct(p), inC=cmpList.includes(p.id);
+  return `<article class="card">
+   <div class="top">${disc?`<span class="off">−${disc}%</span>`:'<span></span>'}<button class="cmp ${inC?'on':''}" onclick="toggleCmp(${p.id})" title="Compare" aria-label="Compare">${I.cmp}</button></div>
+   <a class="im" href="#product"><img loading="lazy" src="${IMG(p.f)}" alt="${p.n}"></a>
+   <div class="mid"><span class="br">${brand(p.n)}</span><h3><a href="#product">${p.n}</a></h3><span class="sp">${p.s||''}</span><span class="stock">${t('instock')}</span></div>
+   <div class="end"><div class="price">${p.p?`<b>${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}`:`<span class="ask">${t('call')}</span>`}</div>
+   <div class="acts"><button class="add" onclick="add(${p.id},1,this)">${I.cart}<span>${t('add')}</span></button><a class="waq" target="_blank" rel="noopener" href="https://wa.me/963930334001?text=${encodeURIComponent('Hello, I would like to ask about: '+p.n)}" title="WhatsApp" aria-label="Ask on WhatsApp">${I.wa}</a></div></div>
+  </article>`;
+}
+
+/* ───── header: nav + mega ───── */
+const NAV_EN=["Special offers","Laptops","Gaming laptops","Desktops & AIO","Graphics cards","Monitors","Motherboards","CPUs","Memory","Storage","Networking","Accessories"];
+const NAV_AR=["العروض","لابتوبات","لابتوبات ألعاب","كمبيوترات مكتبية","كروت شاشة","شاشات","لوحات أم","معالجات","ذواكر","تخزين","شبكات","إكسسوارات"];
+const MEGA=[
+ ["Laptops","915759356.png",["Gaming","VivoBook","VivoBook Flip","ZenBook","Vivobook OLED","ExpertBook"]],
+ ["Components","752302382.png",["Graphics cards","Motherboards","CPUs","Memory","SSD & storage","Power supplies","Cases & cooling"]],
+ ["Monitors","968441712.png",["Gaming monitors","ProArt creator","Office & home","4K monitors"]],
+ ["Networking & more","775391870.png",["Routers & Wi-Fi","NAS (ASUSTOR)","Projectors","Mice & keyboards","Headsets"]],
+];
+function renderHeader(){
+  const nv=lang==='ar'?NAV_AR:NAV_EN;
+  $('#navrow').innerHTML=nv.map((c,i)=>`<a href="#shop" class="${i?'':'hot'}">${i?'':'● '}${c}</a>`).join('')+`<a class="sp hide-t" href="#builder">⚙ ${t('pcb')}</a>`;
+  $('#megaIn').innerHTML=MEGA.map(m=>`<div><h5><img src="${IMG(m[1],'tiny')}" alt="">${m[0]}</h5><ul>${m[2].map(s=>`<li><a href="#shop/${s}">${s}</a></li>`).join('')}</ul></div>`).join('')+
+   `<a class="feat" href="#product"><span class="eyebrow">ROG Strix G16</span><b>Ryzen 9 + RTX 5060. Now −8%.</b><span>From $1,640</span><img src="${IMG('850828561.png')}" alt=""></a>`;
+}
+const megaBtn=$('#megaBtn'),mega=$('#mega');
+megaBtn.onclick=e=>{e.stopPropagation();const on=!mega.classList.contains('on');mega.classList.toggle('on',on);megaBtn.setAttribute('aria-expanded',on)};
+document.addEventListener('click',e=>{if(!e.target.closest('#mega'))mega.classList.remove('on');if(!e.target.closest('.search'))$('#sres').classList.remove('on')});
+
+/* ───── hero slider ───── */
+const SLIDES=[
+ {eye:"Republic of Gamers",h:"Ryzen 9.<br>RTX 50.<br><em>Ready.</em>",ha:"<span dir='ltr'>Ryzen 9.</span><br><span dir='ltr'>RTX 50.</span><br><em>جاهز.</em>",p:"ROG Strix G16 — 16 cores, RTX 5060 and a 165Hz screen. Built for long sessions.",pa:"لابتوب ROG Strix G16 بمعالج من 16 نواة وكرت RTX 5060 وشاشة 165Hz. مصمم للعب الطويل.",chips:["Ryzen 9 9955HX","RTX 5060","165Hz"],price:1640,old:1783,img:"850828561.png",a:"#ff4d63",gl:"rgba(255,40,70,.45)",cta:"#product",
+  co:[["16 cores","Ryzen 9 9955HX","2%","14%"],["RTX 5060","8GB GDDR7","66%","4%"],["165Hz","16″ FHD+","72%","82%"]]},
+ {eye:"GeForce RTX 50 Series",h:"Up to<br><em>30% off</em><br>graphics.",ha:"خصم حتى<br><em>30%</em><br>على كروت الشاشة.",p:"RTX 5060 Ti 16GB, now $900 instead of $1,286. While stock lasts.",pa:"كرت RTX 5060 Ti 16GB بسعر 900$ بدلاً من 1,286$. حتى نفاد الكمية.",chips:["DLSS 4","16GB GDDR7","Ray tracing"],price:900,old:1286,img:"223850763.png",a:"#8bd13f",gl:"rgba(139,209,63,.42)",cta:"#shop",
+  co:[["16GB","GDDR7 memory","0%","12%"],["DLSS 4","AI frame generation","64%","6%"],["−30%","was $1,286","72%","82%"]]},
+ {eye:"ProArt Display",h:"Every colour.<br><em>Exactly</em><br>right.",ha:"كل لون.<br><em>بدقته</em><br>الحقيقية.",p:"Factory-calibrated 4K monitors for photographers, editors and designers.",pa:"شاشات 4K معايَرة من المصنع للمصورين والمونتيرين والمصممين.",chips:["4K UHD","Calman verified","USB-C"],price:410,img:"968441712.png",a:"#5aa9ff",gl:"rgba(60,140,255,.45)",cta:"#shop",from:true,
+  co:[["4K UHD","32-inch ProArt","0%","14%"],["Calman","Verified colour","68%","6%"],["USB-C","One-cable setup","72%","80%"]]},
+];
+let si=0,sTimer;
+function renderSlider(){
+  $('#slider').innerHTML=SLIDES.map((s,i)=>`<div class="slide ${i===si?'on':''}" style="--accent:${s.a};--glow:${s.gl}">
+   <div class="tx"><span class="eyebrow">${s.eye}</span><h1>${lang==='ar'?s.ha:s.h}</h1><p>${lang==='ar'?s.pa:s.p}</p>
+   <div class="chips">${s.chips.map(c=>`<span class="pill">${c}</span>`).join('')}</div>
+   <div class="from">${s.from?(lang==='ar'?'ابتداءً من':'From'):''}<b>${money(s.price)}</b>${s.old?`<s>${money(s.old)}</s>`:''}</div>
+   <div class="row"><a class="btn lime" href="${s.cta}">${lang==='ar'?'تسوّق الآن':'Shop now'}</a><a class="btn ghost" href="#shop">${lang==='ar'?'اعرف المزيد':'Learn more'}</a></div></div>
+   <div class="im"><div class="halo"></div><img src="${IMG(s.img,'full')}" alt="">
+   ${s.co.map((c,k)=>`<div class="co" style="inset-inline-start:${c[2]};top:${c[3]};transition-delay:${.55+k*.15}s"><i></i><span>${c[0]}<small>${c[1]}</small></span></div>`).join('')}</div></div>`).join('')+
+   `<div class="dots">${SLIDES.map((_,i)=>`<button class="${i===si?'on':i<si?'done':''}" onclick="goSlide(${i})" aria-label="Slide ${i+1}"><i></i></button>`).join('')}</div>`;
+  $('#aur').style.setProperty('--glow',SLIDES[si].gl);
+  clearTimeout(sTimer);sTimer=setTimeout(()=>goSlide((si+1)%SLIDES.length),6500);
+}
+function goSlide(i){si=i;$('#aur').style.setProperty('--glow',SLIDES[i].gl);
+  $$('.slide').forEach((s,k)=>s.classList.toggle('on',k===i));
+  $$('.dots button').forEach((d,k)=>{d.className=k===i?'':k<i?'done':'';void d.offsetWidth;if(k===i)d.classList.add('on')});
+  clearTimeout(sTimer);sTimer=setTimeout(()=>goSlide((si+1)%SLIDES.length),6500);}
+
+/* ───── deal of the day ───── */
+function renderDeal(){
+  const p=byId(1336);
+  $('#deal').innerHTML=`<div class="tx"><span class="eyebrow">⚡ ${t('dotd')}</span><h3>${p.n.replace('ASUS ','')}</h3>
+   <span style="color:#aeb8c2">${p.s} · ${lang==='ar'?'كفالة 12 شهراً':'12-month warranty'}</span>
+   <div class="pr"><b>${money(p.p)}</b><s>${money(p.o)}</s><span class="off" style="font-size:14px;padding:5px 10px">−${pct(p)}%</span></div>
+   <div><div style="font-size:12px;color:#7c8792;margin-bottom:8px;letter-spacing:.08em;text-transform:uppercase;font-weight:700">${t('ends')}</div>
+   <div class="cd"><div><b id="cdh">00</b><small>${t('h')}</small></div><div><b id="cdm">00</b><small>${t('m')}</small></div><div><b id="cds">00</b><small>${t('s')}</small></div></div></div>
+   <div class="row"><button class="btn lime" onclick="add(1336,1,this)">${I.cart}<span>${t('grab')}</span></button><a class="btn ghost" href="#product">${lang==='ar'?'التفاصيل':'Details'}</a></div></div>
+   <div class="im"><div class="stagew"><img src="${IMG(p.f,'full')}" alt="${p.n}"></div></div>`;
+  tick();
+}
+function tick(){const n=new Date(),e=new Date(n);e.setHours(24,0,0,0);let d=Math.max(0,(e-n)/1000|0);
+  const h=$('#cdh');if(!h)return;h.textContent=String(d/3600|0).padStart(2,'0');$('#cdm').textContent=String(d%3600/60|0).padStart(2,'0');$('#cds').textContent=String(d%60).padStart(2,'0');}
+setInterval(tick,1000);
+
+/* ───── home blocks ───── */
+const CATS=[["Laptops","لابتوبات","915759356.png","#shop"],["Gaming laptops","لابتوبات ألعاب","669984808.png","#shop/Gaming"],["Graphics cards","كروت شاشة","676901512.png","#home"],["Monitors","شاشات","392113576.png","#home"],["Motherboards","لوحات أم","752302382.png","#home"],["CPUs","معالجات","564621281.jpg","#home"],["Memory","ذواكر","227516578.jpg","#home"],["Accessories","إكسسوارات","775391870.png","#home"],["PC Builder","مجمّع الأجهزة","637504783.png","#builder"]];
+const NEEDS=[["n1","Gaming","ألعاب","High refresh, RTX 50 power","شاشات سريعة وقوة RTX 50","669984808.png","Gaming"],["n2","Creators","مصممون","Colour-accurate & powerful","ألوان دقيقة وأداء قوي","392113576.png","ProArt"],["n3","Students","طلاب","Light, reliable, affordable","خفيف، موثوق، بسعر مناسب","124151791.png","VivoBook"],["n4","Business","أعمال","Secure, durable ExpertBook","ExpertBook آمن ومتين","817266098.png","ExpertBook"]];
+function renderHome(){
+  $('#rail').innerHTML=CATS.map(c=>`<a class="cat" href="${c[3]}"><img loading="lazy" src="${IMG(c[2])}" alt=""><b>${lang==='ar'?c[1]:c[0]}</b></a>`).join('');
+  $('#newT').innerHTML=[1672,1686,1685,1684,1683,1681,1677,1676,1675,1674,1673,1671].map(id=>card(byId(id))).join('');
+  $('#gpuT').innerHTML=P.filter(p=>p.c==='gpu').map(card).join('');
+  $('#needs').innerHTML=NEEDS.map(n=>{const lo=Math.min(...P.filter(p=>p.se===n[6]||(n[6]==='ProArt'&&/ProArt/.test(p.n))).map(p=>p.p||1e9));
+    return `<a class="need ${n[0]}" href="#shop/${n[6]}"><b>${lang==='ar'?n[2]:n[1]}</b><span>${lang==='ar'?n[4]:n[3]}</span><img loading="lazy" src="${IMG(n[5])}" alt=""><small>${lang==='ar'?'ابتداءً من':'From'} ${money(lo)} →</small></a>`}).join('');
+}
+$$('.arr').forEach(b=>b.onclick=()=>{const tr=document.getElementById(b.dataset.tr);const dir=document.documentElement.dir==='rtl'?-1:1;tr.scrollBy({left:+b.dataset.s*dir*tr.clientWidth*.8,behavior:'smooth'})});
+
+/* ───── search ───── */
+let kb=-1;
+$('#q').addEventListener('input',e=>{
+  const v=e.target.value.trim().toLowerCase(),r=$('#sres');kb=-1;
+  if(!v){r.classList.remove('on');return}
+  const words=v.split(/\s+/);
+  const m=P.filter(p=>words.every(w=>(p.n+' '+(p.s||'')).toLowerCase().includes(w))).slice(0,6);
+  const hl=s=>{let o=s;words.forEach(w=>{o=o.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>')});return o};
+  r.innerHTML=m.length?`<h6>${m.length} ${t('results')}</h6>`+m.map(p=>`<a href="#product"><img src="${IMG(p.f,'tiny')}" alt=""><span>${hl(p.n)}<br><small style="color:var(--muted)">${p.s||''}</small></span><span class="p">${p.p?money(p.p):''}</span></a>`).join(''):`<h6>No results for “${e.target.value}”</h6>`;
+  r.classList.add('on');
+});
+$('#q').addEventListener('keydown',e=>{const a=$$('#sres a');if(!a.length)return;
+  if(e.key==='ArrowDown'){kb=Math.min(a.length-1,kb+1);e.preventDefault()}else if(e.key==='ArrowUp'){kb=Math.max(0,kb-1);e.preventDefault()}else if(e.key==='Enter'&&kb>=0){a[kb].click();$('#sres').classList.remove('on');return}else if(e.key==='Escape'){$('#sres').classList.remove('on');return}else return;
+  a.forEach((x,i)=>x.classList.toggle('kb',i===kb))});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='SELECT'){e.preventDefault();$('#q').focus()}});
+
+/* ───── cart ───── */
+let cart=[];
+function add(id,q=1,btn,item){
+  const p=item||byId(id);const ex=cart.find(c=>c.n===p.n);ex?ex.q+=q:cart.push({...p,q});
+  renderCart();
+  const b=$('#cc');b.classList.add('pop');setTimeout(()=>b.classList.remove('pop'),250);
+  const el=$('#toast');el.innerHTML=`<img src="${IMG(p.f,'tiny')}" alt="">${t('added')}`;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),1800);
+  if(btn&&btn.classList.contains('add')){const o=btn.innerHTML;btn.classList.add('ok');btn.innerHTML=I.check+'<span>'+t('added')+'</span>';setTimeout(()=>{btn.classList.remove('ok');btn.innerHTML=o},1400)}
+}
+function renderCart(){
+  const n=cart.reduce((a,c)=>a+c.q,0);$('#cc').textContent=n;$('#cc2').textContent=n;
+  $('#dfoot').style.display=cart.length?'grid':'none';
+  $('#ditems').innerHTML=cart.length?cart.map((c,i)=>`<div class="di"><img src="${IMG(c.f,'tiny')}" alt=""><div><b>${c.n}</b>${c.parts?`<small style="color:var(--muted);font-size:12px">${c.parts}</small>`:''}
+   <div class="r"><div class="q"><button onclick="qty(${i},-1)" aria-label="Less">−</button><span>${c.q}</span><button onclick="qty(${i},1)" aria-label="More">+</button></div><b>${c.p?money(c.p*c.q):t('call')}</b></div>
+   <button class="rm" onclick="cart.splice(${i},1);renderCart()">Remove</button></div></div>`).join('')
+   :`<div class="dempty"><i>${I.cart}</i><b>${t('empty')}</b><button class="btn line sm" onclick="closeCart()">${t('keep')}</button></div>`;
+  $('#ctot').textContent=money(cart.reduce((a,c)=>a+(c.p||0)*c.q,0));
+}
+function qty(i,d){cart[i].q+=d;if(cart[i].q<1)cart.splice(i,1);renderCart()}
+const openCart=()=>{$('#drawer').classList.add('on');$('#scrim').classList.add('on')};
+const closeCart=()=>{$('#drawer').classList.remove('on');$('#scrim').classList.remove('on');$('#facets').classList.remove('on')};
+$('#cartBtn').onclick=openCart;$('#cartBtn2').onclick=openCart;$('#cx').onclick=closeCart;$('#scrim').onclick=closeCart;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();$('#modal').classList.remove('on');mega.classList.remove('on')}});
+$('#cartWa').onclick=()=>{const m='Hello Digital Plus, I would like to order:\n'+cart.map(c=>`• ${c.n} × ${c.q}${c.p?' — '+money(c.p*c.q):''}`).join('\n')+`\nTotal: ${$('#ctot').textContent}`;window.open('https://wa.me/963930334001?text='+encodeURIComponent(m),'_blank')};
+
+/* ───── compare ───── */
+let cmpList=[];
+function toggleCmp(id){const i=cmpList.indexOf(id);if(i>=0)cmpList.splice(i,1);else{if(cmpList.length>=4)cmpList.shift();cmpList.push(id)}renderCmp();
+  $$('.cmp').forEach(b=>{const m=b.getAttribute('onclick').match(/\d+/);if(m)b.classList.toggle('on',cmpList.includes(+m[0]))})}
+function renderCmp(){
+  $('#tray').classList.toggle('on',cmpList.length>0);
+  $('#ts').innerHTML=[0,1,2,3].map(i=>cmpList[i]?`<img src="${IMG(byId(cmpList[i]).f,'tiny')}" alt="">`:'<span></span>').join('');
+  $('#tcount').textContent=`${cmpList.length}/4`;
+  $('#cmpP').classList.toggle('on',cmpList.includes(1672));
+}
+$('#cmpClr').onclick=()=>{cmpList=[];renderCmp();$$('.cmp').forEach(b=>b.classList.remove('on'))};
+$('#cmpP').onclick=()=>toggleCmp(1672);
+$('#cmpGo').onclick=()=>{
+  const items=cmpList.map(byId);const priced=items.filter(p=>p.p);const lo=priced.length?Math.min(...priced.map(p=>p.p)):0;const bd=Math.max(...items.map(pct));
+  const row=(h,f)=>`<tr><th>${h}</th>${items.map(f).join('')}</tr>`;
+  $('#mbody').innerHTML=`<table class="ctab"><tr><th></th>${items.map(p=>`<td><img src="${IMG(p.f)}" alt=""><b>${p.n}</b></td>`).join('')}</tr>`+
+   row('Price',p=>`<td class="${p.p===lo?'best':''}">${p.p?money(p.p):t('call')}${p.p===lo&&items.length>1?' · lowest':''}</td>`)+
+   row('Discount',p=>`<td class="${pct(p)&&pct(p)===bd?'best':''}">${pct(p)?'−'+pct(p)+'%':'—'}</td>`)+
+   row('Brand',p=>`<td>${brand(p.n)}</td>`)+row('Key specs',p=>`<td>${p.s||'—'}</td>`)+row('Warranty',()=>`<td>12 months</td>`)+
+   row('',p=>`<td><button class="btn ink sm" onclick="add(${p.id},1)">${t('add')}</button></td>`)+`</table>`;
+  $('#modal').classList.add('on')};
+$('#mx').onclick=()=>$('#modal').classList.remove('on');
+$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')};
+
+/* ───── shop listing ───── */
+const F={se:new Set(),sz:new Set(),deal:false,min:'',max:'',sort:'feat',view:'grid'};
+const SERIES=['Gaming','VivoBook','VivoBook Flip','ZenBook','Vivobook OLED','ExpertBook'];
+function renderShop(){
+  const L=P.filter(p=>p.c==='lap');
+  $('#subnav').innerHTML=['All',...SERIES].map(s=>`<button class="${(s==='All'&&!F.se.size)||(F.se.size===1&&F.se.has(s))?'on':''}" onclick="setSeries('${s}')">${s==='All'?(lang==='ar'?'الكل':'All laptops'):s}</button>`).join('');
+  $('#fSeries').innerHTML=SERIES.map(s=>`<label><input type="checkbox" ${F.se.has(s)?'checked':''} onchange="tog(F.se,'${s}')">${s}<small>${L.filter(p=>p.se===s).length}</small></label>`).join('');
+  $('#fSize').innerHTML=[14,15,16,18].map(s=>`<label><input type="checkbox" ${F.sz.has(s)?'checked':''} onchange="tog(F.sz,${s})">${s===15?'15.6':s}″<small>${L.filter(p=>p.sz===s).length}</small></label>`).join('');
+  $('#fDeal').checked=F.deal;
+  let r=L.filter(p=>(!F.se.size||F.se.has(p.se))&&(!F.sz.size||F.sz.has(p.sz))&&(!F.deal||p.o)&&(F.min===''||p.p>=+F.min)&&(F.max===''||p.p<=+F.max));
+  if(F.sort==='lo')r.sort((a,b)=>a.p-b.p);if(F.sort==='hi')r.sort((a,b)=>b.p-a.p);if(F.sort==='disc')r.sort((a,b)=>pct(b)-pct(a));
+  $('#lcount').innerHTML=`<b>${r.length}</b> ${t('results')}`;
+  const chips=[...[...F.se].map(s=>[s,`F.se.delete('${s}')`]),...[...F.sz].map(s=>[s+'″',`F.sz.delete(${s})`]),...(F.deal?[['Deals only','F.deal=false']]:[]),...(F.min!==''?[['≥ $'+F.min,"F.min=''"]]:[]),...(F.max!==''?[['≤ $'+F.max,"F.max=''"]]:[])];
+  $('#activeF').innerHTML=chips.length?chips.map(c=>`<button onclick="${c[1]};syncInputs();renderShop()">${c[0]} ✕</button>`).join('')+`<button class="clr" onclick="clearF()">${t('clear')}</button>`:'';
+  $('#lgrid').className='grid'+(F.view==='list'?' list':'');
+  $('#lgrid').innerHTML=r.length?r.map(card).join(''):`<div class="nores"><b style="display:block;font-size:17px;color:var(--ink);margin-bottom:6px">No laptops match these filters</b><button class="btn line sm" onclick="clearF()">${t('clear')}</button></div>`;
+}
+function tog(s,v){s.has(v)?s.delete(v):s.add(v);renderShop()}
+function setSeries(s){F.se.clear();if(s!=='All')F.se.add(s);renderShop()}
+function clearF(){F.se.clear();F.sz.clear();F.deal=false;F.min=F.max='';syncInputs();renderShop()}
+function syncInputs(){$('#pmin').value=F.min;$('#pmax').value=F.max}
+$('#fDeal').onchange=e=>{F.deal=e.target.checked;renderShop()};
+$('#pmin').oninput=e=>{F.min=e.target.value;renderShop()};$('#pmax').oninput=e=>{F.max=e.target.value;renderShop()};
+$('#sort').onchange=e=>{F.sort=e.target.value;renderShop()};
+$$('.vt button').forEach(b=>b.onclick=()=>{F.view=b.dataset.v;$$('.vt button').forEach(x=>x.classList.toggle('on',x===b));renderShop()});
+$('#fOpen').onclick=()=>{$('#facets').classList.add('on');$('#scrim').classList.add('on')};
+$('#fClose').onclick=$('#fApply').onclick=()=>{$('#facets').classList.remove('on');$('#scrim').classList.remove('on')};
+
+/* ───── product page ───── */
+const GAL=["850828561.png","436850061.png","348379409.png","587426387.png","273480410.png","743996957.png"];
+let gi=0,qv=1;
+function renderProduct(){
+  $('#thumbs').innerHTML=GAL.map((g,i)=>`<button class="${i===gi?'on':''}" onclick="gi=${i};renderProduct()" aria-label="Image ${i+1}"><img src="${IMG(g,'small')}" alt=""></button>`).join('');
+  $('#pimg').src=IMG(GAL[gi],'full');
+  const city=$('#city').value;
+  $('#eta').textContent=(/Damascus|Aleppo/.test(city)?(lang==='ar'?'يصل غداً':'Arrives tomorrow'):(lang==='ar'?'يصل خلال 2–3 أيام':'Arrives in 2–3 days'))+(lang==='ar'?' · الدفع عند الاستلام':' · cash on delivery');
+  const B=[1672,1683,1674];
+  $('#bundle').innerHTML=B.map((id,i)=>{const p=byId(id);return `${i?'<span class="plus">+</span>':''}<label class="bi ${bsel.has(id)?'on':''}"><img src="${IMG(p.f,'small')}" alt=""><span><b>${p.n.replace('ASUS ','')}</b><span>${money(p.p)}</span></span><input type="checkbox" ${bsel.has(id)?'checked':''} ${id===1672?'disabled':''} onchange="bsel.has(${id})?bsel.delete(${id}):bsel.add(${id});renderProduct()"></label>`}).join('')+
+   `<div class="btot"><span><small style="display:block;color:var(--muted);font-size:12px">${bsel.size} items</small><b>${money([...bsel].reduce((a,id)=>a+byId(id).p,0))}</b></span><button class="btn ink" onclick="[...bsel].forEach(id=>add(id,1));openCart()">${lang==='ar'?'أضف المحدد':'Add selected'}</button></div>`;
+  $('#simT').innerHTML=P.filter(p=>p.se==='Gaming'&&p.id!==1672).map(card).join('');
+}
+const bsel=new Set([1672,1683,1674]);
+$('#city').onchange=renderProduct;
+$('#qm').onclick=()=>{qv=Math.max(1,qv-1);$('#qv').textContent=qv};$('#qp').onclick=()=>{qv++;$('#qv').textContent=qv};
+$('#addP').onclick=()=>add(1672,qv);
+const stage=$('#stage');
+stage.onmousemove=e=>{const r=stage.getBoundingClientRect();$('#pimg').style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`;$('#pimg').style.transform='scale(1.8)'};
+stage.onmouseleave=()=>{$('#pimg').style.transform=''};
+$$('#ptabs button').forEach(b=>b.onclick=()=>{$$('#ptabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.tabp').forEach(p=>p.classList.toggle('on',p.id==='tp-'+b.dataset.p))});
+
+/* ───── builder ─────  [name, price, attrs..., img]   (* = demo entry, not from dpsy.com) */
+const BP={
+ cpu:{l:"Processor",la:"المعالج",o:[
+   {n:"Intel Core i3 12100F",p:100,sock:"LGA1700",w:58,f:"831108643.jpg",tags:["4 cores","LGA1700"]},
+   {n:"Intel Core i5 12400F",p:126,sock:"LGA1700",w:65,f:"564621281.jpg",tags:["6 cores","LGA1700"]},
+   {n:"Intel Core Ultra 5 225",p:235,sock:"LGA1851",w:65,demo:1,tags:["10 cores","LGA1851"]},
+   {n:"AMD Ryzen 5 7600",p:190,sock:"AM5",w:65,demo:1,tags:["6 cores","AM5"]},
+   {n:"AMD Ryzen 7 7800X3D",p:410,sock:"AM5",w:120,demo:1,tags:["8 cores","3D V-Cache","AM5"]},
+   {n:"AMD Ryzen 5 5600",p:110,sock:"AM4",w:65,demo:1,tags:["6 cores","AM4"]}]},
+ mb:{l:"Motherboard",la:"اللوحة الأم",o:[
+   {n:"ASUS PRIME H610M-K D4 ARGB",p:75,sock:"LGA1700",mem:"DDR4",f:"327072671.png",tags:["LGA1700","DDR4"]},
+   {n:"ASUS PRIME Z790-P",p:192,sock:"LGA1700",mem:"DDR5",f:"637504783.png",tags:["LGA1700","DDR5"]},
+   {n:"ASUS TUF GAMING B860M-PLUS",p:213,sock:"LGA1851",mem:"DDR5",f:"191397615.png",tags:["LGA1851","DDR5"]},
+   {n:"ASUS PRIME Z890M-PLUS WIFI",p:208,sock:"LGA1851",mem:"DDR5",f:"474548598.png",tags:["LGA1851","DDR5","Wi-Fi"]},
+   {n:"ASUS TUF GAMING B850M-PLUS II",p:203,sock:"AM5",mem:"DDR5",f:"752302382.png",tags:["AM5","DDR5"]},
+   {n:"ASUS PRIME X870-P",p:229,sock:"AM5",mem:"DDR5",f:"646178288.png",tags:["AM5","DDR5"]},
+   {n:"ASUS PRIME B550M-A/CSM",p:114,sock:"AM4",mem:"DDR4",f:"267229168.png",tags:["AM4","DDR4"]}]},
+ ram:{l:"Memory",la:"الذاكرة",o:[
+   {n:"Lexar ARES 32GB (2×16) DDR5 6800",p:130,mem:"DDR5",w:10,f:"227516578.jpg",demo:1,tags:["32GB","DDR5"]},
+   {n:"Lexar THOR 16GB (2×8) DDR5 6000",p:70,mem:"DDR5",w:8,f:"121458168.png",demo:1,tags:["16GB","DDR5"]},
+   {n:"16GB (2×8) DDR4 3200",p:45,mem:"DDR4",w:6,demo:1,tags:["16GB","DDR4"]}]},
+ gpu:{l:"Graphics",la:"كرت الشاشة",o:[
+   {n:"ASUS DUAL-RTX5060-O8G",p:580,w:145,tier:2,f:"527524353.png",tags:["8GB","145W"]},
+   {n:"ASUS PRIME-RTX5060TI-O8G",p:630,w:180,tier:3,f:"171946596.png",tags:["8GB","180W"]},
+   {n:"ASUS DUAL-RTX5060TI-O16G",p:900,w:180,tier:3,f:"223850763.png",tags:["16GB","180W"]},
+   {n:"ASUS DUAL-RTX5070-O12G",p:1100,w:250,tier:4,f:"130188661.png",tags:["12GB","250W"]},
+   {n:"ASUS PRIME Radeon RX 9070 XT 16GB",p:1220,w:304,tier:5,f:"678531011.png",tags:["16GB","304W"]},
+   {n:"ASUS PRIME-RTX5070TI-O16G",p:1625,w:300,tier:5,f:"820555828.png",tags:["16GB","300W"]}]},
+ ssd:{l:"Storage",la:"التخزين",o:[{n:"1TB NVMe Gen4 SSD",p:75,w:6,demo:1,tags:["1TB","NVMe"]},{n:"2TB NVMe Gen4 SSD",p:135,w:7,demo:1,tags:["2TB","NVMe"]}]},
+ psu:{l:"Power supply",la:"مزوّد الطاقة",o:[{n:"550W 80+ Bronze",p:55,cap:550,demo:1,tags:["550W"]},{n:"650W 80+ Gold",p:85,cap:650,demo:1,tags:["650W","Gold"]},{n:"750W 80+ Gold",p:105,cap:750,demo:1,tags:["750W","Gold"]},{n:"850W 80+ Gold",p:130,cap:850,demo:1,tags:["850W","Gold"]}]},
+};
+const ORDER=Object.keys(BP);
+let bs={},step='cpu';
+const watts=()=>{let w=0;if(bs.cpu)w+=bs.cpu.w;if(bs.gpu)w+=bs.gpu.w;if(bs.ram)w+=bs.ram.w;if(bs.ssd)w+=bs.ssd.w;if(bs.cpu||bs.mb)w+=60;return w};
+const need=()=>Math.max(450,Math.ceil(watts()*1.5/50)*50);
+function why(k,o){
+  if(k==='mb'&&bs.cpu&&o.sock!==bs.cpu.sock)return `Needs ${bs.cpu.sock} — this is ${o.sock}`;
+  if(k==='cpu'&&bs.mb&&o.sock!==bs.mb.sock)return `Board is ${bs.mb.sock}`;
+  if(k==='ram'&&bs.mb&&o.mem!==bs.mb.mem)return `Board takes ${bs.mb.mem}`;
+  if(k==='mb'&&bs.ram&&o.mem!==bs.ram.mem)return `Your memory is ${bs.ram.mem}`;
+  if(k==='psu'&&watts()&&o.cap<need())return `Need ${need()}W+`;
+  return '';
+}
+function renderBuilder(){
+  $('#steps').innerHTML=ORDER.map((k,i)=>{const o=bs[k],bad=o&&why(k,o);return `<button class="step ${k===step?'on':''} ${o?(bad?'bad':'done'):''}" onclick="step='${k}';renderBuilder()"><i>${o&&o.f?`<img src="${IMG(o.f,'tiny')}" alt="">`:o?'✓':i+1}</i><span>${lang==='ar'?BP[k].la:BP[k].l}<small>${o?o.n:(lang==='ar'?'غير مختار':'Not selected')}</small></span></button>`}).join('');
+  $('#pick').innerHTML=BP[step].o.map((o,i)=>{const w=why(step,o),sel=bs[step]===o;
+    return `<button class="part ${sel?'sel':''} ${w?'no':''}" onclick="pickPart('${step}',${i})">${w?`<span class="why">⚠ ${w}</span>`:o.demo?'<span class="demo">DEMO</span>':''}
+     <div class="im ${o.f&&/jpg$/.test(o.f)?'wb':''}">${o.f?`<img loading="lazy" src="${IMG(o.f,/jpg$/.test(o.f)?'small':'full')}" alt="">`:`<span class="ph">${BP[step].l[0]}</span>`}</div>
+     <b>${o.n}</b><div class="tg">${o.tags.map(x=>`<span>${x}</span>`).join('')}</div>
+     <div class="pp"><b>${money(o.p)}</b><em>${sel?'✓ '+t('selected'):t('select')}</em></div></button>`}).join('');
+  $('#slist').innerHTML=ORDER.map(k=>{const o=bs[k];return `<div class="sl" onclick="step='${k}';renderBuilder()">${o&&o.f?`<img src="${IMG(o.f,'tiny')}" alt="">`:`<span class="e">${o?'✓':'+'}</span>`}<span>${o?o.n:'—'}<small>${lang==='ar'?BP[k].la:BP[k].l}</small></span><b>${o?money(o.p):''}</b></div>`}).join('');
+  const c=bs.cpu,m=bs.mb,r=bs.ram,p=bs.psu,w=watts(),nd=need();
+  const C=[[c&&m?c.sock===m.sock:null,c&&m?(c.sock===m.sock?`Socket ${c.sock} matches`:`CPU is ${c.sock}, board is ${m.sock}`):'CPU ↔ motherboard socket'],
+           [m&&r?m.mem===r.mem:null,m&&r?(m.mem===r.mem?`${r.mem} memory supported`:`Board needs ${m.mem}, memory is ${r.mem}`):'Memory type (DDR4 / DDR5)'],
+           [p&&w?p.cap>=nd:null,p&&w?(p.cap>=nd?`${p.cap}W covers ~${w}W with headroom`:`${p.cap}W too small — choose ${nd}W+`):'Power supply headroom']];
+  $('#chks').innerHTML=C.map(([s,x])=>`<div class="ck ${s===null?'w':s?'ok':'no'}"><i>${s===null?'•':s?'✓':'!'}</i><span>${x}</span></div>`).join('');
+  $('#pwT').textContent=w?`~${w}W · ${nd}W PSU`:'—';
+  const pm=$('#pwM');pm.style.width=Math.min(100,w/(p?p.cap:850)*100)+'%';pm.classList.toggle('bad',!!(p&&p.cap<nd));
+  const tiers=["Office, school & esports (integrated graphics)","","1080p Ultra · 1440p High","1440p High · smooth ray tracing","1440p Ultra · 4K Medium","1440p Ultra · 4K High"];
+  const tier=bs.gpu?bs.gpu.tier:0;
+  $('#perf').innerHTML=`<small>${lang==='ar'?'الأداء المتوقع':'Expected performance'}</small><b>${c?tiers[tier]:'—'}</b><span>${lang==='ar'?'تقدير عام، يختلف حسب اللعبة':'General estimate, varies by game'}</span>`;
+  $('#bTot').textContent=money(Object.values(bs).reduce((a,o)=>a+(o?o.p:0),0));
+  renderRig($('#rigB'),bs,true);
+}
+function pickPart(k,i){const o=BP[k].o[i];bs[k]=bs[k]===o?undefined:o;if(bs[k]){const n=ORDER[ORDER.indexOf(k)+1];if(n&&!bs[n])step=n}renderBuilder()}
+$('#bReset').onclick=()=>{bs={};step='cpu';renderBuilder()};
+const buildTxt=()=>ORDER.filter(k=>bs[k]).map(k=>`• ${BP[k].l}: ${bs[k].n} — ${money(bs[k].p)}`).join('\n');
+$('#bWa').onclick=()=>window.open('https://wa.me/963930334001?text='+encodeURIComponent('Hello, I would like this PC build:\n'+buildTxt()+'\nTotal: '+$('#bTot').textContent),'_blank');
+$('#bAdd').onclick=()=>{const tot=Object.values(bs).reduce((a,o)=>a+(o?o.p:0),0);if(!tot)return;add(0,1,null,{id:0,n:'Custom PC build',p:tot,f:'752302382.png',parts:ORDER.filter(k=>bs[k]).map(k=>bs[k].n).join(' · ')});openCart()};
+
+
+/* ───── v3: gaming zone ───── */
+let gtab='rog';
+const GT={rog:["ROG",p=>p.c==='lap'&&/ROG/.test(p.n)],tuf:["TUF Gaming",p=>p.c==='lap'&&/TUF/.test(p.n)],gpu:["RTX & Radeon",p=>p.c==='gpu'&&p.p<5000]};
+function dcard(p,big){const d=pct(p);return `<article class="dcard ${big?'big':''}">${d?`<span class="off">−${d}%</span>`:''}
+  <span class="br">${brand(p.n)}</span><a class="im" href="#product"><img loading="lazy" src="${IMG(p.f,'full')}" alt="${p.n}"></a>
+  <h4>${p.n.replace('ASUS ','')}</h4><span class="sp">${p.s||''}</span>
+  <div class="r2"><span><b>${money(p.p)}</b>${p.o?`<s>${money(p.o)}</s>`:''}</span><button class="dadd" onclick="add(${p.id},1)" aria-label="${t('add')}">${I.cart}</button></div></article>`}
+function renderGZ(){
+  $('#gtabs').innerHTML=Object.entries(GT).map(([k,v])=>`<button class="${k===gtab?'on':''}" onclick="gtab='${k}';renderGZ()">${v[0]}</button>`).join('');
+  const L=P.filter(GT[gtab][1]).sort((a,b)=>pct(b)-pct(a)||b.p-a.p).slice(0,5);
+  const g=$('#gfeat');g.innerHTML=L.map((p,i)=>dcard(p,i===0)).join('');g.classList.remove('swap');void g.offsetWidth;g.classList.add('swap');
+}
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.dcard');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
+
+/* ───── v3: live rig ───── */
+function rigSVG(){return `<svg class="rigsvg" viewBox="0 0 640 320" role="img" aria-label="Build preview">
+ <defs><linearGradient id="rgbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8bd13f"/><stop offset=".5" stop-color="#3fd1c1"/><stop offset="1" stop-color="#8bd13f"/></linearGradient>
+ <pattern id="trc" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M0 14h9l5-5h14M14 28v-7l5-5" stroke="rgba(255,255,255,.05)" fill="none"/></pattern></defs>
+ <g class="slot mb" data-k="mb"><rect class="bd" x="18" y="18" width="474" height="284" rx="16"/><rect x="18" y="18" width="474" height="284" rx="16" fill="url(#trc)"/><text class="lb" x="34" y="290">MOTHERBOARD</text><text class="nm" x="476" y="290" text-anchor="end"></text></g>
+ <g class="pwr"><path class="pl" d="M510 70 H498 V36 H125 V52"/><path class="pl" d="M510 246 H468"/></g>
+ <g class="slot cpu" data-k="cpu"><rect class="bd" x="58" y="52" width="134" height="134" rx="12"/><g class="fill"><rect class="chip" x="76" y="70" width="98" height="98" rx="9"/><path class="pins" d="M88 82h74M88 156h74M88 82v74M162 82v74"/><text class="cn" x="125" y="118" text-anchor="middle"></text><text class="cs" x="125" y="136" text-anchor="middle"></text></g><text class="lb h" x="125" y="123" text-anchor="middle">CPU</text></g>
+ <g class="slot ram" data-k="ram">${[0,1,2,3].map(i=>`<rect class="bd" x="${222+i*20}" y="46" width="11" height="142" rx="3"/>${i%2===0?`<rect class="stick" x="${222+i*20}" y="46" width="11" height="142" rx="3" fill="url(#rgbg)"/>`:''}`).join('')}<text class="lb" x="262" y="206" text-anchor="middle">RAM</text></g>
+ <g class="slot ssd" data-k="ssd"><rect class="bd" x="330" y="60" width="140" height="28" rx="6"/><g class="fill"><rect class="bar" x="334" y="64" width="132" height="20" rx="4"/><text class="cs" x="400" y="78" text-anchor="middle"></text></g><text class="lb" x="400" y="106" text-anchor="middle">SSD</text></g>
+ <g class="slot gpu" data-k="gpu"><rect class="bd" x="48" y="214" width="420" height="62" rx="12"/><g class="fill"><rect class="card" x="54" y="220" width="408" height="50" rx="9"/>${[300,360,420].map(x=>`<g class="fan" style="transform-origin:${x}px 245px"><circle class="fr" cx="${x}" cy="245" r="20"/><path class="fb" d="M${x} 245v-15M${x} 245l13 8M${x} 245l-13 8"/></g>`).join('')}<text class="cn" x="70" y="243"></text><text class="cs" x="70" y="259"></text></g><text class="lb h" x="258" y="249" text-anchor="middle">GRAPHICS</text></g>
+ <g class="slot psu" data-k="psu"><rect class="bd" x="510" y="18" width="112" height="284" rx="14"/><g class="fill"><rect class="card" x="516" y="24" width="100" height="272" rx="10"/><g class="fan" style="transform-origin:566px 120px"><circle class="fr" cx="566" cy="120" r="36"/><path class="fb" d="M566 120v-26M566 120l22 13M566 120l-22 13"/></g><text class="cn" x="566" y="200" text-anchor="middle"></text><text class="cs" x="566" y="218" text-anchor="middle">80+</text></g><text class="lb h" x="566" y="164" text-anchor="middle">PSU</text></g>
+</svg>`}
+const shortN=n=>n.replace(/^(Intel Core |AMD |ASUS )/,'').replace(/ (DUAL|PRIME)-/,' ').slice(0,26);
+function renderRig(el,st,check){
+  if(!el)return;
+  if(!el.querySelector('svg'))el.innerHTML=`<div class="righ"><span class="eyebrow">${lang==='ar'?'معاينة مباشرة':'Live preview'}</span><span class="rst"></span></div>`+rigSVG();
+  const svg=el.querySelector('svg');let n=0,bad=0;
+  ORDER.forEach(k=>{const g=svg.querySelector('.slot.'+k),o=st[k];if(!g)return;const b=!!(check&&o&&why(k,o));if(o)n++;if(b)bad++;
+    g.classList.toggle('on',!!o);g.classList.toggle('bad',b);
+    const cn=g.querySelector('.cn'),cs=g.querySelector('.fill .cs');
+    if(k==='cpu'&&o){cn.textContent=shortN(o.n).replace('Core ','');cs.textContent=o.sock}
+    if(k==='gpu'&&o){cn.textContent=shortN(o.n);cs.textContent=o.tags.join(' · ')}
+    if(k==='psu'&&o){cn.textContent=o.cap+'W'}
+    if(k==='ssd'&&o){cs.textContent=o.tags.join(' ')}
+    if(k==='mb')g.querySelector('.nm').textContent=o?o.n:'';
+  });
+  svg.querySelector('.pwr').classList.toggle('on',!!st.psu&&!(check&&why('psu',st.psu)));
+  const r=el.querySelector('.rst');r.classList.toggle('bad',bad>0);
+  r.innerHTML=lang==='ar'?`<b>${n}</b> من ${ORDER.length} قطع${bad?` · <b>${bad} غير متوافقة</b>`:n?' · كلها متوافقة':''}`:`<b>${n}</b> of ${ORDER.length} parts${bad?` · <b>${bad} not compatible</b>`:n?' · all compatible':''}`;
+}
+/* home demo: parts snap in one by one */
+const DEMO=[['cpu',1],['mb',1],['ram',0],['gpu',0],['ssd',0],['psu',1]];let dStep=0;
+setInterval(()=>{const el=$('#rigD');if(!el||!$('#v-home').classList.contains('on'))return;dStep=(dStep+1)%(DEMO.length+3);
+  const st={};DEMO.slice(0,Math.min(dStep,DEMO.length)).forEach(([k,i])=>st[k]=BP[k].o[i]);renderRig(el,st,false)},1100);
+
+/* ───── v3: reveal + hero parallax ───── */
+function checkReveal(){const h=innerHeight*.92;$$('.rv:not(.in)').forEach(e=>{const r=e.getBoundingClientRect();if(r.height&&r.top<h)e.classList.add('in')})}
+function armReveal(){$$('#v-home .sec,#v-home .deal,#v-home .bpromo,#v-home .join,#v-home .duo,.gz .wrap,#v-shop .lhead,#v-product .bundle').forEach(e=>e.classList.add('rv'));requestAnimationFrame(checkReveal)}
+const hero=$('#hero');let ticking=false;
+addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{hero.style.setProperty('--sy',Math.min(scrollY,700));checkReveal();ticking=false})},{passive:true});
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*2);hero.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*2)});
+hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--px',0);hero.style.setProperty('--py',0)});
+
+
+/* ───── checkout ───── */
+const L=(en,ar)=>lang==='ar'?ar:en;
+const CITIES=[["Damascus","دمشق"],["Aleppo","حلب"],["Homs","حمص"],["Hama","حماة"],["Latakia","اللاذقية"],["Tartus","طرطوس"]];
+const cityN=c=>{const x=CITIES.find(y=>y[0]===c);return x?L(x[0],x[1]):c};
+const ck={step:1,name:'',phone:'',wa:true,method:'delivery',city:'Damascus',area:'',street:'',pin:false,notes:'',branch:'Damascus',pay:'cod',orderNo:'',placed:null,sumOpen:false};
+const IC={
+ truck:'<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>',
+ store:'<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l1.5-5h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6"/></svg>',
+ cash:'<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>',
+ phone:'<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>',
+ pin:'<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+ ok:'<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>',
+ shield:'<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+ down:'<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>',
+};
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const intl=v=>'+963 '+esc(String(v).replace(/^0/,''));
+const subtotal=()=>cart.reduce((a,c)=>a+(c.p||0)*c.q,0);
+const etaTxt=c=>/Damascus|Aleppo/.test(c)?L('Usually next working day','عادةً في يوم العمل التالي'):L('Usually 2–3 working days','عادةً خلال 2–3 أيام عمل');
+function progress(){
+  const st=ck.placed?5:ck.step+1;
+  const S=[L('Cart','السلة'),L('Contact','التواصل'),L('Delivery','التوصيل'),L('Payment','الدفع'),L('Done','تم')];
+  return `<div class="prog">${S.map((x,i)=>`${i?'<b></b>':''}<span class="${i+1<st?'done':i+1===st?'now':''}"><i>${i+1<st?IC.ok:i+1}</i><span class="lbl">${x}</span></span>`).join('')}</div>`;
+}
+function secHead(n,title,summary){
+  const cls=ck.step===n?'open':ck.step>n?'ok':'lock';
+  return `<section class="cks ${cls}"><header><span class="n">${ck.step>n?IC.ok:n}</span><div style="min-width:0"><h3>${title}</h3>${ck.step>n&&summary?`<div class="sm">${summary}</div>`:''}</div>${ck.step>n?`<a class="ed" onclick="ck.step=${n};renderCheckout()">${L('Edit','تعديل')}</a>`:''}</header>`;
+}
+function orderSummary(){
+  const n=cart.reduce((a,c)=>a+c.q,0),st=subtotal(),hasAsk=cart.some(c=>!c.p);
+  return `<button class="mobsum ${ck.sumOpen?'on':''}" onclick="ck.sumOpen=!ck.sumOpen;renderCheckout()"><span>${L('Order summary','ملخص الطلب')} · ${n} ${L('items','قطع')} ${IC.down}</span><b>${money(st)}</b></button>
+  <aside class="osum ${ck.sumOpen?'on':''}"><h3>${L('Order summary','ملخص الطلب')}<small>${n} ${L('items','قطع')}</small></h3>
+   <div class="olist">${cart.map(c=>`<div class="oi"><span class="ph"><img src="${IMG(c.f,'tiny')}" alt=""><em>${c.q}</em></span><span><b>${esc(c.n)}</b>${c.parts?`<small>${esc(c.parts)}</small>`:`<small>${L('12-month warranty','كفالة 12 شهراً')}</small>`}</span><span class="pr">${c.p?money(c.p*c.q):L('Call','اتصل')}</span></div>`).join('')}</div>
+   <div class="otot"><div><span>${L('Subtotal','المجموع الفرعي')}</span><b>${money(st)}</b></div>
+    <div><span>${ck.method==='pickup'?L('Store pickup','استلام من المعرض'):L('Delivery','التوصيل')}</span><b>${ck.method==='pickup'?L('Free','مجاني'):L('Confirmed on call','يُحدد عند الاتصال')}</b></div>
+    <div class="gt"><span style="color:var(--ink)">${L('Total','الإجمالي')}</span><b>${money(st)}</b></div>
+    ${hasAsk?`<div class="note">${L('Items marked “Call” are priced when we confirm.','المنتجات المعلّمة “اتصل” يُحدد سعرها عند التأكيد.')}</div>`:''}</div>
+   <div class="trust2"><div>${IC.shield}${L('Pay nothing online — cash on delivery or in store','لا دفع أونلاين — نقداً عند الاستلام أو في المعرض')}</div><div>${IC.phone}${L('We call to confirm before anything ships','نتصل للتأكيد قبل الشحن')}</div><div>${IC.ok}${L('12-month Digital Plus warranty','كفالة 12 شهراً من ديجيتال بلس')}</div></div>
+  </aside>`;
+}
+function renderCheckout(){
+  const root=$('#ckroot');if(!root)return;
+  $('#ckbackL').textContent=L('Continue shopping','تابع التسوق');
+  if(ck.placed){root.innerHTML=successView();return}
+  if(!cart.length){root.innerHTML=`${progress()}<div class="ckempty"><i>${I.cart}</i><h2 style="font-family:var(--display);font-size:26px">${L('Your cart is empty','سلتك فارغة')}</h2><p style="color:var(--ink-3)">${L('Add a few products to try the checkout.','أضف بعض المنتجات لتجربة إتمام الطلب.')}</p><div class="row" style="justify-content:center"><a class="btn ink" href="#shop">${L('Browse laptops','تصفح اللابتوبات')}</a><button class="btn line" onclick="add(1672,1);add(1683,1);add(1674,1);renderCheckout()">${L('Load a demo cart','حمّل سلة تجريبية')}</button></div></div>`;return}
+  const del=ck.method==='delivery';
+  const s1=secHead(1,L('Contact details','بيانات التواصل'),`${esc(ck.name)} · <bdi dir="ltr">${intl(ck.phone)}</bdi>`)+(ck.step===1?`<div class="bd">
+     <div class="fld" id="f-name"><label for="i-name">${L('Full name','الاسم الكامل')}</label><input class="inp" id="i-name" autocomplete="name" value="${esc(ck.name)}" placeholder="${L('e.g. Rami Haddad','مثال: رامي حداد')}"><span class="em">${L('Please enter your name','يرجى إدخال الاسم')}</span></div>
+     <div class="fld" id="f-phone"><label for="i-phone">${L('Mobile number','رقم الموبايل')} <small>· ${L('we call this number to confirm','سنتصل على هذا الرقم للتأكيد')}</small></label><div class="tel"><span>+963</span><input id="i-phone" inputmode="tel" autocomplete="tel-national" value="${esc(ck.phone)}" placeholder="09X XXX XXXX" maxlength="13"></div><span class="em">${L('Enter a Syrian mobile number, e.g. 0930 334 001','أدخل رقم موبايل سوري، مثال 0930 334 001')}</span></div>
+     <label class="chk"><input type="checkbox" id="i-wa" ${ck.wa?'checked':''}>${L('This number has WhatsApp — send updates there','هذا الرقم عليه واتساب — أرسلوا التحديثات عليه')}</label>
+     <div class="cta-row"><button class="btn ink big" onclick="ckNext1()">${L('Continue to delivery','متابعة إلى التوصيل')} →</button></div></div>`:'')+`</section>`;
+  const s2sum=del?`${cityN(ck.city)} · ${esc(ck.area)}${ck.street?', '+esc(ck.street):''}`:`${L('Pickup','استلام')} · ${cityN(ck.branch)} ${L('store','المعرض')}`;
+  const s2=secHead(2,L('Delivery','التوصيل'),s2sum)+(ck.step===2?`<div class="bd">
+     <div class="seg"><button class="opt ${del?'on':''}" onclick="ckSave2();ck.method='delivery';renderCheckout()"><span class="rd"></span><span><b>${L('Deliver to me','توصيل إلي')}</b><span>${L('6 cities · cash on delivery','6 مدن · الدفع عند الاستلام')}</span></span><span class="ic">${IC.truck}</span></button>
+       <button class="opt ${!del?'on':''}" onclick="ckSave2();ck.method='pickup';renderCheckout()"><span class="rd"></span><span><b>${L('Pick up in store','استلام من المعرض')}</b><span>${L('Damascus or Aleppo · free','دمشق أو حلب · مجاناً')}</span></span><span class="ic">${IC.store}</span></button></div>
+     ${del?`<div class="g2"><div class="fld"><label for="i-city">${L('City','المدينة')}</label><select class="inp" id="i-city" onchange="ckSave2();renderCheckout()">${CITIES.map(c=>`<option value="${c[0]}" ${c[0]===ck.city?'selected':''}>${L(c[0],c[1])}</option>`).join('')}</select></div>
+       <div class="fld" id="f-area"><label for="i-area">${L('Area / neighbourhood','المنطقة / الحي')}</label><input class="inp" id="i-area" value="${esc(ck.area)}" placeholder="${L('e.g. Mazzeh','مثال: المزة')}"><span class="em">${L('Tell us the area','حدد المنطقة')}</span></div></div>
+       <div class="fld"><label for="i-street">${L('Street, building, floor','الشارع، البناء، الطابق')} <small>· ${L('optional','اختياري')}</small></label><input class="inp" id="i-street" value="${esc(ck.street)}" placeholder="${L('Near a landmark helps the driver','ذكر معلم قريب يساعد السائق')}"></div>
+       <button class="pin ${ck.pin?'on':''}" onclick="ckSave2();ck.pin=!ck.pin;renderCheckout()"><i>${ck.pin?IC.ok:IC.pin}</i><span><b>${ck.pin?L('Location pinned','تم تحديد الموقع'):L('Pin my location on the map','حدد موقعي على الخريطة')}</b><br><span class="note">${ck.pin?L('Demo only — the real store opens a map here','تجريبي فقط — المتجر الحقيقي يفتح خريطة هنا'):L('Optional · helps the driver find you faster','اختياري · يساعد السائق على الوصول أسرع')}</span></span></button>
+       <div class="eta2">${IC.truck}${etaTxt(ck.city)} · ${L('we confirm the exact time by phone','نؤكد الوقت بالضبط بالهاتف')}</div>`
+     :`<div class="seg">${[["Damascus","دمشق","011 2252736"],["Aleppo","حلب","021 2236001"]].map(b=>`<button class="opt ${ck.branch===b[0]?'on':''}" onclick="ckSave2();ck.branch='${b[0]}';renderCheckout()"><span class="rd"></span><span><b>${L(b[0]+' store','معرض '+b[1])}</b><span dir="ltr">${b[2]}</span></span></button>`).join('')}</div>
+       <div class="eta2">${IC.store}${L('We call you when your order is ready to collect','نتصل بك عندما يكون طلبك جاهزاً للاستلام')}</div>`}
+     <div class="fld"><label for="i-notes">${L('Note for us','ملاحظة لنا')} <small>· ${L('optional','اختياري')}</small></label><textarea class="inp" id="i-notes" placeholder="${L('Best time to call, gift wrap, anything else','أفضل وقت للاتصال، تغليف هدية، أي شيء آخر')}">${esc(ck.notes)}</textarea></div>
+     <div class="cta-row"><button class="btn line" onclick="ckSave2();ck.step=1;renderCheckout()">← ${L('Back','رجوع')}</button><button class="btn ink big" onclick="ckNext2()">${L('Continue to payment','متابعة إلى الدفع')} →</button></div></div>`:'')+`</section>`;
+  const s3=secHead(3,L('Payment','الدفع'),'')+(ck.step===3?`<div class="bd">
+     <button class="opt on"><span class="rd"></span><span><b>${del?L('Cash on delivery','الدفع نقداً عند الاستلام'):L('Pay in store','الدفع في المعرض')}</b><span>${del?L('Pay the driver in cash when your order arrives.','ادفع للسائق نقداً عند وصول الطلب.'):L('Pay when you collect, cash.','ادفع نقداً عند الاستلام.')}</span></span><span class="ic">${IC.cash}</span></button>
+     <button class="opt dis" disabled><span class="rd"></span><span><b>${L('Mobile wallet','محفظة الموبايل')}<span class="tagx">${L('Optional add-on','إضافة اختيارية')}</span></b><span>${L('Syriatel Cash / MTN Cash — if Digital Plus wants it','سيريتل كاش / MTN كاش — إذا رغبت ديجيتال بلس')}</span></span><span class="ic">${IC.phone}</span></button>
+     <div class="recap"><div><small>${L('Contact','التواصل')}</small>${esc(ck.name)}<br><span dir="ltr">${intl(ck.phone)}</span></div><div><small>${del?L('Deliver to','التوصيل إلى'):L('Pick up at','الاستلام من')}</small>${s2sum}</div></div>
+     <button class="btn lime big place" onclick="placeOrder()">${L('Place order','تأكيد الطلب')}<span class="pt">${money(subtotal())}</span></button>
+     <div class="note" style="text-align:center">${L('Nothing is charged now. We call you to confirm stock, price and delivery time before your order ships.','لن يُخصم أي مبلغ الآن. سنتصل بك لتأكيد التوفر والسعر ووقت التوصيل قبل الشحن.')}</div>
+     <div class="cta-row" style="justify-content:flex-start"><button class="btn line" onclick="ck.step=2;renderCheckout()">← ${L('Back','رجوع')}</button></div></div>`:'')+`</section>`;
+  root.innerHTML=`${progress()}<h1 class="ckh">${L('Checkout','إتمام الطلب')}</h1><div class="ckwrap"><div>${s1}${s2}${s3}</div>${orderSummary()}</div>`;
+  const f=root.querySelector('.cks.open .inp');if(f&&ck._focus){f.focus();ck._focus=false}
+  const ph=$('#i-phone');if(ph)ph.oninput=e=>{let d=e.target.value.replace(/\D/g,'').slice(0,10);e.target.value=d.replace(/^(\d{4})(\d{0,3})(\d{0,3}).*/,(m,a,b,c)=>[a,b,c].filter(Boolean).join(' '));$('#f-phone').classList.remove('err')};
+  const nm=$('#i-name');if(nm)nm.oninput=()=>$('#f-name').classList.remove('err');
+  const ar=$('#i-area');if(ar)ar.oninput=()=>$('#f-area').classList.remove('err');
+}
+function ckNext1(){
+  ck.name=$('#i-name').value.trim();ck.phone=$('#i-phone').value.trim();ck.wa=$('#i-wa').checked;
+  const okN=ck.name.length>=2,okP=/^0?9\d{8}$/.test(ck.phone.replace(/\s/g,''));
+  $('#f-name').classList.toggle('err',!okN);$('#f-phone').classList.toggle('err',!okP);
+  if(!okN){$('#i-name').focus();return}if(!okP){$('#i-phone').focus();return}
+  ck.step=2;ck._focus=true;renderCheckout();scrollTo({top:0,behavior:'smooth'});
+}
+function ckSave2(){const g=id=>{const e=$('#'+id);return e?e.value.trim():null};
+  const c=g('i-city');if(c!==null)ck.city=c;const a=g('i-area');if(a!==null)ck.area=a;const s=g('i-street');if(s!==null)ck.street=s;const n=g('i-notes');if(n!==null)ck.notes=n}
+function ckNext2(){ckSave2();if(ck.method==='delivery'&&ck.area.length<2){$('#f-area').classList.add('err');$('#i-area').focus();return}ck.step=3;renderCheckout();scrollTo({top:0,behavior:'smooth'})}
+function placeOrder(){
+  const d=new Date();ck.orderNo='DP-'+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+Math.floor(1000+Math.random()*9000);
+  ck.placed={items:cart.map(c=>({...c})),total:subtotal()};cart=[];renderCart();renderCheckout();scrollTo({top:0});
+}
+function successView(){
+  const o=ck.placed,del=ck.method==='delivery';
+  const msg=`Hello Digital Plus, this is ${ck.name}. My order ${ck.orderNo}:\n`+o.items.map(c=>`• ${c.n} × ${c.q}${c.p?' — '+money(c.p*c.q):''}`).join('\n')+`\nTotal: ${money(o.total)}\n`+(del?`Deliver to: ${ck.city}, ${ck.area}${ck.street?', '+ck.street:''}`:`Pickup: ${ck.branch} store`)+`\nPhone: ${intl(ck.phone)}`;
+  return `${progress()}<div class="ckdone"><div class="tick"><svg width="46" height="46" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+   <h1>${L('Order received, ','تم استلام طلبك، ')}${esc(ck.name.split(' ')[0])}!</h1>
+   <span class="ono">${ck.orderNo}</span>
+   <p>${L(`We'll call you on`,'سنتصل بك على')} <b dir="ltr">${intl(ck.phone)}</b> ${L('during working hours to confirm stock, price and','خلال ساعات العمل لتأكيد التوفر والسعر و')}${del?L(' delivery time.',' وقت التوصيل.'):L(' when to collect.',' موعد الاستلام.')}</p>
+   <div class="tl">
+    <div class="d"><i>${IC.ok}</i><span><b>${L('Order received','تم استلام الطلب')}</b><span>${L('Just now','الآن')} · ${money(o.total)} · ${o.items.reduce((a,c)=>a+c.q,0)} ${L('items','قطع')}</span></span></div>
+    <div class="c"><i>2</i><span><b>${L('We call to confirm','نتصل للتأكيد')}</b><span>${L('Stock, final price and timing','التوفر والسعر النهائي والموعد')}</span></span></div>
+    <div><i>3</i><span><b>${del?L('Out for delivery','في الطريق إليك'):L('Ready to collect','جاهز للاستلام')}</b><span>${del?`${cityN(ck.city)} · ${etaTxt(ck.city)}`:`${cityN(ck.branch)} ${L('store','المعرض')}`}</span></span></div>
+    <div><i>4</i><span><b>${del?L('Delivered — pay cash','تم التوصيل — ادفع نقداً'):L('Collected — pay in store','تم الاستلام — ادفع في المعرض')}</b><span>${L('Your 12-month warranty starts','تبدأ كفالتك لمدة 12 شهراً')}</span></span></div>
+   </div>
+   <div class="row" style="justify-content:center;margin-top:6px"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/963930334001?text=${encodeURIComponent(msg)}">${I.wa}${L('Also send it on WhatsApp','أرسله أيضاً على واتساب')}</a><a class="btn line" href="#home" onclick="ck.placed=null;ck.step=1">${L('Continue shopping','تابع التسوق')}</a></div>
+   <div class="note">${L('Demo: no order was sent anywhere.','تجريبي: لم يُرسل أي طلب.')}</div></div>`;
+}
+
+/* ───── router ───── */
+function route(){
+  const h=(location.hash||'#home').slice(1).split('/'),v=h[0]||'home';
+  if(v==='shop'&&h[1]){const s=decodeURIComponent(h[1]);F.se.clear();if(SERIES.includes(s))F.se.add(s);renderShop()}
+  $$('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));
+  if(!$('.view.on'))$('#v-home').classList.add('on');
+  $$('#bbar [data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===v));
+  document.body.classList.toggle('is-ck',v==='checkout');if(v==='checkout')renderCheckout();
+  mega.classList.remove('on');window.scrollTo({top:0});setTimeout(armReveal,50);
+}
+addEventListener('hashchange',route);
+function renderAll(){$$('.rig').forEach(r=>r.innerHTML='');renderHeader();renderGZ();renderRig($('#rigD'),{},false);renderSlider();renderDeal();renderHome();renderShop();renderProduct();renderBuilder();renderCart();renderCmp();renderCheckout()}
+$('#lang').onclick=()=>{lang=lang==='en'?'ar':'en';applyLang()};
+renderAll();route();armReveal();
+/* demo states for screenshots: ?demo=build | checkout | done | ar */
+{const dm=new URLSearchParams(location.search).get('demo')||'';
+ if(dm.includes('ar')){lang='ar';applyLang()}
+ if(dm.includes('build')){pickPart('cpu',1);pickPart('mb',1);pickPart('ram',0);pickPart('gpu',0);pickPart('ssd',0);pickPart('psu',1);step='gpu';renderBuilder()}
+ if(dm.includes('checkout')||dm.includes('done')){add(1672,1);add(1683,1);add(1674,1);$('#toast').classList.remove('on');Object.assign(ck,{name:'Rami Haddad',phone:'0912 345 678',area:'Mazzeh',street:'Near Mazzeh park',step:2});renderCheckout()}
+ if(dm.includes('done')){placeOrder()}}
+</script>
+</body>
+</html>

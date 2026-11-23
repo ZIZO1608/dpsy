@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Digital Plus — New Store Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0d12;--lime:#8bd13f;--lime-2:#a6e35f;--muted:#8d98a3;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.04);--d:"Inter Tight",Inter,system-ui,sans-serif;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink)}
+body{font-family:Inter,system-ui,sans-serif;color:#fff;background:var(--ink);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+[dir=rtl] body,[dir=rtl] button{font-family:"IBM Plex Sans Arabic",Inter,sans-serif}
+[dir=rtl]{--d:"IBM Plex Sans Arabic",Inter,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+img{display:block;max-width:100%}
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bg .a{position:absolute;inset:-25%;background:radial-gradient(35% 45% at 20% 25%,rgba(139,209,63,.22),transparent 70%),radial-gradient(30% 40% at 85% 15%,rgba(255,40,70,.18),transparent 70%),radial-gradient(40% 50% at 60% 100%,rgba(40,90,255,.18),transparent 70%);filter:blur(30px);animation:drift 20s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(5%,-4%,0) scale(1.1) rotate(4deg)}}
+.bg .g{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+header{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+header img{height:38px;filter:brightness(0) invert(1)}
+.tag{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);background:rgba(139,209,63,.12);border:1px solid rgba(139,209,63,.3);padding:6px 12px;border-radius:99px}
+[dir=rtl] .tag{letter-spacing:0}
+.lang{height:40px;padding:0 16px;border-radius:12px;border:1px solid var(--line);font-weight:600;font-size:14px;transition:.2s}
+.lang:hover{border-color:rgba(255,255,255,.35)}
+.right{display:flex;gap:10px;align-items:center}
+.hero{padding:70px 0 50px;max-width:820px}
+.hero h1{font-family:var(--d);font-size:clamp(44px,7vw,92px);font-weight:900;line-height:.96;letter-spacing:-.04em;margin-top:22px}
+[dir=rtl] .hero h1{letter-spacing:0;line-height:1.15;font-weight:700}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--lime),#d8ff9e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(16px,1.6vw,19px);color:#aeb8c2;max-width:600px;margin-top:22px;line-height:1.6}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.facts span{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-weight:600;font-size:14.5px;backdrop-filter:blur(10px)}
+.facts b{font-family:var(--d);font-size:20px;color:var(--lime);font-weight:800}
+.grid{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:18px;padding-bottom:30px}
+.card{position:relative;border-radius:26px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));overflow:hidden;isolation:isolate;display:flex;flex-direction:column;transition:transform .45s var(--ease),border-color .3s;opacity:0;transform:translateY(30px);animation:rise .9s var(--ease) forwards}
+.card:nth-child(2){animation-delay:.08s}.card:nth-child(3){animation-delay:.16s}.card:nth-child(4){animation-delay:.24s}
+@keyframes rise{to{opacity:1;transform:none}}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(139,209,63,.16),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:rgba(139,209,63,.5)}
+.card:hover::before{opacity:1}
+.card .tx{padding:26px 28px 18px;display:flex;flex-direction:column;gap:8px}
+.card .k{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+[dir=rtl] .card .k{letter-spacing:0}
+.card h2{font-family:var(--d);font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+[dir=rtl] .card h2{letter-spacing:0;font-weight:700}
+.card p{font-size:14.5px;color:#aeb8c2;line-height:1.55;max-width:460px}
+.card .go{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-top:6px}
+.card .go i{font-style:normal;transition:transform .3s var(--ease)}
+.card:hover .go i{transform:translateX(5px)}
+[dir=rtl] .card .go i{transform:scaleX(-1)}
+[dir=rtl] .card:hover .go i{transform:scaleX(-1) translateX(5px)}
+.card .shot{margin:auto 28px 0;border-radius:14px 14px 0 0;overflow:hidden;border:1px solid var(--line);border-bottom:0;box-shadow:0 -10px 40px rgba(0,0,0,.4);transform:translateY(14px);transition:transform .5s var(--ease)}
+.card:hover .shot{transform:translateY(0)}
+.card .shot img{width:100%}
+.big{grid-row:span 2}
+.big .shot{margin-top:18px}
+.prop{padding-bottom:26px}
+.prop .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{height:46px;padding:0 18px;border-radius:13px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;transition:.2s}
+.btn.lime{background:var(--lime);color:var(--ink)}
+.btn.lime:hover{background:var(--lime-2);box-shadow:0 10px 30px rgba(139,209,63,.35)}
+.btn.line{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.btn.line:hover{border-color:rgba(255,255,255,.35)}
+.btn small{font-weight:600;color:var(--muted);font-size:12px}
+.btn.lime small{color:rgba(10,13,18,.6)}
+.price{display:flex;align-items:flex-end;gap:14px;margin-top:6px}
+.price b{font-family:var(--d);font-size:64px;font-weight:900;letter-spacing:-.04em;line-height:1}
+[dir=rtl] .price b{letter-spacing:0}
+.price span{color:#aeb8c2;font-size:14px;padding-bottom:10px}
+footer{padding:30px 0 50px;color:#5b6672;font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:20px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.big{grid-row:auto}.hero{padding:40px 0 34px}}
+@media (max-width:560px){.wrap{padding:0 16px}header img{height:30px}.tag{display:none}.card .tx{padding:22px 20px 14px}.card .shot{margin-left:20px;margin-right:20px}.card h2{font-size:25px}.price b{font-size:52px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="a"></div><div class="g"></div></div>
+<div class="wrap">
+  <header>
+    <img src="https://www.dpsy.com/template/image/logo.png" alt="Digital Plus">
+    <div class="right"><span class="tag" data-t="tag">Private preview</span><button class="lang" id="lang">عربي</button></div>
+  </header>
+
+  <section class="hero">
+    <span class="tag" data-t="eye">For Digital Plus · Systems &amp; Solutions</span>
+    <h1 data-t="h1">Your new online store is <em>ready to try.</em></h1>
+    <p data-t="sub">A working preview built with your real products, prices and photos. Shop it like a customer, build a PC, check out, then see the admin your team would use.</p>
+    <div class="facts"><span><b>$600</b><em style="font-style:normal" data-t="f1">everything included</em></span><span><b>3</b><em style="font-style:normal" data-t="f2">weeks to launch</em></span><span><b>AR · EN</b><em style="font-style:normal" data-t="f3">built for phones</em></span></div>
+  </section>
+
+  <section class="grid">
+    <a class="card big" href="store/#home">
+      <div class="tx"><span class="k" data-t="k1">The store</span><h2 data-t="t1">Shop it like a customer</h2><p data-t="p1">Cinematic home page, Gaming Zone, filters, product pages, cart and a 3-step cash-on-delivery checkout.</p><span class="go"><span data-t="go1">Open the store</span><i>→</i></span></div>
+      <div class="shot"><img src="assets/store.jpg" alt=""></div>
+    </a>
+    <a class="card" href="store/?demo=build#builder">
+      <div class="tx"><span class="k" data-t="k2">PC Builder</span><h2 data-t="t2">Parts that fit, or it says why</h2><p data-t="p2">Socket, memory and power checked live, with a build that lights up as you choose.</p><span class="go"><span data-t="go2">Try a build</span><i>→</i></span></div>
+      <div class="shot"><img src="assets/builder.jpg" alt=""></div>
+    </a>
+    <a class="card" href="store/admin.html">
+      <div class="tx"><span class="k" data-t="k3">For your team</span><h2 data-t="t3">The admin</h2><p data-t="p3">Orders inbox, prices and stock, Excel price update with typo protection, banners and deals.</p><span class="go"><span data-t="go3">Open the admin</span><i>→</i></span></div>
+      <div class="shot"><img src="assets/admin.jpg" alt=""></div>
+    </a>
+  </section>
+
+  <section class="card prop" style="animation-delay:.3s">
+    <div class="tx"><span class="k" data-t="k4">The proposal</span><h2 data-t="t4">One package. Live in 3 weeks.</h2>
+      <div class="price"><b>$600</b><span data-t="pr">$300 at kickoff · $300 at launch · first year of hosting included</span></div>
+      <div class="btns">
+        <a class="btn lime" href="proposal/proposal-ar.html" target="_blank" rel="noopener">العرض بالعربية <small>↗</small></a>
+        <a class="btn line" href="proposal/proposal.html" target="_blank" rel="noopener">Proposal in English</a>
+        <a class="btn line" href="proposal/Digital-Plus-Proposal-AR.pdf" download><span data-t="dl">Download PDF</span> <small>AR</small></a>
+        <a class="btn line" href="proposal/Digital-Plus-Proposal-EN.pdf" download><span data-t="dl">Download PDF</span> <small>EN</small></a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span data-t="foot">Design concept for Digital Plus — not the live store. Product data and photos from dpsy.com.</span><span data-t="foot2">Private preview · not indexed by search engines</span></footer>
+</div>
+<script>
+const AR={tag:"معاينة خاصة",eye:"لـ ديجيتال بلس · Systems & Solutions",h1:"متجركم الإلكتروني الجديد <em>جاهز للتجربة.</em>",sub:"نسخة تجريبية تعمل بمنتجاتكم وأسعاركم وصوركم الحقيقية. تسوّقوا كزبون، جمّعوا كمبيوتر، أتمّوا طلباً، ثم شاهدوا لوحة التحكم التي سيستخدمها فريقكم.",f1:"شامل كل شيء",f2:"أسابيع للإطلاق",f3:"مصمم للموبايل",k1:"المتجر",t1:"تسوّقوا كزبون",p1:"صفحة رئيسية سينمائية، منطقة ألعاب، فلاتر، صفحات منتجات، سلة، وإتمام طلب بثلاث خطوات والدفع عند الاستلام.",go1:"افتح المتجر",k2:"مجمّع الأجهزة",t2:"قطع متوافقة، أو يخبرك لماذا",p2:"فحص المقبس والذاكرة والطاقة مباشرة، مع تجميعة تضيء أثناء الاختيار.",go2:"جرّب تجميعة",k3:"لفريقكم",t3:"لوحة التحكم",p3:"صندوق الطلبات، الأسعار والتوفر، تحديث الأسعار من Excel مع حماية من الأخطاء، البانرات والعروض.",go3:"افتح لوحة التحكم",k4:"العرض",t4:"باقة واحدة. جاهز خلال 3 أسابيع.",pr:"$300 عند البدء · $300 عند الإطلاق · السنة الأولى من الاستضافة مشمولة",dl:"تحميل PDF",foot:"تصميم مقترح لديجيتال بلس — ليس المتجر الفعلي. بيانات وصور المنتجات من dpsy.com.",foot2:"معاينة خاصة · غير مؤرشفة في محركات البحث"};
+const orig={};document.querySelectorAll('[data-t]').forEach(e=>{orig[e.dataset.t]=orig[e.dataset.t]||e.innerHTML});
+let lang=(navigator.language||'').startsWith('ar')?'ar':'en';
+function apply(){document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-t]').forEach(e=>{e.innerHTML=lang==='ar'?(AR[e.dataset.t]||orig[e.dataset.t]):orig[e.dataset.t]});document.getElementById('lang').textContent=lang==='ar'?'English':'عربي';
+  document.querySelectorAll('a[href^="store/"]').forEach(a=>{const u=new URL(a.getAttribute('href'),location.href);const d=(u.searchParams.get('demo')||'').replace(/-?ar/,'');const parts=[d,lang==='ar'?'ar':''].filter(Boolean);parts.length?u.searchParams.set('demo',parts.join('-')):u.searchParams.delete('demo');a.setAttribute('href','store/'+u.pathname.split('/store/')[1]+u.search+u.hash)})}
+document.getElementById('lang').onclick=()=>{lang=lang==='ar'?'en':'ar';apply()};
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
+apply();
+</script>
+</body>
+</html>

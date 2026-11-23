@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ديجيتال بلس — عرض المتجر الإلكتروني الجديد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+:root{--ink:#0a0d12;--ink-2:#2a323c;--ink-3:#5b6672;--muted:#8a94a0;--line:#e7e9ed;--bg:#f4f5f7;--lime:#8bd13f;--green:#4e8a1c;--red:#e5484d;--dark:#0a0d12;--dark-2:#121821;--dark-3:#1b232e;--d:"Inter Tight",Inter,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#555}
+body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;font-size:13px;line-height:1.5}
+.page{width:1123px;height:794px;overflow:hidden;position:relative;background:#fff;page-break-after:always;break-after:page;margin:0 auto}
+.page+.page{margin-top:0}
+@media screen{.page{margin:0 auto 24px;box-shadow:0 10px 40px rgba(0,0,0,.3)}}
+.pad{position:absolute;inset:56px 64px 52px}
+.dark{background:var(--dark);color:#fff}
+.glow::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 60% at 85% 20%,rgba(139,209,63,.22),transparent 70%),radial-gradient(40% 55% at 10% 90%,rgba(40,90,255,.16),transparent 70%)}
+.grid-bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(70% 70% at 60% 40%,#000,transparent);pointer-events:none}
+.pad{z-index:1}
+.eye{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--green)}
+.dark .eye{color:var(--lime)}
+h1,h2{font-family:var(--d);letter-spacing:-.035em;line-height:1}
+h2{font-size:42px;font-weight:900;margin:10px 0 0}
+h2 em{font-style:normal;color:var(--green)}
+.dark h2 em{color:var(--lime)}
+.lead{font-size:15px;color:var(--ink-3);max-width:520px;margin-top:14px}
+.dark .lead{color:#aeb8c2}
+.foot{position:absolute;left:64px;right:64px;bottom:22px;display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);z-index:2}
+.dark .foot{color:#5b6672}
+.foot b{color:var(--ink-2);font-weight:700}
+.dark .foot b{color:#aeb8c2}
+.shot{border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(10,13,18,.08),0 20px 50px rgba(10,13,18,.18);background:#fff}
+.dark .shot{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 30px 70px rgba(0,0,0,.55)}
+.shot .bar{height:22px;background:#eceef1;display:flex;align-items:center;gap:5px;padding:0 10px}
+.dark .shot .bar{background:#1f2731}
+.shot .bar i{width:7px;height:7px;border-radius:50%;background:#c9ced5}
+.dark .shot .bar i{background:#3a4552}
+.shot .bar span{margin-left:10px;font-size:9px;color:var(--muted);background:#fff;border-radius:5px;padding:1px 10px}
+.dark .shot .bar span{background:#121821;color:#6f7b87}
+.shot img{display:block;width:100%}
+.phone{border-radius:26px;overflow:hidden;border:6px solid #1b232e;box-shadow:0 30px 60px rgba(0,0,0,.5);background:#000}
+.phone img{display:block;width:100%}
+.tag{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:99px;font-size:11px;font-weight:700;background:rgba(139,209,63,.14);color:var(--green)}
+.dark .tag{color:var(--lime)}
+ul.ck{list-style:none;display:grid;gap:9px}
+ul.ck li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:13px;color:var(--ink-2)}
+.dark ul.ck li{color:#c5ced6}
+ul.ck li::before{content:"✓";width:20px;height:20px;border-radius:6px;background:rgba(139,209,63,.18);color:var(--green);display:grid;place-items:center;font-weight:800;font-size:11px}
+.dark ul.ck li::before{color:var(--lime)}
+ul.ck b{color:var(--ink)}
+.dark ul.ck b{color:#fff}
+
+/* cover */
+.cover .logo{height:44px;filter:brightness(0) invert(1)}
+.cover h1{font-size:74px;font-weight:900;margin-top:26px;max-width:560px}
+.cover h1 em{font-style:normal;color:var(--lime)}
+.cover .sub{font-size:16px;color:#aeb8c2;max-width:440px;margin-top:20px}
+.cover .meta{position:absolute;left:0;bottom:0;display:flex;gap:34px;font-size:12px;color:#7c8792}
+.cover .meta b{display:block;color:#fff;font-size:13.5px;margin-top:2px}
+.cover .eye{max-width:420px}
+.cover .hero{position:absolute;right:-170px;top:118px;width:640px;transform:perspective(1600px) rotateY(-14deg) rotateX(4deg);transform-origin:left center}
+.cover .ph{position:absolute;right:330px;top:340px;width:150px;transform:rotate(-4deg)}
+
+/* summary */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.stat{border-radius:18px;padding:22px;background:var(--bg)}
+.stat b{font-family:var(--d);font-size:46px;font-weight:900;letter-spacing:-.03em;display:block;line-height:1}
+.stat span{font-size:13px;color:var(--ink-3);display:block;margin-top:8px}
+.stat.hl{background:var(--dark);color:#fff}
+.stat.hl b{color:var(--lime)}.stat.hl span{color:#aeb8c2}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.box{border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+.box h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.box p{font-size:13.5px;color:var(--ink-2)}
+
+/* findings */
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.f{border:1px solid var(--line);border-radius:16px;padding:18px;min-height:168px;display:grid;gap:8px;align-content:start;background:#fff}
+.f .n{width:28px;height:28px;border-radius:8px;background:var(--dark);color:var(--lime);font-family:var(--d);font-weight:800;display:grid;place-items:center;font-size:13px}
+.f b{font-size:13.5px;line-height:1.3}
+.f p{font-size:12px;color:var(--ink-3);line-height:1.45}
+.f p::before{content:"Costs you: ";font-weight:700;color:var(--red)}
+.f.big{background:var(--dark);border-color:var(--dark);color:#fff}
+.f.big b{font-family:var(--d);font-size:22px;letter-spacing:-.02em}
+.f.big p{color:#aeb8c2;font-size:12.5px}
+.f.big p::before{content:none}
+
+/* packages */
+.pk{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;margin-top:26px}
+.pc{border-radius:20px;padding:22px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);display:flex;flex-direction:column;gap:12px}
+.pc.main{background:linear-gradient(160deg,rgba(139,209,63,.16),rgba(139,209,63,.03));border-color:rgba(139,209,63,.45)}
+.pc .l{font-family:var(--d);font-size:13px;font-weight:800;color:var(--lime);letter-spacing:.06em}
+.pc h3{font-family:var(--d);font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pc ul{list-style:none;display:grid;gap:6px}
+.pc li{font-size:12px;color:#c5ced6;padding-left:16px;position:relative;line-height:1.4}
+.pc li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:2px;background:var(--lime)}
+.pc li b{color:#fff}
+.price{margin-top:auto;border-top:1px dashed rgba(255,255,255,.15);padding-top:12px;display:flex;justify-content:space-between;align-items:baseline}
+.price span{font-size:11.5px;color:#7c8792}
+.price b{font-family:var(--d);font-size:22px;font-weight:800;color:#fff}
+.price b.tbc{font-size:14px;color:var(--lime);font-weight:700}
+.price b small{font-family:Inter;font-size:11px;color:#7c8792;font-weight:600;margin-left:4px}
+.pc li .pp{float:right;color:#fff;font-weight:700}
+.pc .note{font-size:11px;color:#7c8792}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:26px;position:relative}
+.ph2{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;min-height:150px}
+.ph2 small{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.ph2 b{display:block;font-family:var(--d);font-size:18px;font-weight:800;margin:4px 0 8px}
+.ph2 div{font-size:12px;color:var(--ink-3);line-height:1.55}
+.ph2.wide{grid-column:span 2}
+.ph2.go{background:var(--dark);border-color:var(--dark);color:#fff}
+.ph2.go small{color:var(--lime)}.ph2.go div{color:#aeb8c2}
+.axis{position:relative;height:42px;margin-top:6px}
+.axis::before{content:"";position:absolute;left:0;right:0;top:12px;height:2px;background:var(--line)}
+.gate{position:absolute;top:4px;transform:translateX(-50%);display:grid;justify-items:center;gap:4px;font-size:11px;font-weight:700;white-space:nowrap}
+.gate i{width:18px;height:18px;background:var(--lime);transform:rotate(45deg);border-radius:3px;box-shadow:0 0 0 4px #fff}
+.qs{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;margin-top:10px}
+.qs div{font-size:12.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:22px 1fr}
+.qs div span{color:var(--green);font-weight:800}
+.steps{display:grid;gap:10px;margin-top:10px}
+.steps div{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;background:var(--bg);border-radius:14px;padding:12px 14px;font-size:13px}
+.steps i{width:34px;height:34px;border-radius:10px;background:var(--dark);color:var(--lime);display:grid;place-items:center;font-style:normal;font-family:var(--d);font-weight:800}
+.steps b{display:block}
+.steps span{color:var(--ink-3);font-size:12px}
+.strip{margin-top:18px;border-radius:18px;background:var(--dark);color:#fff;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.strip b{font-family:var(--d);font-size:22px;letter-spacing:-.02em}
+.strip b em{font-style:normal;color:var(--lime)}
+.strip span{font-size:12.5px;color:#aeb8c2;max-width:360px}
+.dark .strip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.f3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.f3 div{border-radius:16px;padding:16px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09)}
+.f3 b{display:block;font-family:var(--d);font-size:17px;margin-bottom:4px}
+.f3 span{font-size:12px;color:#aeb8c2}
+.f3 i{font-style:normal;color:var(--lime);font-weight:800;margin-right:6px}
+.one{display:grid;grid-template-columns:1fr 300px;gap:16px;margin-top:26px}
+.onel{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;border-radius:20px;padding:24px 26px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1)}
+.ocol h5{font-family:var(--d);font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.01em}
+.ocol ul{list-style:none;display:grid;gap:5px}
+.ocol li{font-size:12px;color:#c5ced6;padding-left:16px;position:relative;line-height:1.4}
+.ocol li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:2px;background:var(--lime)}
+.ocol li b{color:#fff}
+.oner{border-radius:20px;padding:26px;background:linear-gradient(160deg,rgba(139,209,63,.2),rgba(139,209,63,.04));border:1px solid rgba(139,209,63,.5);display:flex;flex-direction:column;gap:12px}
+.ol{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--lime)}
+.op{font-family:var(--d);font-size:96px;font-weight:900;letter-spacing:-.05em;line-height:1.05;color:#fff;margin-top:2px}
+.osplit{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto}
+.osplit div{background:rgba(0,0,0,.25);border-radius:12px;padding:10px 12px}
+.osplit b{display:block;font-family:var(--d);font-size:20px;color:#fff}
+.osplit span{font-size:11px;color:#aeb8c2}
+.onote{font-size:12px;color:#aeb8c2;border-top:1px dashed rgba(255,255,255,.15);padding-top:10px}
+.cap{font-size:11.5px;color:var(--muted);margin-top:8px}
+.dark .cap{color:#7c8792}
+.num{font-family:var(--d);font-weight:900;font-size:13px;color:var(--lime);background:var(--dark);border-radius:7px;padding:2px 7px;margin-right:8px}
+
+/* ═════ Arabic / RTL overrides ═════ */
+:root{--d:"IBM Plex Sans Arabic",Inter,sans-serif}
+body{font-family:"IBM Plex Sans Arabic",Inter,sans-serif;line-height:1.6}
+h1,h2,.stat b,.op,.strip b,.pc h3,.f.big b,.ph2 b,.ocol h5,.osplit b{letter-spacing:0}
+h1,h2{line-height:1.25;font-weight:700}
+h2{font-size:38px}
+.cover h1{font-size:60px;font-weight:700;line-height:1.2}
+.eye{letter-spacing:0;font-size:13px}
+.stat b{font-weight:700;line-height:1.3}
+.op{font-size:86px;font-weight:700;letter-spacing:0;line-height:1.3}
+.osplit b,.price b{line-height:1.3}
+.f.big b{font-size:21px}
+.ocol li,.pc li{padding-left:0;padding-right:16px}
+.ocol li::before,.pc li::before{left:auto;right:0}
+.f p::before{content:"التكلفة: "}
+.num{margin-right:0;margin-left:8px}
+.cover .hero{right:auto;left:-170px;transform:perspective(1600px) rotateY(14deg) rotateX(4deg);transform-origin:right center}
+.cover .ph{right:auto;left:330px;transform:rotate(4deg)}
+.shot .bar{direction:ltr}
+.gate{transform:translateX(50%)}
+.qs div{grid-template-columns:22px 1fr}
+.foot{direction:rtl}
+.f3 i{margin-right:0;margin-left:6px}
+</style>
+</head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page dark glow grid-bg cover">
+  <div class="pad">
+    <img class="logo" src="https://www.dpsy.com/template/image/logo.png" alt="Digital Plus">
+    <div class="eye" style="margin-top:56px">عرض تقديمي · 23 تشرين الثاني 2026</div>
+    <h1>متجر إلكتروني جديد لـ <em>ديجيتال بلس.</em></h1>
+    <p class="sub">سلة واحدة، وإتمام طلب واحد، بالعربية والإنجليزية، ومصمم للموبايل أولاً. طلبات الواتساب تبقى كما هي، وفريقكم يحصل على لوحة تحكم حقيقية.</p>
+    <div class="meta"><span>مُعدّ لـ<b>ديجيتال بلس · Systems & Solutions</b></span><span>النموذج<b>يعمل، بمنتجاتكم الحقيقية</b></span><span>الإطلاق<b>خلال 3 أسابيع من البدء</b></span><span>السعر<b>$600 شامل كل شيء</b></span></div>
+  </div>
+  <div class="hero shot"><div class="bar"><i></i><i></i><i></i><span>dpsy.com</span></div><img src="img/home-ar.jpg" alt=""></div>
+  <div class="ph phone"><img src="img/m-ar.jpg" alt=""></div>
+</section>
+
+<!-- 2 SUMMARY -->
+<section class="page">
+  <div class="pad">
+    <div class="cols2">
+      <div>
+        <div class="eye">باختصار</div>
+        <h2>زبائنكم يريدون الشراء أونلاين. <em>فلنسهّل عليهم ذلك.</em></h2>
+        <p class="lead">موقع dpsy.com يعرض تشكيلة قوية، لكن كل طلب يحتاج نموذجاً منفصلاً أو محادثة واتساب. نقترح متجراً جديداً يملأ فيه الزبون سلة واحدة، ويُتم طلبه بثلاث خطوات، ويدفع نقداً عند الاستلام.</p>
+      </div>
+      <div style="display:grid;gap:12px;align-content:start;padding-top:28px">
+        <div class="box"><h4>ما نقترحه</h4><p>واجهة متجر جديدة، ولوحة تحكم للموظفين، ونقل كامل لكل منتجاتكم بسلاسة — العربية أولاً، والموبايل أولاً، وبكود حديث.</p></div>
+        <div class="box"><h4>ما يبقى كما هو</h4><p>الواتساب. السلة كاملة أو تجميعة الكمبيوتر تصل لفريق المبيعات برسالة واحدة مرتبة، فلا يتغير شيء في طريقة بيعكم من اليوم الأول.</p></div>
+        <div class="box"><h4>ما تم إنجازه</h4><p>نموذج يعمل فعلاً بمنتجاتكم وأسعاركم وصوركم الحقيقية — يمكنكم تجربته اليوم.</p></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b><bdi dir="ltr">~1,700</bdi></b><span>منتج مع الصور والمواصفات تُنقل من الموقع الحالي</span></div>
+      <div class="stat"><b>6</b><span>مدن مع الدفع عند الاستلام: دمشق، حلب، حمص، حماة، اللاذقية، طرطوس</span></div>
+      <div class="stat hl"><b>3 أسابيع</b><span>من البدء حتى متجر يعمل</span></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>02</span></div>
+</section>
+
+<!-- 3 FINDINGS -->
+<section class="page" style="background:var(--bg)">
+  <div class="pad">
+    <div class="eye">ما وجدناه في dpsy.com</div>
+    <h2>منتجات ممتازة. <em>وموقع يُبطئ البيع.</em></h2>
+    <div class="fgrid">
+      <div class="f big" style="grid-row:span 2"><span class="tag" style="background:rgba(139,209,63,.15)">أكبر مكسب</span><b>لا توجد سلة. كل منتج طلب منفصل.</b><p>زبون يشتري لابتوب وشاشة وماوس يحتاج ثلاثة نماذج أو ثلاث محادثات. السلة تجعلها طلباً واحداً، وتوفّر وقت موظفيكم في كل عملية بيع.</p></div>
+      <div class="f"><span class="n">2</span><b>مجمّع الأجهزة لا يتحقق من توافق القطع</b><p>تُطلب قطع خاطئة، أو يذهب الزبون لمحل يرشده.</p></div>
+      <div class="f"><span class="n">3</span><b>التحليلات تعمل على نسخة Google المتوقفة</b><p>غالباً لا توجد بيانات عن الزوار أو الأكثر مبيعاً أو مصدر المبيعات.</p></div>
+      <div class="f"><span class="n">4</span><b>إعداد ضعيف لمحرك بحث Google</b><p>نفس العنوان في كل صفحة ولا بيانات للمنتجات، فالترتيب أضعف؛ والمشاركة تُظهر الشعار فقط.</p></div>
+      <div class="f"><span class="n">5</span><b>تصميم الموبايل يعيق التصفح</b><p>زر الواتساب يغطي البحث والبانر يظهر فارغاً — حيث يتسوق معظم الزبائن.</p></div>
+      <div class="f"><span class="n">6</span><b>«قارن مع» يعرض 50 لابتوب في قائمة واحدة</b><p>ميزة مفيدة لا يستطيع أحد استخدامها.</p></div>
+      <div class="f"><span class="n">7</span><b>كود قديم من عام 2014</b><p>صفحات أبطأ، وصيانة أصعب، وثغرات أمنية بلا إصلاح.</p></div>
+    </div>
+    <div class="strip"><b>المشاكل السبع <em>محلولة مسبقاً</em> في النموذج.</b><span>الصفحات التالية تعرض المتجر ولوحة التحكم وهما يعملان، بمنتجاتكم وأسعاركم وصوركم الحقيقية.</span></div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>03</span></div>
+</section>
+
+<!-- 4 STOREFRONT -->
+<section class="page dark glow grid-bg">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:330px 1fr;gap:36px;height:100%">
+      <div>
+        <div class="eye">المتجر الجديد</div>
+        <h2>بمستوى العلامات <em>التي تبيعونها.</em></h2>
+        <p class="lead" style="font-size:13.5px">صفحات تسوّق فاتحة وهادئة، مع لحظات داكنة وسينمائية لـ ROG و RTX و ProArt — على طريقة أفضل متاجر التقنية العالمية.</p>
+        <ul class="ck" style="margin-top:22px">
+          <li><span><b>شرائح رئيسية</b> مع مواصفات واضحة لكل منتج</span></li>
+          <li><span><b>عرض اليوم</b> مع عدّاد تنازلي</span></li>
+          <li><span><b>تسوّق حسب الحاجة:</b> ألعاب، مصممون، طلاب، أعمال</span></li>
+          <li><span><b>بحث فوري</b> وفلاتر حقيقية حسب السلسلة والحجم والسعر</span></li>
+          <li><span><b>عربي كامل</b> من اليمين لليسار، والتبديل بلمسة</span></li>
+        </ul>
+      </div>
+      <div style="position:relative">
+        <div class="shot" style="position:absolute;right:0;top:8px;width:620px"><div class="bar"><i></i><i></i><i></i><span>dpsy.com</span></div><img src="img/home-ar.jpg" alt=""></div>
+        <div class="phone" style="position:absolute;left:-6px;top:250px;width:150px"><img src="img/m-ar.jpg" alt=""></div>
+        <div class="cap" style="position:absolute;right:0;bottom:0">الصفحة الرئيسية على الكمبيوتر والموبايل · منتجات وأسعار حقيقية من dpsy.com</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>04</span></div>
+</section>
+
+<!-- 5 GAMING + BUILDER -->
+<section class="page dark">
+  <div class="pad">
+    <div class="eye">لزبائن الألعاب</div>
+    <h2>منطقة ألعاب، ومجمّع أجهزة <em>يفكّر.</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px">
+      <div><div class="shot"><img src="img/gaming-ar.jpg" alt=""></div>
+        <p class="cap"><span class="num">1</span>لابتوبات ROG و TUF وكروت RTX في واجهة داكنة واحدة، مع الإضافة للسلة بلمسة.</p></div>
+      <div><div class="shot"><img src="img/builder-ar.jpg" alt=""></div>
+        <p class="cap"><span class="num">2</span>معالج غير متوافق، أو ذاكرة خاطئة، أو مزوّد طاقة صغير — يظهر بالأحمر مع السبب، قبل الطلب لا بعده. والتجميعة كاملة تُرسل على واتساب بلمسة.</p></div>
+    </div>
+    <div class="f3"><div><b><i>✓</i>فحص المقبس</b><span>Intel LGA1700 / LGA1851 و AMD AM4 / AM5 مطابقة للوحة الأم</span></div><div><b><i>✓</i>فحص الذاكرة</b><span>DDR4 أو DDR5 حسب ما تدعمه اللوحة الأم</span></div><div><b><i>✓</i>فحص الطاقة</b><span>يجمع استهلاك القطع ويقترح مزوّد طاقة آمناً</span></div></div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>05</span></div>
+</section>
+
+<!-- 6 CHECKOUT -->
+<section class="page">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:300px 1fr;gap:34px">
+      <div>
+        <div class="eye">إتمام الطلب</div>
+        <h2>ثلاث خطوات. <em>والدفع عند الاستلام.</em></h2>
+        <p class="lead" style="font-size:13.5px">مصمم لطريقة الشراء في سوريا: بلا بطاقة، ومكالمة للتأكيد، والواتساب كخيار احتياطي.</p>
+        <div class="steps" style="margin-top:22px">
+          <div><i>1</i><span><b>التواصل</b><span>الاسم ورقم موبايل ‎+963 يُتحقق منه أثناء الكتابة</span></span></div>
+          <div><i>2</i><span><b>توصيل أو استلام من المعرض</b><span>6 مدن، أو فرع دمشق / حلب</span></span></div>
+          <div><i>3</i><span><b>الدفع نقداً</b><span>لا يُخصم شيء أونلاين؛ وتتصلون للتأكيد</span></span></div>
+        </div>
+      </div>
+      <div style="display:grid;gap:14px">
+        <div class="shot"><div class="bar"><i></i><i></i><i></i><span>dpsy.com/checkout</span></div><img src="img/checkout-ar.jpg" alt="" style="height:300px;object-fit:cover;object-position:top"></div>
+        <div class="shot"><div class="bar"><i></i><i></i><i></i><span>تم استلام الطلب</span></div><img src="img/done-ar.jpg" alt="" style="height:300px;object-fit:cover;object-position:top"></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>06</span></div>
+</section>
+
+<!-- 7 ADMIN -->
+<section class="page" style="background:var(--bg)">
+  <div class="pad">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:34px">
+      <div style="display:grid;gap:14px">
+        <div class="shot"><div class="bar"><i></i><i></i><i></i><span>لوحة التحكم · الطلبات</span></div><img src="img/admin-order-ar.jpg" alt="" style="height:300px;object-fit:cover;object-position:top"></div>
+        <div class="shot"><div class="bar"><i></i><i></i><i></i><span>لوحة التحكم · تحديث الأسعار من Excel</span></div><img src="img/admin-import-ar.jpg" alt="" style="height:232px;object-fit:cover;object-position:top"></div>
+      </div>
+      <div>
+        <div class="eye">لفريقكم</div>
+        <h2>لوحة تحكم <em>سيستخدمها موظفوكم فعلاً.</em></h2>
+        <ul class="ck" style="margin-top:22px">
+          <li><span><b>صندوق الطلبات:</b> اتصال، تأكيد، إرسال، تسليم — زر واحد لكل خطوة، مع السجل</span></li>
+          <li><span><b>تحديث الأسعار من Excel:</b> ارفعوا الملف وشاهدوا كل تغيير أولاً؛ القفزات فوق 20% تُوقَف حتى لا تُنشر أخطاء الكتابة</span></li>
+          <li><span><b>الأسعار والتوفر</b> تُعدّل في الجدول وتُنشر عند الحفظ</span></li>
+          <li><span><b>البانرات وعرض اليوم</b> بتواريخ ومعاينة مباشرة</span></li>
+          <li><span><b>عربي أو إنجليزي</b>، على الكمبيوتر أو الموبايل</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>07</span></div>
+</section>
+
+<!-- 8 PACKAGES -->
+<section class="page dark glow">
+  <div class="pad">
+    <div class="eye">باقة واحدة، سعر واحد</div>
+    <h2>كل ما تحتاجونه. <em>$600.</em></h2>
+    <div class="one">
+      <div class="onel">
+        <div class="ocol">
+          <h5>متجركم</h5>
+          <ul><li><b>واجهة المتجر:</b> الرئيسية، والمتجر مع الفلاتر، وصفحات المنتجات</li><li><b>سلة + إتمام طلب بثلاث خطوات</b>، دفع عند الاستلام أو استلام من المعرض</li><li><b>مجمّع أجهزة ذكي</b> يتحقق من التوافق</li><li><b>عربي + إنجليزي</b>، مصمم للموبايل</li><li>السلة أو التجميعة تُرسل كاملة على <b>واتساب</b></li></ul>
+        </div>
+        <div class="ocol">
+          <h5>فريقكم</h5>
+          <ul><li><b>لوحة تحكم:</b> الطلبات، المنتجات، الأسعار، التوفر</li><li><b>تحديث الأسعار من Excel</b> مع حماية من الأخطاء</li><li>البانرات وعرض اليوم</li><li>تدريب الموظفين</li></ul>
+        </div>
+        <div class="ocol">
+          <h5>الإطلاق</h5>
+          <ul><li><b>نقل <bdi dir="ltr">~1,700</bdi> منتج</b> مع الصور والمواصفات</li><li><b>إعداد Google:</b> العناوين، بيانات المنتجات، خريطة الموقع، GA4</li><li>تحويل الروابط القديمة للحفاظ على الترتيب</li><li>أسبوعان من الدعم بعد الإطلاق</li></ul>
+        </div>
+        <div class="ocol">
+          <h5>الاستضافة</h5>
+          <ul><li><b>السنة الأولى مشمولة</b> على سيرفرنا</li><li>SSL، ونسخ احتياطي يومي، ومراقبة التشغيل</li></ul>
+        </div>
+      </div>
+      <div class="oner">
+        <span class="ol">شامل · دفعة واحدة</span>
+        <b class="op">$600</b>
+        <div class="osplit"><div><b>$300</b><span>عند البدء</span></div><div><b>$300</b><span>عند الإطلاق</span></div></div>
+        <div class="onote">جاهز خلال 3 أسابيع. من السنة الثانية، الاستضافة والصيانة بـ $60 شهرياً.</div>
+      </div>
+    </div>
+    <div class="strip"><b>تحتاجون المزيد لاحقاً؟ <em>نسعّره عندما تكونون جاهزين.</em></b><span>حسابات الزبائن، تنبيهات التوفر على واتساب، التقييمات، محفظة الموبايل. غير مشمول: رسوم رسائل SMS / واتساب، وتصوير منتجات جديد، والتعديلات بعد جولتي مراجعة للتصميم.</span></div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>08</span></div>
+</section>
+
+<!-- 9 TIMELINE + NEXT -->
+<section class="page">
+  <div class="pad">
+    <div class="eye">الخطة</div>
+    <h2>جاهز خلال <em>3 أسابيع.</em></h2>
+    <div class="tl">
+      <div class="ph2"><small>الأيام 1–3 · الأسبوع 1</small><b>البدء</b><div>ملفات الهوية<br>تصدير المنتجات<br>اعتماد التصميم</div></div>
+      <div class="ph2"><small>الأيام 4–10 · الأسبوع 1–2</small><b>البناء</b><div>واجهة المتجر وإتمام الطلب<br>مجمّع الأجهزة<br>لوحة التحكم</div></div>
+      <div class="ph2"><small>الأيام 8–12 · الأسبوع 2–3</small><b>المحتوى</b><div>إدخال 1,700 منتج<br>النصوص العربية<br>إعداد Google</div></div>
+      <div class="ph2"><small>الأيام 13–14 · الأسبوع 3</small><b>الاختبار</b><div>فريقكم يختبر<br>تدريب الموظفين<br>إصلاحات</div></div>
+      <div class="ph2 go"><small>اليوم 15 · الأسبوع 3</small><b>الإطلاق</b><div>تشغيل المتجر<br>الروابط القديمة محفوظة<br>أسبوعان من الدعم</div></div>
+    </div>
+    <div class="axis"><div class="gate" style="right:calc(20% - 2px)"><i></i>تعتمدون التصميم · اليوم 3</div><div class="gate" style="right:calc(80% + 2px)"><i></i>تعطون الموافقة · اليوم 14</div></div>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:34px;margin-top:12px">
+      <div><div class="eye" style="color:var(--ink-3)">قبل البدء، نحتاج أن نعرف</div>
+        <div class="qs"><div><span>1</span>كم طلباً يومياً: الموقع، واتساب، المعرض؟</div><div><span>2</span>أين تُحفظ الأسعار اليوم (Excel، نظام)؟</div><div><span>3</span>سائقون لديكم أم شركة توصيل؟ والرسوم لكل مدينة؟</div><div><span>4</span>نقداً فقط، أم محفظة موبايل أيضاً؟</div><div><span>5</span>من سيدير لوحة التحكم يومياً؟</div><div><span>6</span>شريك ASUS رسمي؟ سنُبرز ذلك.</div></div></div>
+      <div><div class="eye" style="color:var(--ink-3)">الخطوات التالية</div>
+        <div class="steps"><div><i>1</i><span><b>جولة لمدة 30 دقيقة</b><span>على النموذج مع فريقكم</span></span></div><div><i>2</i><span><b>التوقيع والبدء</b><span>$300 عند البدء</span></span></div><div><i>3</i><span><b>البدء</b><span>اليوم 1، والمتجر يعمل في اليوم 15</span></span></div></div></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>ديجيتال بلس</b> · عرض المتجر الإلكتروني الجديد</span><span>09</span></div>
+</section>
+
+</body>
+</html>
