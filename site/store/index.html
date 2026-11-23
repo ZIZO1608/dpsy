@@ -897,6 +897,59 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
 }
 
 body:has(#v-builder.on) footer{margin-top:0}
+
+/* ═════ search-first hero ═════ */
+.hero .sx{position:relative;z-index:1;padding:64px 24px 54px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.sx-h{font-family:var(--display);font-size:clamp(38px,6vw,76px);font-weight:900;letter-spacing:-.035em;line-height:1;max-width:900px}
+[dir=rtl] .sx-h{letter-spacing:0;line-height:1.2;font-weight:700}
+.sx-h em{font-style:normal;color:var(--lime)}
+.sx-p{text-wrap:balance;color:#aeb8c2;font-size:clamp(15px,1.5vw,18px);margin-top:16px;max-width:620px}
+.sx-box{margin-top:30px;width:100%;max-width:760px;height:68px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:20px;padding-inline:22px 8px;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 24px 60px rgba(0,0,0,.45),0 0 70px rgba(139,209,63,.18);transition:box-shadow .2s}
+.sx-box:focus-within{box-shadow:0 0 0 3px var(--lime),0 24px 60px rgba(0,0,0,.45),0 0 90px rgba(139,209,63,.3)}
+.sx-box svg{color:#8a94a0;flex:none}
+.sx-box input{flex:1;min-width:0;height:100%;border:0;outline:0;background:transparent;font-size:18px;color:var(--ink)}
+.sx-box input::-webkit-search-cancel-button{-webkit-appearance:none}
+.sx-box button{height:52px;padding:0 24px;border-radius:14px;background:var(--lime);color:var(--ink);font-weight:800;font-size:15px;flex:none;transition:background .15s}
+.sx-box button:hover{background:var(--lime-2)}
+.sx-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px;max-width:820px}
+.sx-chips button{height:40px;padding:0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#dfe5ea;font-weight:600;font-size:14px;transition:.15s;backdrop-filter:blur(8px)}
+.sx-chips button:hover{border-color:rgba(139,209,63,.6);color:#fff}
+.sx-chips button.on{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.sx-res{width:100%;max-width:1100px;margin-top:38px;text-align:start}
+.sx-rh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;gap:12px}
+.sx-rh span{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--lime)}
+[dir=rtl] .sx-rh span{letter-spacing:0;font-size:14px}
+.sx-rh a{font-size:14px;font-weight:600;color:#aeb8c2;white-space:nowrap}
+.sx-rh a:hover{color:#fff}
+.sx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sx-card{display:grid;grid-template-columns:84px 1fr;gap:14px;align-items:center;padding:12px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);transition:border-color .2s,transform .2s var(--ease);min-width:0;animation:sxIn .35s var(--ease) both}
+.sx-card:hover{border-color:rgba(139,209,63,.5);transform:translateY(-2px)}
+@keyframes sxIn{from{opacity:0;transform:translateY(8px)}}
+.sx-card .ph{height:84px;border-radius:12px;background:radial-gradient(closest-side,rgba(255,255,255,.09),transparent);display:grid;place-items:center}
+.sx-card .ph img{max-height:76px;max-width:80px;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))}
+.sx-card .tx{min-width:0;display:flex;flex-direction:column;gap:3px}
+.sx-card b{font-size:13.5px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sx-card .pr{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+.sx-card .pr strong{font-family:var(--display);font-size:18px;font-weight:800}
+.sx-card .pr s{color:#5b6672;font-size:12px;margin-inline-start:4px}
+.sx-card .pr button{width:36px;height:36px;border-radius:10px;background:var(--lime);color:var(--ink);display:grid;place-items:center;flex:none}
+.sx-empty{grid-column:1/-1;padding:26px;border-radius:18px;border:1px dashed rgba(255,255,255,.18);text-align:center;color:#aeb8c2;display:grid;gap:12px;justify-items:center}
+@media (max-width:1100px){.sx-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){
+  .hero .sx{padding:40px 16px 34px}
+  body[data-view=home] .hbar .search{display:none}
+  .sx-box{height:58px;padding-inline:16px 6px;border-radius:16px;margin-top:24px}
+  .sx-box input{font-size:16px}
+  .sx-box button{height:46px;padding:0 16px;font-size:14px}
+  .sx-chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;width:calc(100% + 32px);margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .sx-chips::-webkit-scrollbar{display:none}
+  .sx-chips button{flex:none}
+  .sx-res{margin-top:28px}
+  .sx-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .sx-grid::-webkit-scrollbar{display:none}
+  .sx-card{flex:0 0 82%;scroll-snap-align:start}
+}
+
 /* ═════ phone polish ═════ */
 @media (max-width:620px){
   .hbar,body.is-ck .hbar{padding:10px 16px}
@@ -999,7 +1052,21 @@ select option:checked{background:#8bd13f;color:#0a0d12}
   </div>
   <section class="hero zone" id="hero">
     <div class="aurora" id="aur"></div><div class="gridbg"></div>
-    <div class="wrap hwrap"><div class="slider" id="slider"></div></div>
+    <div class="wrap sx">
+      <h1 class="sx-h" id="sxH">What are you <em>building</em> today?</h1>
+      <p class="sx-p" id="sxP">1,700+ computers and parts. Prices checked daily, cash on delivery in 6 cities.</p>
+      <form class="sx-box" id="sxForm" role="search" autocomplete="off">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="sr" for="sxQ">Search products</label>
+        <input id="sxQ" type="search" enterkeyhint="search">
+        <button type="submit" id="sxGo">Search</button>
+      </form>
+      <div class="sx-chips" id="sxChips"></div>
+      <div class="sx-res">
+        <div class="sx-rh"><span id="sxLabel"></span><a href="#shop" id="sxAll"></a></div>
+        <div class="sx-grid" id="sxGrid"></div>
+      </div>
+    </div>
   </section>
   <div class="wrap">
     <section class="duo">
@@ -1385,6 +1452,7 @@ const SLIDES=[
 ];
 let si=0,sTimer;
 function renderSlider(){
+  if(!$('#slider'))return;
   $('#slider').innerHTML=SLIDES.map((s,i)=>`<div class="slide ${i===si?'on':''}" style="--accent:${s.a};--glow:${s.gl}">
    <div class="tx"><span class="eyebrow">${s.eye}</span><h1>${lang==='ar'?s.ha:s.h}</h1><p>${lang==='ar'?s.pa:s.p}</p>
    <div class="chips">${s.chips.map(c=>`<span class="pill">${c}</span>`).join('')}</div>
@@ -1396,7 +1464,7 @@ function renderSlider(){
   $('#aur').style.setProperty('--glow',SLIDES[si].gl);
   clearTimeout(sTimer);sTimer=setTimeout(()=>goSlide((si+1)%SLIDES.length),6500);
 }
-function goSlide(i){si=i;$('#aur').style.setProperty('--glow',SLIDES[i].gl);
+function goSlide(i){if(!$('#slider'))return;si=i;$('#aur').style.setProperty('--glow',SLIDES[i].gl);
   $$('.slide').forEach((s,k)=>s.classList.toggle('on',k===i));
   $$('.dots button').forEach((d,k)=>{d.className=k===i?'':k<i?'done':'';void d.offsetWidth;if(k===i)d.classList.add('on')});
   clearTimeout(sTimer);sTimer=setTimeout(()=>goSlide((si+1)%SLIDES.length),6500);}
@@ -1828,18 +1896,51 @@ function makeDoc(kind){
   return null;
 }
 
+
+/* ───── search-first hero ───── */
+const SX_CHIPS=[
+ {k:'game',en:'Gaming under $1,000',ar:'ألعاب بأقل من 1,000$',f:p=>p.c==='lap'&&p.se==='Gaming'&&p.p<1000},
+ {k:'5060',en:'RTX 5060',ar:'RTX 5060',f:p=>/5060/.test(p.n+' '+(p.s||''))},
+ {k:'mon27',en:'27-inch monitors',ar:'شاشات 27 إنش',f:p=>p.c==='mon'&&/27/.test(p.s||'')},
+ {k:'student',en:'Student laptops',ar:'لابتوبات للطلاب',f:p=>p.c==='lap'&&/VivoBook/i.test(p.se||'')&&p.p<700},
+ {k:'proart',en:'ProArt for creators',ar:'ProArt للمصممين',f:p=>/ProArt/.test(p.n)},
+ {k:'deals',en:'Deals',ar:'العروض',f:p=>!!p.o},
+];
+let sxChip=null;
+function sxCard(p){return `<div class="sx-card"><a class="ph" href="#product"><img loading="lazy" src="${IMG(p.f,'full')}" alt=""></a><div class="tx"><b><a href="#product">${esc(p.n.replace('ASUS ',''))}</a></b><span style="font-size:12px;color:#8d98a3">${esc(p.s||'')}</span><div class="pr"><span><strong>${p.p?money(p.p):t('call')}</strong>${p.o?`<s>${money(p.o)}</s>`:''}</span>${p.p?`<button onclick="add(${p.id},1)" aria-label="${t('add')}">${I.cart}</button>`:''}</div></div></div>`}
+function renderHero(){
+  const ar=lang==='ar', q=($('#sxQ')||{}).value||'';
+  if(!$('#sxH'))return;
+  $('#sxH').innerHTML=ar?'ماذا <em>تجمّع</em> اليوم؟':'What are you <em>building</em> today?';
+  $('#sxP').textContent=ar?'أكثر من 1,700 جهاز وقطعة. أسعار محدّثة يومياً، والدفع عند الاستلام في 6 مدن.':'1,700+ computers and parts. Prices checked daily, cash on delivery in 6 cities.';
+  $('#sxQ').placeholder=ar?'ابحث: RTX 5060، لابتوب ألعاب، شاشة 27…':'Search: RTX 5060, gaming laptop, 27" monitor…';
+  $('#sxGo').textContent=ar?'بحث':'Search';
+  $('#sxChips').innerHTML=SX_CHIPS.map(c=>`<button type="button" class="${sxChip===c.k?'on':''}" onclick="sxPick('${c.k}')">${ar?c.ar:c.en}</button>`).join('')+`<button type="button" onclick="location.hash='#builder'">${ar?'جمّع جهازك':'Build a PC'}</button>`;
+  let list,label;
+  const words=q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if(words.length){list=P.filter(p=>words.every(w=>(p.n+' '+(p.s||'')+' '+(p.se||'')).toLowerCase().includes(w)));label=ar?`${list.length} نتيجة لـ “${q.trim()}”`:`${list.length} results for “${q.trim()}”`}
+  else if(sxChip){const c=SX_CHIPS.find(x=>x.k===sxChip);list=P.filter(c.f).sort((a,b)=>(a.p||9e9)-(b.p||9e9));label=ar?c.ar:c.en}
+  else{list=[1672,1336,1685,1673,1283,1683,1463,1574].map(byId);label=ar?'الأكثر طلباً الآن':'Popular right now'}
+  $('#sxLabel').textContent=label;
+  $('#sxAll').textContent=(ar?'كل المنتجات':'See all products')+(ar?' ←':' →');
+  $('#sxGrid').innerHTML=list.length?list.slice(0,8).map(sxCard).join(''):`<div class="sx-empty"><b style="color:#fff;font-size:16px">${ar?'لم نجده في الموقع — قد يكون متوفراً في المعرض.':'Not on the site — we may still have it in store.'}</b><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/963930334001?text=${encodeURIComponent((ar?'مرحباً، هل يتوفر لديكم: ':'Hello, do you have: ')+q.trim())}">${I.wa}${ar?'اسألنا على واتساب':'Ask us on WhatsApp'}</a></div>`;
+}
+function sxPick(k){sxChip=sxChip===k?null:k;$('#sxQ').value='';renderHero()}
+{const f=$('#sxForm');if(f){f.onsubmit=e=>{e.preventDefault();sxChip=null;renderHero();$('#sxQ').blur()};$('#sxQ').addEventListener('input',()=>{sxChip=null;clearTimeout(window._sxT);window._sxT=setTimeout(renderHero,120)})}}
+
 /* ───── router ───── */
 function route(){
   const h=(location.hash||'#home').slice(1).split('/'),v=h[0]||'home';
   if(v==='shop'&&h[1]){const s=decodeURIComponent(h[1]);F.se.clear();if(SERIES.includes(s))F.se.add(s);renderShop()}
   $$('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));
+  document.body.dataset.view=v;
   if(!$('.view.on'))$('#v-home').classList.add('on');
   $$('#bbar [data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===v));
   document.body.classList.toggle('is-ck',v==='checkout');if(v==='checkout')renderCheckout();
   mega.classList.remove('on');window.scrollTo({top:0});setTimeout(armReveal,50);
 }
 addEventListener('hashchange',route);
-function renderAll(){$$('.rig').forEach(r=>r.innerHTML='');renderHeader();renderGZ();renderRig($('#rigD'),{},false);renderSlider();renderDeal();renderHome();renderShop();renderProduct();renderBuilder();renderCart();renderCmp();renderCheckout()}
+function renderAll(){$$('.rig').forEach(r=>r.innerHTML='');renderHeader();renderGZ();renderRig($('#rigD'),{},false);renderSlider();renderHero();renderDeal();renderHome();renderShop();renderProduct();renderBuilder();renderCart();renderCmp();renderCheckout()}
 $('#lang').onclick=()=>{lang=lang==='en'?'ar':'en';applyLang()};
 renderAll();route();armReveal();
 /* demo states for screenshots: ?demo=build | checkout | done | ar */
