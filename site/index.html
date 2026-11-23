@@ -78,6 +78,17 @@ footer{padding:30px 0 50px;color:#5b6672;font-size:13px;display:flex;justify-con
 @media (max-width:900px){.grid{grid-template-columns:1fr}.big{grid-row:auto}.hero{padding:40px 0 34px}}
 @media (max-width:560px){.wrap{padding:0 16px}header img{height:30px}.tag{display:none}.card .tx{padding:22px 20px 14px}.card .shot{margin-left:20px;margin-right:20px}.card h2{font-size:25px}.price b{font-size:52px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+
+/* ═════ brand: scrollbars, selection ═════ */
+html{scrollbar-color:#8bd13f #0a0d12;scrollbar-width:thin}
+html::-webkit-scrollbar{width:10px;height:10px}
+html::-webkit-scrollbar-track{background:#0a0d12}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#a6e35f,#5fae22);border-radius:10px;border:2px solid #0a0d12}
+*{scrollbar-color:#8bd13f transparent}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:#8bd13f;border-radius:8px}
+::selection{background:#8bd13f;color:#0a0d12}
 </style>
 </head>
 <body>

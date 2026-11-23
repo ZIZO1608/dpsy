@@ -365,7 +365,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdro
 .bi img{width:64px;height:64px;object-fit:contain;flex:none}
 .bi b{display:block;font-size:13.5px;line-height:1.3}
 .bi span{font-weight:800;font-size:14px}
-.bi input{margin-inline-start:auto;accent-color:var(--ink);width:18px;height:18px}
+.bi input{margin-inline-start:auto;accent-color:#4e8a1c;width:18px;height:18px}
 .plus{font-size:22px;color:var(--muted);font-weight:300}
 .btot{display:flex;align-items:center;gap:16px;margin-inline-start:auto}
 .btot b{font-family:var(--display);font-size:28px;font-weight:800}
@@ -807,7 +807,7 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
 .tel input{border:0;outline:0;height:47px;padding:0 14px;flex:1;font-size:15px;letter-spacing:.03em;min-width:0}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .chk{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--ink-2);cursor:pointer}
-.chk input{width:18px;height:18px;accent-color:var(--ink)}
+.chk input{width:18px;height:18px;accent-color:#4e8a1c}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .opt{border:1.5px solid var(--line-2);border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:.15s;background:#fff;text-align:start}
 .opt:hover{border-color:var(--ink-3)}
@@ -895,6 +895,70 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
   .prog .now .lbl{display:inline}
   .ckdone h1{font-size:30px}
 }
+
+body:has(#v-builder.on) footer{margin-top:0}
+/* ═════ phone polish ═════ */
+@media (max-width:620px){
+  .hbar,body.is-ck .hbar{padding:10px 16px}
+  .navrow{display:none}
+  .ckback{min-height:44px;padding:0 6px}
+  .duo .tile{min-height:210px}
+  .duo .tile b{max-width:58%;font-size:22px}
+  .duo .tile span:not(.go):not(.eyebrow){max-width:54%}
+  .duo .tile img{width:40%;bottom:12%;inset-inline-end:2%}
+  .sh{align-items:center}
+  .sh h2{font-size:24px}
+  .sh h2 span{display:none}
+  .sh .more a{white-space:nowrap;margin-inline-end:0}
+  .sh .more .arr{display:none}
+  .need{min-height:230px}
+  .need span{max-width:80%}
+  .need img{max-height:42%;max-width:64%;bottom:20%}
+  .why div{display:grid;grid-template-columns:44px 1fr;gap:2px 14px;align-items:start;padding:18px}
+  .why i{margin:0;grid-row:span 2}
+  .vt{display:none}
+  .ltools select{margin-inline-start:auto}
+  .ltools .count{margin-inline-end:0}
+  .usp .wrap{gap:20px}
+  .rail{margin-inline:-16px;padding-inline:16px}
+  .track{margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
+  .facet label{padding:9px 0}
+  .add,.waq{height:42px}
+  .card .acts{grid-template-columns:1fr 42px}
+}
+
+/* ═════ brand: scrollbars, selection ═════ */
+html{scrollbar-color:#8bd13f #0a0d12;scrollbar-width:thin}
+html::-webkit-scrollbar{width:10px;height:10px}
+html::-webkit-scrollbar-track{background:#0a0d12}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#a6e35f,#5fae22);border-radius:10px;border:2px solid #0a0d12}
+*{scrollbar-color:#8bd13f transparent}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:#8bd13f;border-radius:8px}
+::selection{background:#8bd13f;color:#0a0d12}
+
+/* ═════ brand: dropdowns, checkboxes, inputs ═════ */
+input,textarea{caret-color:#4e8a1c}
+input[type=checkbox],input[type=radio]{accent-color:#4e8a1c}
+select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%234e8a1c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 12px center!important;background-size:16px!important;padding-inline-end:38px!important;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+[dir=rtl] select{background-position:left 12px center!important}
+select:hover{border-color:#8bd13f!important}
+select:focus,select:focus-visible{outline:none;border-color:#4e8a1c!important;box-shadow:0 0 0 4px rgba(139,209,63,.25)!important}
+select option{background:#fff;color:#0a0d12}
+select option:checked{background:#8bd13f;color:#0a0d12}
+/* fully branded dropdown list where the browser supports it (Chrome / Edge) */
+@supports (appearance: base-select){
+  select,::picker(select){appearance:base-select}
+  select::picker-icon{display:none}
+  select{display:inline-flex;align-items:center}
+  .fld select,select.inp{display:flex}
+  ::picker(select){border:1px solid #e7e9ed;border-radius:14px;padding:6px;background:#fff;box-shadow:0 18px 40px rgba(10,13,18,.18),0 2px 6px rgba(10,13,18,.06);margin-top:6px;max-height:320px}
+  select option{padding:10px 12px;border-radius:9px;font-size:14px;font-weight:500;color:#2a323c;gap:8px}
+  select option:hover,select option:focus-visible{background:#f0f8e6;color:#0a0d12;outline:none}
+  select option:checked{background:#8bd13f;color:#0a0d12;font-weight:700}
+  select option::checkmark{display:none}
+}
 </style>
 </head>
 <body>
@@ -936,7 +1000,6 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
   <section class="hero zone" id="hero">
     <div class="aurora" id="aur"></div><div class="gridbg"></div>
     <div class="wrap hwrap"><div class="slider" id="slider"></div></div>
-    <div class="marquee" aria-hidden="true"><div><span>RTX 50 SERIES</span><b>✦</b><span>ROG STRIX</span><b>✦</b><span>TUF GAMING</span><b>✦</b><span>PROART</span><b>✦</b><span>ZENBOOK OLED</span><b>✦</b><span>DELIVERY TO 6 CITIES</span><b>✦</b><span>CASH ON DELIVERY</span><b>✦</b><span>12-MONTH WARRANTY</span><b>✦</b><span>PC BUILDER</span><b>✦</b><span>RTX 50 SERIES</span><b>✦</b><span>ROG STRIX</span><b>✦</b><span>TUF GAMING</span><b>✦</b><span>PROART</span><b>✦</b><span>ZENBOOK OLED</span><b>✦</b><span>DELIVERY TO 6 CITIES</span><b>✦</b><span>CASH ON DELIVERY</span><b>✦</b><span>12-MONTH WARRANTY</span><b>✦</b><span>PC BUILDER</span><b>✦</b></div></div>
   </section>
   <div class="wrap">
     <section class="duo">
@@ -1154,6 +1217,7 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
         <div class="perf" id="perf"></div>
         <div class="stot"><span data-t="tot">Total</span><b id="bTot">$0</b></div>
         <div class="two"><button class="btn lime" id="bAdd" data-t="b_add">Add to cart</button><button class="btn wa" id="bWa" data-t="b_wa">Send build</button></div>
+        <div class="two"><button class="btn ghost" id="bPdf" onclick="runDoc(this,'build','pdf')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span data-t="dl_pdf">PDF quote</span></button><button class="btn ghost" id="bXls" onclick="runDoc(this,'build','xls')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>Excel</span></button></div>
       </aside>
     </div>
   </div>
@@ -1190,6 +1254,7 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
     <small data-t="cod">Pay cash on delivery. We call to confirm within working hours.</small>
     <a class="btn ink" href="#checkout" onclick="closeCart()" data-t="checkout">Checkout</a>
     <button class="btn wa" id="cartWa"><svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span data-t="cartwa">Send whole cart on WhatsApp</span></button>
+    <div class="two"><button class="btn line sm" onclick="runDoc(this,'cart','pdf')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span data-t="dl_pdf">PDF quote</span></button><button class="btn line sm" onclick="runDoc(this,'cart','xls')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><span>Excel</span></button></div>
   </div>
 </aside>
 
@@ -1197,6 +1262,7 @@ textarea.inp{height:84px;padding:12px 15px;resize:vertical}
 <div class="modal" id="modal"><div class="mbox"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-family:var(--display);font-size:26px;font-weight:800" data-t="cmpt">Compare</h3><button class="x" id="mx" aria-label="Close">✕</button></div><div id="mbody" style="overflow-x:auto"></div></div></div>
 <div class="toast" id="toast"></div>
 
+<script src="../assets/docs.js"></script>
 <script>
 /* ───── data: real listings from dpsy.com homepage (23 Nov 2026) ───── */
 const IMG=(f,s='medium')=>s==='full'?`https://www.dpsy.com/files/${f}`:`https://www.dpsy.com/thumbs/${s}/files/${f}`;
@@ -1246,7 +1312,7 @@ const byId=id=>P.find(p=>p.id===id);
 const brand=n=>/ROG/.test(n)?'ROG':/TUF/.test(n)?'TUF Gaming':/ProArt/.test(n)?'ProArt':/Lexar/.test(n)?'Lexar':'ASUS';
 
 /* ───── i18n ───── */
-const AR={gz_eye:"منطقة الألعاب",gz_t:"مصمم<br><em>للفوز.</em>",gz_s:"لابتوبات ROG و TUF وكروت RTX 50. متوفرة، بكفالة محلية وتوصيل لباب بيتك.",u1:"توصيل إلى 6 مدن",u2:"الدفع عند الاستلام",u3:"كفالة 12 شهراً",u4:"معارض في دمشق وحلب",concept:"تصميم مقترح لـ <b>ديجيتال بلس</b> · منتجات وأسعار حقيقية",allcat:"كل الفئات",pcb:"مجمّع الأجهزة",
+const AR={dl_pdf:"عرض سعر PDF",gz_eye:"منطقة الألعاب",gz_t:"مصمم<br><em>للفوز.</em>",gz_s:"لابتوبات ROG و TUF وكروت RTX 50. متوفرة، بكفالة محلية وتوصيل لباب بيتك.",u1:"توصيل إلى 6 مدن",u2:"الدفع عند الاستلام",u3:"كفالة 12 شهراً",u4:"معارض في دمشق وحلب",concept:"تصميم مقترح لـ <b>ديجيتال بلس</b> · منتجات وأسعار حقيقية",allcat:"كل الفئات",pcb:"مجمّع الأجهزة",
  tb_eye:"جديد",tb1:"جمّع جهاز أحلامك",tb1s:"نتحقق من توافق كل قطعة والطاقة.",tb1g:"ابدأ التجميع ←",tb2:"ألوان تثق بها",tb2s:"شاشات معايَرة للمصممين، من 410$.",tb2g:"تسوّق الشاشات ←",
  s_cat:"تسوّق حسب الفئة",s_new:"وصل حديثاً <span>· هذا الأسبوع</span>",all:"عرض الكل",s_need:"تسوّق حسب احتياجك",bp_eye:"مجمّع الأجهزة الذكي",bp_t:"اختر القطع، ونحن نضمن توافقها.",bp1:"فحص مباشر لتوافق المعالج مع اللوحة الأم",bp2:"مطابقة ذاكرة DDR4 / DDR5 مع اللوحة",bp3:"حساب استهلاك الطاقة واقتراح مزوّد آمن",bp4:"توقّع أداء الألعاب قبل الشراء",bp_cta:"افتح المجمّع",bp_cta2:"شاهد تجميعة جاهزة",
  s_gpu:"كروت الشاشة",s_br:"العلامات التجارية",s_why:"لماذا ديجيتال بلس",w1:"كفالة حقيقية",w1s:"12 شهراً بصيانة فريقنا مباشرة.",w2:"أسعار محدّثة يومياً",w2s:"كل منتج يظهر تاريخ آخر تحديث لسعره.",w3:"توصيل ودفع عند الباب",w3s:"دمشق، حلب، حمص، حماة، اللاذقية، طرطوس.",w4:"تحدث مع إنسان",w4s:"نصيحة حقيقية على واتساب قبل الشراء.",j_t:"احصل على العروض قبل الجميع",j_s:"انضم لقناة ديجيتال بلس على واتساب — بضاعة جديدة وتخفيضات، بلا إزعاج.",j_b:"انضم على واتساب",
@@ -1300,7 +1366,7 @@ const MEGA=[
 ];
 function renderHeader(){
   const nv=lang==='ar'?NAV_AR:NAV_EN;
-  $('#navrow').innerHTML=nv.map((c,i)=>`<a href="#shop" class="${i?'':'hot'}">${i?'':'● '}${c}</a>`).join('')+`<a class="sp hide-t" href="#builder">⚙ ${t('pcb')}</a>`;
+  $('#navrow').innerHTML=nv.map((c,i)=>`<a href="#shop" class="${i?'':'hot'}">${c}</a>`).join('')+`<a class="sp hide-t" href="#builder">${t('pcb')}</a>`;
   $('#megaIn').innerHTML=MEGA.map(m=>`<div><h5><img src="${IMG(m[1],'tiny')}" alt="">${m[0]}</h5><ul>${m[2].map(s=>`<li><a href="#shop/${s}">${s}</a></li>`).join('')}</ul></div>`).join('')+
    `<a class="feat" href="#product"><span class="eyebrow">ROG Strix G16</span><b>Ryzen 9 + RTX 5060. Now −8%.</b><span>From $1,640</span><img src="${IMG('850828561.png')}" alt=""></a>`;
 }
@@ -1338,7 +1404,7 @@ function goSlide(i){si=i;$('#aur').style.setProperty('--glow',SLIDES[i].gl);
 /* ───── deal of the day ───── */
 function renderDeal(){
   const p=byId(1336);
-  $('#deal').innerHTML=`<div class="tx"><span class="eyebrow">⚡ ${t('dotd')}</span><h3>${p.n.replace('ASUS ','')}</h3>
+  $('#deal').innerHTML=`<div class="tx"><span class="eyebrow">${t('dotd')}</span><h3>${p.n.replace('ASUS ','')}</h3>
    <span style="color:#aeb8c2">${p.s} · ${lang==='ar'?'كفالة 12 شهراً':'12-month warranty'}</span>
    <div class="pr"><b>${money(p.p)}</b><s>${money(p.o)}</s><span class="off" style="font-size:14px;padding:5px 10px">−${pct(p)}%</span></div>
    <div><div style="font-size:12px;color:#7c8792;margin-bottom:8px;letter-spacing:.08em;text-transform:uppercase;font-weight:700">${t('ends')}</div>
@@ -1711,8 +1777,55 @@ function successView(){
     <div><i>3</i><span><b>${del?L('Out for delivery','في الطريق إليك'):L('Ready to collect','جاهز للاستلام')}</b><span>${del?`${cityN(ck.city)} · ${etaTxt(ck.city)}`:`${cityN(ck.branch)} ${L('store','المعرض')}`}</span></span></div>
     <div><i>4</i><span><b>${del?L('Delivered — pay cash','تم التوصيل — ادفع نقداً'):L('Collected — pay in store','تم الاستلام — ادفع في المعرض')}</b><span>${L('Your 12-month warranty starts','تبدأ كفالتك لمدة 12 شهراً')}</span></span></div>
    </div>
-   <div class="row" style="justify-content:center;margin-top:6px"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/963930334001?text=${encodeURIComponent(msg)}">${I.wa}${L('Also send it on WhatsApp','أرسله أيضاً على واتساب')}</a><a class="btn line" href="#home" onclick="ck.placed=null;ck.step=1">${L('Continue shopping','تابع التسوق')}</a></div>
+   <div class="row" style="justify-content:center;margin-top:6px"><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/963930334001?text=${encodeURIComponent(msg)}">${I.wa}${L('Also send it on WhatsApp','أرسله أيضاً على واتساب')}</a><button class="btn line" onclick="runDoc(this,'receipt','pdf')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>${L('Download receipt (PDF)','تحميل الإيصال (PDF)')}</button><a class="btn line" href="#home" onclick="ck.placed=null;ck.step=1">${L('Continue shopping','تابع التسوق')}</a></div>
    <div class="note">${L('Demo: no order was sent anywhere.','تجريبي: لم يُرسل أي طلب.')}</div></div>`;
+}
+
+
+/* ───── branded PDF / Excel documents ───── */
+async function runDoc(btn, kind, fmt){
+  const d=makeDoc(kind); if(!d){return}
+  const old=btn.innerHTML; btn.disabled=true; btn.innerHTML=lang==='ar'?'جارٍ التحضير…':'Preparing…';
+  try{ await (fmt==='pdf'?DPDocs.pdf(d):DPDocs.excel(d)); }
+  catch(e){ console.error(e); alert(lang==='ar'?'تعذّر إنشاء الملف. حاول مجدداً.':'Could not create the file. Please try again.'); }
+  btn.disabled=false; btn.innerHTML=old;
+}
+function docCols(){const ar=lang==='ar';return [
+  {key:'n',label:'#',align:'c',width:30,xw:5},
+  {key:'item',label:ar?'المنتج':'Item',sub:'spec'},
+  {key:'qty',label:ar?'الكمية':'Qty',align:'c',width:50,xw:8},
+  {key:'unit',label:ar?'سعر الوحدة':'Unit price',align:'r',fmt:'money',width:92},
+  {key:'total',label:ar?'الإجمالي':'Total',align:'r',fmt:'money',width:92}]}
+function makeDoc(kind){
+  const ar=lang==='ar', call=ar?'اتصل للسعر':'Call for price';
+  const common={lang, date:new Date(), columns:docCols()};
+  if(kind==='build'){
+    const ks=ORDER.filter(k=>bs[k]);
+    if(!ks.length){alert(ar?'اختر قطعة واحدة على الأقل.':'Pick at least one part first.');return null}
+    const rows=ks.map((k,i)=>({n:i+1,item:bs[k].n,spec:ar?bs[k].tags.join(' · '):BP[k].l+' · '+bs[k].tags.join(' · '),qty:1,unit:bs[k].p,total:bs[k].p}));
+    const tot=rows.reduce((a,r)=>a+r.total,0);
+    return {...common,title:ar?'عرض سعر تجميعة كمبيوتر':'PC Build Quote',number:DPDocs.docNo('PC'),rows,
+      totals:[{label:ar?'المجموع':'Subtotal',value:tot},{label:ar?'التوصيل':'Delivery',value:ar?'يُحدد بالهاتف':'Confirmed by phone'},{label:ar?'الإجمالي':'Total',value:tot,big:true}],
+      extras:[...$$('#chks .ck span').map(s=>({label:ar?'التوافق':'Check',value:s.textContent})),{label:ar?'الطاقة المتوقعة':'Estimated power',value:$('#pwT').textContent},{label:ar?'الأداء المتوقع':'Expected performance',value:($('#perf b')||{}).textContent||'—'}],
+      notes:[ar?'كفالة 12 شهراً من ديجيتال بلس على كل القطع.':'12-month Digital Plus warranty on every part.', ar?'الدفع نقداً عند الاستلام أو في المعرض.':'Pay cash on delivery or in store.']};
+  }
+  if(kind==='cart'){
+    if(!cart.length){alert(ar?'السلة فارغة.':'Your cart is empty.');return null}
+    const rows=cart.map((c,i)=>({n:i+1,item:c.n,spec:c.parts||c.s||'',qty:c.q,unit:c.p||call,total:c.p?c.p*c.q:call}));
+    const tot=cart.reduce((a,c)=>a+(c.p||0)*c.q,0);
+    return {...common,title:ar?'عرض سعر':'Quote',number:DPDocs.docNo('Q'),rows,
+      totals:[{label:ar?'المجموع':'Subtotal',value:tot},{label:ar?'التوصيل':'Delivery',value:ar?'يُحدد بالهاتف':'Confirmed by phone'},{label:ar?'الإجمالي':'Total',value:tot,big:true}],
+      notes:[ar?'كفالة 12 شهراً من ديجيتال بلس.':'12-month Digital Plus warranty.']};
+  }
+  if(kind==='receipt'&&ck.placed){
+    const o=ck.placed,del=ck.method==='delivery';
+    const rows=o.items.map((c,i)=>({n:i+1,item:c.n,spec:c.parts||c.s||'',qty:c.q,unit:c.p||call,total:c.p?c.p*c.q:call}));
+    return {...common,title:ar?'إيصال طلب':'Order Receipt',number:ck.orderNo,rows,
+      to:{name:ck.name,phone:'+963 '+String(ck.phone).replace(/^0/,''),address:del?[cityN(ck.city),ck.area,ck.street].filter(Boolean).join(' · '):(ar?'استلام من المعرض — ':'Store pickup — ')+cityN(ck.branch)},
+      totals:[{label:ar?'المجموع':'Subtotal',value:o.total},{label:del?(ar?'التوصيل':'Delivery'):(ar?'الاستلام':'Pickup'),value:del?(ar?'يُحدد بالهاتف':'Confirmed by phone'):(ar?'مجاني':'Free')},{label:ar?'الإجمالي — نقداً':'Total — cash',value:o.total,big:true}],
+      notes:[ar?'سنتصل بك لتأكيد التوفر والسعر والموعد قبل الشحن.':'We will call you to confirm stock, price and timing before shipping.', ar?'لم يُدفع أي مبلغ بعد.':'Nothing has been paid yet.']};
+  }
+  return null;
 }
 
 /* ───── router ───── */

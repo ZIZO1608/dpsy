@@ -155,7 +155,18 @@ ul.ck b{color:var(--ink)}
 .cap{font-size:11.5px;color:var(--muted);margin-top:8px}
 .dark .cap{color:#7c8792}
 .num{font-family:var(--d);font-weight:900;font-size:13px;color:var(--lime);background:var(--dark);border-radius:7px;padding:2px 7px;margin-right:8px}
-</style>
+@media screen{
+
+html{scrollbar-color:#8bd13f #0a0d12;scrollbar-width:thin}
+html::-webkit-scrollbar{width:10px;height:10px}
+html::-webkit-scrollbar-track{background:#0a0d12}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#a6e35f,#5fae22);border-radius:10px;border:2px solid #0a0d12}
+*{scrollbar-color:#8bd13f transparent}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:#8bd13f;border-radius:8px}
+::selection{background:#8bd13f;color:#0a0d12}
+}</style>
 </head>
 <body>
 

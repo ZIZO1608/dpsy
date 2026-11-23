@@ -143,7 +143,7 @@ td.num,th.num{text-align:end;font-variant-numeric:tabular-nums;white-space:nowra
 .pin.chg{border-color:var(--lime);background:rgba(139,209,63,.08)}
 .ssel{height:34px;border:1px solid var(--line-2);border-radius:9px;padding:0 8px;background:#fff;font-size:12.5px;font-weight:600}
 .ssel.out{color:var(--red)}.ssel.call{color:var(--amber)}
-input[type=checkbox]{width:17px;height:17px;accent-color:var(--ink)}
+input[type=checkbox]{width:17px;height:17px;accent-color:#4e8a1c}
 .chg-up{color:var(--red);font-weight:700}.chg-dn{color:var(--green);font-weight:700}
 .flag{font-size:11.5px;font-weight:700;color:var(--amber);background:rgba(183,121,31,.1);padding:2px 7px;border-radius:6px;white-space:nowrap}
 /* drawer */
@@ -235,6 +235,87 @@ textarea.inp{height:70px;padding:10px 12px;width:100%;resize:vertical}
 }
 @media (max-width:560px){.kpis{grid-template-columns:1fr 1fr;gap:10px}.kpi b{font-size:24px}.top h1{font-size:20px}.demo{display:none}.savebar{inset-inline:12px;left:12px;transform:translateY(150%)}.savebar.on{transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ═════ phone polish ═════ */
+td.mono{white-space:nowrap}
+@media (max-width:700px){
+  input[type=checkbox]{width:22px;height:22px}
+  /* products: rows become cards, price + stock stay visible */
+  table:has(#pbody),table:has(#pbody) tbody{display:block}
+  table:has(#pbody) thead{display:none}
+  #pbody tr{display:grid;grid-template-columns:30px 1fr 1fr 1.25fr;gap:10px 10px;padding:14px 14px;align-items:end;border-bottom:1px solid var(--line)}
+  #pbody tr:last-child{border-bottom:0}
+  #pbody td{padding:0;border:0}
+  #pbody td:nth-child(1){grid-column:1;grid-row:1;align-self:center}
+  #pbody td:nth-child(2){grid-column:2/5;grid-row:1}
+  #pbody td:nth-child(3),#pbody td:nth-child(7){display:none}
+  #pbody td:nth-child(4){grid-column:2;grid-row:2;text-align:start}
+  #pbody td:nth-child(5){grid-column:3;grid-row:2;text-align:start}
+  #pbody td:nth-child(6){grid-column:4;grid-row:2}
+  #pbody .pc{min-width:0}
+  #pbody .pin,#pbody .ssel{width:100%!important;height:40px}
+  #pbody td:nth-child(4)::before,#pbody td:nth-child(5)::before,#pbody td:nth-child(6)::before{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
+  #pbody td:nth-child(4)::before{content:"Price $"}
+  #pbody td:nth-child(5)::before{content:"Was $"}
+  #pbody td:nth-child(6)::before{content:"Stock"}
+  [dir=rtl] #pbody td:nth-child(4)::before{content:"السعر $"}
+  [dir=rtl] #pbody td:nth-child(5)::before{content:"كان $"}
+  [dir=rtl] #pbody td:nth-child(6)::before{content:"التوفر"}
+  #pbody tr.dirty td:first-child{box-shadow:none}
+  #pbody tr.dirty{box-shadow:inset 3px 0 0 var(--lime)}
+  /* orders: rows become cards */
+  table:has(#obody),table:has(#obody) tbody{display:block}
+  table:has(#obody) thead{display:none}
+  #obody tr{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:14px 16px;border-bottom:1px solid var(--line);align-items:center}
+  #obody td{padding:0;border:0}
+  #obody td:nth-child(1){grid-column:1;grid-row:1}
+  #obody td:nth-child(7){grid-column:2;grid-row:1;justify-self:end}
+  #obody td:nth-child(2){grid-column:1;grid-row:2}
+  #obody td:nth-child(5){grid-column:2;grid-row:2}
+  #obody td:nth-child(3){grid-column:1;grid-row:3;color:var(--ink-3);font-size:13px}
+  #obody td:nth-child(6){grid-column:2;grid-row:3;justify-self:end;font-size:12.5px}
+  #obody td:nth-child(4){display:none}
+  #obody td[colspan]{grid-column:1/-1}
+  /* overview: latest orders without the name column */
+  .two .tw td:nth-child(2){display:none}
+  .two .tw td{padding:12px 8px}
+  .page{padding-bottom:40px}
+}
+
+/* ═════ brand: scrollbars, selection ═════ */
+html{scrollbar-color:#8bd13f #0a0d12;scrollbar-width:thin}
+html::-webkit-scrollbar{width:10px;height:10px}
+html::-webkit-scrollbar-track{background:#0a0d12}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#a6e35f,#5fae22);border-radius:10px;border:2px solid #0a0d12}
+*{scrollbar-color:#8bd13f transparent}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:#8bd13f;border-radius:8px}
+::selection{background:#8bd13f;color:#0a0d12}
+
+/* ═════ brand: dropdowns, checkboxes, inputs ═════ */
+input,textarea{caret-color:#4e8a1c}
+input[type=checkbox],input[type=radio]{accent-color:#4e8a1c}
+select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%234e8a1c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 12px center!important;background-size:16px!important;padding-inline-end:38px!important;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+[dir=rtl] select{background-position:left 12px center!important}
+select:hover{border-color:#8bd13f!important}
+select:focus,select:focus-visible{outline:none;border-color:#4e8a1c!important;box-shadow:0 0 0 4px rgba(139,209,63,.25)!important}
+select option{background:#fff;color:#0a0d12}
+select option:checked{background:#8bd13f;color:#0a0d12}
+/* fully branded dropdown list where the browser supports it (Chrome / Edge) */
+@supports (appearance: base-select){
+  select,::picker(select){appearance:base-select}
+  select::picker-icon{display:none}
+  select{display:inline-flex;align-items:center}
+  .fld select,select.inp{display:flex}
+  ::picker(select){border:1px solid #e7e9ed;border-radius:14px;padding:6px;background:#fff;box-shadow:0 18px 40px rgba(10,13,18,.18),0 2px 6px rgba(10,13,18,.06);margin-top:6px;max-height:320px}
+  select option{padding:10px 12px;border-radius:9px;font-size:14px;font-weight:500;color:#2a323c;gap:8px}
+  select option:hover,select option:focus-visible{background:#f0f8e6;color:#0a0d12;outline:none}
+  select option:checked{background:#8bd13f;color:#0a0d12;font-weight:700}
+  select option::checkmark{display:none}
+}
+.dlb{display:flex;gap:6px;margin-inline-start:auto}
+@media (max-width:700px){.dlb{margin-inline-start:0;width:100%}.dlb .btn{flex:1}}
 </style>
 </head>
 <body>
@@ -261,6 +342,7 @@ textarea.inp{height:70px;padding:10px 12px;width:100%;resize:vertical}
 <div class="toast" id="toast"></div>
 <input type="file" id="file" accept=".csv,.xlsx,.xls" hidden>
 
+<script src="../assets/docs.js"></script>
 <script>
 /* ───────── data ───────── */
 const IMG=(f,s='small')=>`https://www.dpsy.com/thumbs/${s}/files/${f}`;
@@ -393,14 +475,14 @@ function pOverview(){
   drawChart(counts);
 }
 function drawChart(counts){
-  const W=640,H=300,pl=28,pb=26,pt=10,max=Math.ceil(Math.max(...counts)/5)*5,n=counts.length,bw=(W-pl)/n;
+  const W=Math.max(300,Math.min(640,Math.round($('#chart').clientWidth||640))),H=W<500?240:300,step=W<500?3:2,pl=28,pb=26,pt=10,max=Math.ceil(Math.max(...counts)/5)*5,n=counts.length,bw=(W-pl)/n;
   const y=v=>pt+(H-pt-pb)*(1-v/max);
   const days=counts.map((_,i)=>{const d=new Date(TODAY);d.setDate(d.getDate()-(n-1-i));return d});
   const lbl=d=>d.toLocaleDateString(lang==='ar'?'ar-SY':'en-GB',{day:'numeric',month:'short'});
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${L('Orders per day, last 14 days','الطلبات يومياً')}">`;
   for(let g=0;g<=max;g+=5)s+=`<line class="gl" x1="${pl}" x2="${W}" y1="${y(g)}" y2="${y(g)}"/><text class="ax" x="${pl-8}" y="${y(g)+3.5}" text-anchor="end">${g}</text>`;
   counts.forEach((c,i)=>{const x=pl+i*bw+bw*.2,w=bw*.6,yt=y(c),hgt=H-pb-yt,r=Math.min(4,hgt);
-    s+=`<g class="col ${i===n-1?'today':''}" data-i="${i}"><path class="bar" d="M${x} ${H-pb}V${yt+r}q0 -${r} ${r} -${r}h${w-2*r}q${r} 0 ${r} ${r}V${H-pb}z"/><rect class="hit" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>${i%2===n%2?'':`<text class="ax" x="${x+w/2}" y="${H-8}" text-anchor="middle">${lbl(days[i])}</text>`}</g>`});
+    s+=`<g class="col ${i===n-1?'today':''}" data-i="${i}"><path class="bar" d="M${x} ${H-pb}V${yt+r}q0 -${r} ${r} -${r}h${w-2*r}q${r} 0 ${r} ${r}V${H-pb}z"/><rect class="hit" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>${(n-1-i)%step?'':`<text class="ax" x="${x+w/2}" y="${H-8}" text-anchor="middle">${lbl(days[i])}</text>`}</g>`});
   s+='</svg><div class="tip" id="tip"></div>';
   const el=$('#chart');el.innerHTML=s;
   el.querySelectorAll('.col').forEach(g=>{g.onmouseenter=()=>{const i=+g.dataset.i,tip=$('#tip'),r=el.getBoundingClientRect(),br=g.querySelector('.bar').getBoundingClientRect();
@@ -415,7 +497,7 @@ function pOrders(){
   const cnt=s=>s==='all'?orders.length:orders.filter(o=>o.status===s).length;
   $('#page').innerHTML=`<div class="tools"><div class="tabs">${tabs.map(s=>`<button class="${s===ordTab?'on':''}" onclick="ordTab='${s}';pOrders()">${s==='all'?L('All','الكل'):L(...STL[s]).split(' — ')[0]}<em>${cnt(s)}</em></button>`).join('')}</div>
     <select class="inp" onchange="ordCity=this.value;pOrders()"><option value="all">${L('All cities','كل المدن')}</option>${Object.keys(CITY_AR).map(c=>`<option value="${c}" ${c===ordCity?'selected':''}>${cityN(c)}</option>`).join('')}</select>
-    <div class="srch">${IC.search}<input class="inp" id="oq" placeholder="${L('Name, phone or order #','الاسم أو الهاتف أو رقم الطلب')}" value="${esc(ordQ)}"></div></div>
+    <div class="srch">${IC.search}<input class="inp" id="oq" placeholder="${L('Name, phone or order #','الاسم أو الهاتف أو رقم الطلب')}" value="${esc(ordQ)}"></div><div class="dlb"><button class="btn line sm" onclick="runDoc(this,ordersDoc,'xls')"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>Excel</button><button class="btn line sm" onclick="runDoc(this,ordersDoc,'pdf')"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>PDF</button></div></div>
     <div class="tw"><table><thead><tr><th>${L('Order','الطلب')}</th><th>${L('Customer','الزبون')}</th><th>${L('Deliver to','التوصيل')}</th><th>${L('Items','القطع')}</th><th class="num">${L('Total','الإجمالي')}</th><th>${L('Placed','الوقت')}</th><th>${L('Status','الحالة')}</th></tr></thead><tbody id="obody"></tbody></table></div>`;
   $('#oq').oninput=e=>{ordQ=e.target.value;fillOrders()};fillOrders();
 }
@@ -440,7 +522,7 @@ function drawOrder(){
     <div class="blk"><small>${L('Internal note','ملاحظة داخلية')}</small><textarea class="inp" id="onote" placeholder="${L('Only staff see this','يراها الموظفون فقط')}">${esc(o.note)}</textarea></div>
     <div class="blk"><small>${L('Activity','السجل')}</small><div class="log">${[...o.log].reverse().map(l=>`<div><i></i><span style="color:var(--ink-2)">${L(l.en,l.ar)}</span><span>${ago(l.t)}</span></div>`).join('')}</div></div>
   </div>
-  <div class="df">${nxP?`<button class="btn lime" onclick="advance('${nxP[0]}','${nxP[1]}','${nxP[2]}')">${L(nxP[1],nxP[2])}</button>`:''}${['new','confirmed'].includes(o.status)?`<button class="btn danger" onclick="advance('cancelled','Cancelled','أُلغي الطلب')">${L('Cancel order','إلغاء الطلب')}</button>`:''}${!nxP&&o.status!=='new'?`<span style="color:var(--muted);font-size:13px;align-self:center">${L('Nothing left to do on this order','لا إجراء متبقٍ على هذا الطلب')}</span>`:''}</div>`;
+  <div class="df"><button class="btn line" onclick="runDoc(this,invoiceDoc,'pdf')" title="${L('Invoice PDF','فاتورة PDF')}"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>${L('Invoice','فاتورة')}</button>${nxP?`<button class="btn lime" onclick="advance('${nxP[0]}','${nxP[1]}','${nxP[2]}')">${L(nxP[1],nxP[2])}</button>`:''}${['new','confirmed'].includes(o.status)?`<button class="btn danger" onclick="advance('cancelled','Cancelled','أُلغي الطلب')">${L('Cancel order','إلغاء الطلب')}</button>`:''}${!nxP&&o.status!=='new'?`<span style="color:var(--muted);font-size:13px;align-self:center">${L('Nothing left to do on this order','لا إجراء متبقٍ على هذا الطلب')}</span>`:''}</div>`;
   $('#onote').onchange=e=>{o.note=e.target.value;if(o.note)o.log.push({t:new Date(),en:'Note added',ar:'أُضيفت ملاحظة'});drawOrder()};
 }
 function advance(s,en,ar){curOrder.status=s;curOrder.log.push({t:new Date(),en:en.replace(' (after call)',''),ar});drawOrder();renderNav();if(view==='orders')fillOrders();if(view==='overview')pOverview();toast(L(`${curOrder.no} · ${en.replace(' (after call)','')}`,`${curOrder.no} · ${ar}`))}
@@ -450,7 +532,7 @@ let prodCat='All',prodQ='';const edits={};const selP=new Set();
 function pProducts(){
   const cats=['All',...new Set(P.map(p=>p.c))];
   $('#page').innerHTML=`<div class="tools"><div class="tabs">${cats.map(c=>`<button class="${c===prodCat?'on':''}" onclick="prodCat='${c}';pProducts()">${c==='All'?L('All','الكل'):c}<em>${c==='All'?P.length:P.filter(p=>p.c===c).length}</em></button>`).join('')}</div>
-    <div class="srch">${IC.search}<input class="inp" id="pq" placeholder="${L('Search products','ابحث في المنتجات')}" value="${esc(prodQ)}"></div><span id="bulk"></span></div>
+    <div class="srch">${IC.search}<input class="inp" id="pq" placeholder="${L('Search products','ابحث في المنتجات')}" value="${esc(prodQ)}"></div><div class="dlb"><button class="btn line sm" onclick="runDoc(this,priceDoc,'xls')"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>${L('Price list','قائمة الأسعار')}</button><button class="btn line sm" onclick="runDoc(this,priceDoc,'pdf')"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>PDF</button></div><span id="bulk"></span></div>
     <div class="tw"><table><thead><tr><th><input type="checkbox" id="pall" aria-label="Select all"></th><th>${L('Product','المنتج')}</th><th>${L('Category','الفئة')}</th><th class="num">${L('Price $','السعر $')}</th><th class="num">${L('Was $','كان $')}</th><th>${L('Stock','التوفر')}</th><th>${L('Updated','آخر تحديث')}</th></tr></thead><tbody id="pbody"></tbody></table></div>`;
   $('#pq').oninput=e=>{prodQ=e.target.value;fillProducts()};
   $('#pall').onchange=e=>{rowsP().forEach(p=>e.target.checked?selP.add(p.id):selP.delete(p.id));fillProducts()};
@@ -552,9 +634,46 @@ function pBanners(){
   $('#dpr').oninput=e=>{deal.price=+e.target.value||0;dPrev()};dPrev();
 }
 function dPrev(){const p=byId(deal.id),was=p.o||p.p,pc=Math.round((1-deal.price/was)*100);
-  $('#dprev').innerHTML=`<div class="dprev"><div><span class="ey">⚡ ${L('Deal of the day','عرض اليوم')}</span><b>${esc(p.n.replace('ASUS ',''))}</b><span class="pr">${money(deal.price)}</span><s>${money(was)}</s> ${pc>0?`<span class="st" style="background:#d9363e;color:#fff;height:22px">−${pc}%</span>`:''}</div><div class="im"><img src="${IMG(p.f)}" alt=""></div></div>`;
+  $('#dprev').innerHTML=`<div class="dprev"><div><span class="ey">${L('Deal of the day','عرض اليوم')}</span><b>${esc(p.n.replace('ASUS ',''))}</b><span class="pr">${money(deal.price)}</span><s>${money(was)}</s> ${pc>0?`<span class="st" style="background:#d9363e;color:#fff;height:22px">−${pc}%</span>`:''}</div><div class="im"><img src="${IMG(p.f)}" alt=""></div></div>`;
   $('#dwarn').innerHTML=pc>=40?`<span class="flag">${L(`${pc}% off — double-check before publishing`,`خصم ${pc}% — تحقق قبل النشر`)}</span>`:pc<=0?`<span class="flag">${L('Deal price is not lower than the current price','سعر العرض ليس أقل من السعر الحالي')}</span>`:''}
 function mv(i,d){const t=BN[i];BN[i]=BN[i+d];BN[i+d]=t;pBanners()}
+
+
+/* ───── branded PDF / Excel documents ───── */
+async function runDoc(btn, make, fmt){
+  const d=make(); if(!d)return;
+  const old=btn.innerHTML; btn.disabled=true; btn.innerHTML=L('Preparing…','جارٍ التحضير…');
+  try{ await (fmt==='pdf'?DPDocs.pdf(d):DPDocs.excel(d)); toast(L('File downloaded','تم تحميل الملف')); }
+  catch(e){ console.error(e); alert(L('Could not create the file. Please try again.','تعذّر إنشاء الملف. حاول مجدداً.')); }
+  btn.disabled=false; btn.innerHTML=old;
+}
+const stName=s=>L(...STL[s]).split(' — ')[0];
+function invoiceDoc(){
+  const o=curOrder; if(!o)return null; const ar=lang==='ar';
+  return {lang,date:new Date(),title:ar?'فاتورة':'Invoice',number:o.no,
+    to:{name:o.name,phone:'+963 '+o.phone.replace(/^0/,''),address:o.pickup?L('Store pickup — ','استلام من المعرض — ')+cityN(o.city):cityN(o.city)+' · '+o.area},
+    columns:[{key:'n',label:'#',align:'c',width:30,xw:5},{key:'item',label:L('Item','المنتج'),sub:'spec'},{key:'qty',label:L('Qty','الكمية'),align:'c',width:50,xw:8},{key:'unit',label:L('Unit price','سعر الوحدة'),align:'r',fmt:'money',width:92},{key:'total',label:L('Total','الإجمالي'),align:'r',fmt:'money',width:92}],
+    rows:o.items.map((it,i)=>{const p=byId(it.id);return {n:i+1,item:p.n,spec:L('12-month warranty','كفالة 12 شهراً'),qty:it.q,unit:p.p,total:p.p*it.q}}),
+    totals:[{label:L('Subtotal','المجموع'),value:total(o)},{label:L('Payment','الدفع'),value:L('Cash','نقداً')},{label:L('Total','الإجمالي'),value:total(o),big:true}],
+    extras:[{label:L('Status','الحالة'),value:stName(o.status)},{label:L('Placed','تاريخ الطلب'),value:o.placed.toLocaleString(ar?'ar-SY-u-nu-latn':'en-GB')}],
+    notes:o.note?[o.note]:[]};
+}
+function ordersDoc(){
+  const q=ordQ.trim().toLowerCase();
+  const r=orders.filter(o=>(ordTab==='all'||o.status===ordTab)&&(ordCity==='all'||o.city===ordCity)&&(!q||(o.name+o.phone+o.no).toLowerCase().includes(q))).sort((a,b)=>b.placed-a.placed);
+  return {lang,date:new Date(),title:L('Orders report','تقرير الطلبات'),number:DPDocs.docNo('R'),autoFilter:true,
+    columns:[{key:'no',label:L('Order','الطلب'),width:110,xw:16},{key:'name',label:L('Customer','الزبون'),sub:'phone',xw:20},{key:'to',label:L('Deliver to','التوصيل'),xw:24},{key:'items',label:L('Items','القطع'),align:'c',width:44,xw:8},{key:'total',label:L('Total','الإجمالي'),align:'r',fmt:'money',width:80},{key:'st',label:L('Status','الحالة'),width:110,xw:18}],
+    rows:r.map(o=>({no:o.no,name:o.name,phone:o.phone,to:o.pickup?L('Pickup · ','استلام · ')+cityN(o.city):cityN(o.city)+' · '+o.area,items:o.items.reduce((a,i)=>a+i.q,0),total:total(o),st:stName(o.status)})),
+    totals:[{label:L('Orders','عدد الطلبات'),value:String(r.length)},{label:L('Total value','القيمة الإجمالية'),value:r.filter(o=>o.status!=='cancelled').reduce((a,o)=>a+total(o),0),big:true}]};
+}
+function priceDoc(){
+  const sl={in:L('In stock','متوفر'),out:L('Out of stock','نفد'),call:L('Call for price','اتصل للسعر')};
+  const r=rowsP();
+  return {lang,date:new Date(),title:L('Price list','قائمة الأسعار'),number:DPDocs.docNo('PL'),autoFilter:true,
+    columns:[{key:'item',label:L('Product','المنتج'),sub:'id',xw:42},{key:'c',label:L('Category','الفئة'),width:110,xw:16},{key:'p',label:L('Price','السعر'),align:'r',fmt:'money',width:76},{key:'o',label:L('Was','كان'),align:'r',fmt:'money',width:70},{key:'s',label:L('Stock','التوفر'),width:96,xw:14}],
+    rows:r.map(p=>({item:p.n,id:'#'+p.id,c:p.c,p:p.p||L('Call','اتصل'),o:p.o||'',s:sl[p.stock]})),
+    notes:[L('Prices include the 12-month Digital Plus warranty.','الأسعار تشمل كفالة ديجيتال بلس لمدة 12 شهراً.')]};
+}
 
 /* ───────── boot ───────── */
 $('#lang').onclick=()=>{lang=lang==='en'?'ar':'en';document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';$('#lang').textContent=lang==='ar'?'English':'عربي';

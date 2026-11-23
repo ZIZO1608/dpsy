@@ -179,7 +179,18 @@ h2{font-size:38px}
 .qs div{grid-template-columns:22px 1fr}
 .foot{direction:rtl}
 .f3 i{margin-right:0;margin-left:6px}
-</style>
+@media screen{
+
+html{scrollbar-color:#8bd13f #0a0d12;scrollbar-width:thin}
+html::-webkit-scrollbar{width:10px;height:10px}
+html::-webkit-scrollbar-track{background:#0a0d12}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#a6e35f,#5fae22);border-radius:10px;border:2px solid #0a0d12}
+*{scrollbar-color:#8bd13f transparent}
+*::-webkit-scrollbar{width:8px;height:8px}
+*::-webkit-scrollbar-track{background:transparent}
+*::-webkit-scrollbar-thumb{background:#8bd13f;border-radius:8px}
+::selection{background:#8bd13f;color:#0a0d12}
+}</style>
 </head>
 <body>
 
