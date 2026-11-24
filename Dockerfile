@@ -14,9 +14,8 @@ RUN npm ci --omit=dev --no-audit --no-fund && npm cache clean --force
 COPY server/ ./
 COPY site/ /app/site/
 
-# orders, accounts, settings and the image cache live here: mount a persistent volume on /data
+# orders, accounts, settings and the image cache live here: add Persistent Storage on /data in Coolify
 RUN mkdir -p /data
-VOLUME ["/data"]
 
 EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=4s --start-period=20s --retries=3 \
