@@ -1,0 +1,16 @@
+{
+  "id": "/store/admin",
+  "name": "Digital Plus Staff",
+  "short_name": "DP Staff",
+  "description": "Orders, products and prices for Digital Plus staff.",
+  "start_url": "/store/admin.html",
+  "scope": "/store/admin",
+  "display": "standalone",
+  "background_color": "#0a0d12",
+  "theme_color": "#0a0d12",
+  "icons": [
+    { "src": "/assets/icons/staff-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/staff-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/icons/staff-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

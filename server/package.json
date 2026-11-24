@@ -1,0 +1,20 @@
+{
+  "name": "dpsy-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Digital Plus store: static site + API + push notifications (SQLite)",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "DATA_DIR=./data PORT=5181 node index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "compression": "1.7.5",
+    "express": "4.21.2",
+    "sharp": "0.33.5",
+    "web-push": "3.6.7"
+  }
+}

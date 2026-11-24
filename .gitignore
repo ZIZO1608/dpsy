@@ -3,3 +3,5 @@ Thumbs.db
 *.bak
 .env
 hosting/
+node_modules/
+server/data/
