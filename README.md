@@ -45,6 +45,8 @@ Build pack **Dockerfile**, port `80`, health check `/healthz`, domain `https://d
 | `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` | optional | Push keys. If unset they are generated once and kept in the database. |
 | `ALLOW_PUBLIC`, `ALLOW_INDEX` | at launch | `1` to drop the preview password / allow search engines when the store goes public. |
 
+**Rate service in use:** Syrian Currency API, which replies `{"success":true,"currency":"USD","buy":14850,"sell":14800}`. Set `EXCHANGE_API_URL=https://aumzkcizwfnvnncggfpq.supabase.co/functions/v1/exchange-rates`, `EXCHANGE_JSON_PATH=buy`, `EXCHANGE_API_KEY_HEADER=x-api-key`, and the key (starts `sk_`, from the API site's dashboard) in `EXCHANGE_API_KEY` as a secret.
+
 ## Run locally
 
 ```
